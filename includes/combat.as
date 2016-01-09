@@ -2408,7 +2408,8 @@ public function tease(justText:Boolean = false):void {
 	if (player.level < 30) damage += player.level;
 	else if (player.level < 60) damage += 30 + ((player.level - 30) / 2);
 	else damage += 45 + ((player.level - 60) / 5);
-	damage += player.teaseLevel*2;
+	if (player.findPerk(PerkLib.JobSeducer) >= 0) damage += player.teaseLevel*3;
+	else damage += player.teaseLevel*2;
 	//==============================
 	//TEASE SELECT CHOICES
 	//==BASICS========
