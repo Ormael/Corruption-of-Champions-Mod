@@ -189,6 +189,24 @@ package classes
 		public static const IronMan:PerkType = mk("Iron Man", "Iron Man",
 				"Reduces the fatigue cost of physical specials by 50%.",
 				"You choose the 'Iron Man' perk, reducing the fatigue cost of physical special attacks by 50%");
+		public static const Job:PerkType = mk("Job: Archer", "Job: Archer",
+				"You're trained in ranged combat.",
+				"You choose 'Job: Archer' perk, training yourself to became Archer.");
+		public static const Job:PerkType = mk("Job: Guardian", "Job: Guardian",
+				"You're trained in defensive combat.",
+				"You choose 'Job: Guardian' perk, training yourself to became Guardian.");
+		public static const Job:PerkType = mk("Job: Munchkin", "Job: Munchkin",
+				"You're Munchkin, an ultimate being that possess a god-like body and powers.",
+				"You choose 'Job: Munchkin' perk, becoming an ultimate being with a god-like body and powers.");
+		public static const Job:PerkType = mk("Job: Seducer", "Job: Seducer",
+				"You've trained the art of seduction.",
+				"You choose 'Job: Seducer' perk, training yourself to became Seducer.");
+		public static const Job:PerkType = mk("Job: Sorcerer", "Job: Sorcerer",
+				"You're trained in magic combat.",
+				"You choose 'Job: Sorcerer' perk, training yourself to became Sorcerer.");
+		public static const Job:PerkType = mk("Job: Warrior", "Job: Warrior",
+				"You're trained in melee combat.",
+				"You choose 'Job: Warrior' perk, training yourself to became Warrior.");
 		public static const Juggernaut:PerkType = mk("Juggernaut", "Juggernaut",
 				"When wearing heavy armor, you have extra 10% damage resistance and are immune to damage from being constricted/squeezed.",
 				"You choose the 'Juggernaut' perk, granting extra 10% damage resistance when wearing heavy armor and immunity to damage from been constricted/squeezed.");
