@@ -689,6 +689,7 @@ private function fireBow():void {
 		outputText(monster.capitalA + monster.short + " look down at the arrow that now protrudes from one of " + monster.pronoun3 + " bodies");
 	else outputText(monster.capitalA + monster.short + " looks down at the arrow that now protrudes from " + monster.pronoun3 + " body");
 	if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+	if (player.findPerk(PerkLib.JobArcher) >= 0) damage *= 1.2;
 	if (player.hasKeyItem("Kelt's Bow") >= 0) damage *= 1.3;
 	damage = doDamage(damage);
 	monster.lust -= 20;
@@ -814,6 +815,7 @@ public function bite():void {
 	//Deal damage and update based on perks
 	if(damage > 0) {
 		if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+		if (player.findPerk(PerkLib.JobWarrior) >= 0) damage *= 1.05;
 		if (player.jewelryEffectId == JewelryLib.MODIFIER_ATTACK_POWER) damage *= 1 + (player.jewelryEffectMagnitude / 100);
 		if (player.countCockSocks("red") > 0) damage *= (1 + player.countCockSocks("red") * 0.02);
 		damage = doDamage(damage);
@@ -1106,6 +1108,7 @@ public function attack():void {
 	}
 	if(damage > 0) {
 		if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+		if (player.findPerk(PerkLib.JobWarrior) >= 0) damage *= 1.05;
 		damage = doDamage(damage);
 	}
 	if(damage <= 0) {
@@ -1306,6 +1309,7 @@ public function goreAttack():void {
 		if(damage > player.level * 10 + 100) damage = player.level * 10 + 100;
 		if(damage > 0) {
 			if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+			if (player.findPerk(PerkLib.JobWarrior) >= 0) damage *= 1.05;
 			if (player.jewelryEffectId == JewelryLib.MODIFIER_ATTACK_POWER) damage *= 1 + (player.jewelryEffectMagnitude / 100);
 			if (player.countCockSocks("red") > 0) damage *= (1 + player.countCockSocks("red") * 0.02);
 			damage = doDamage(damage);
@@ -1394,6 +1398,7 @@ public function upheavalAttack():void {
 		if(damage > player.level * 10 + 100) damage = player.level * 10 + 100;
 		if(damage > 0) {
 			if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+			if (player.findPerk(PerkLib.JobWarrior) >= 0) damage *= 1.05;
 			if (player.jewelryEffectId == JewelryLib.MODIFIER_ATTACK_POWER) damage *= 1 + (player.jewelryEffectMagnitude / 100);
 			if (player.countCockSocks("red") > 0) damage *= (1 + player.countCockSocks("red") * 0.02);
 			//Round it off
@@ -3834,6 +3839,7 @@ public function magicMenu():void {
 
 public function spellMod():Number {
 	var mod:Number = 1;
+	if(player.findPerk(PerkLib.JobSorcerer) >= 0 && player.inte >= 25) mod += .1;
 	if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 75) mod += .5;
 	if(player.findPerk(PerkLib.Channeling) >= 0 && player.inte >= 60) mod += .5;
 	if(player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 50) mod += .5;
@@ -4505,6 +4511,7 @@ public function kick():void {
 	if(player.isTaur()) damage += 10;
 	//Damage post processing!
 	if (player.findPerk(PerkLib.HistoryFighter) >= 0) damage *= 1.1;
+	if (player.findPerk(PerkLib.JobWarrior) >= 0) damage *= 1.05;
 	if (player.jewelryEffectId == JewelryLib.MODIFIER_ATTACK_POWER) damage *= 1 + (player.jewelryEffectMagnitude / 100);
 	if (player.countCockSocks("red") > 0) damage *= (1 + player.countCockSocks("red") * 0.02);
 	//Reduce damage
