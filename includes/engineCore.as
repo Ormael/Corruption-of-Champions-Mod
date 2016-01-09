@@ -540,6 +540,9 @@ public function buildPerkList():Array {
 	if(player.findPerk(PerkLib.StrongBack) >= 0 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.StrongBack2));
 	}
+	if(player.str >= 20) {
+		_add(new PerkClass(PerkLib.JobWarrior));
+	}
 	//Tier 1 Strength Perks
 	if(player.level >= 6) {
 		//Thunderous Strikes - +20% basic attack damage while str > 80.
@@ -589,6 +592,9 @@ public function buildPerkList():Array {
 	if(player.tou >= 50 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedEndurance));
 	}
+	if(player.tou >= 20) {
+		_add(new PerkClass(PerkLib.JobGuardian));
+	}
 	//Tier 1 Toughness Perks
 	if(player.level >= 6) {
 		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 60) {
@@ -631,7 +637,9 @@ public function buildPerkList():Array {
 	if(player.findPerk(PerkLib.Evade) >= 0 && player.findPerk(PerkLib.Runner) >= 0 && player.spe >= 50) {
 			_add(new PerkClass(PerkLib.DoubleAttack));
 	}
-
+	if(player.spe >= 20) {
+		_add(new PerkClass(PerkLib.JobArcher));
+	}
 	//Tier 1 Speed Perks
 	if(player.level >= 6) {
 		//Speedy Recovery - Regain Fatigue 50% faster speed.
@@ -674,6 +682,9 @@ public function buildPerkList():Array {
 	}
 	if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Mage));
+	}
+	if(player.inte >= 20) {
+		_add(new PerkClass(PerkLib.JobSorcerer));
 	}
 	//Tier 1 Intelligence Perks
 	if(player.level >= 6) {
@@ -736,6 +747,9 @@ public function buildPerkList():Array {
 	if(player.lib >= 50) {
 			_add(new PerkClass(PerkLib.HotBlooded,20,0,0,0));
 	}
+	if(player.lib >= 20) {
+		_add(new PerkClass(PerkLib.JobSeducer));
+	}
 	//Tier 1 Libido Perks
 	if(player.level >= 6) {
 		//Slot 5 - minimum libido
@@ -792,6 +806,10 @@ public function buildPerkList():Array {
 	//Tier 2 Misc Perks
 	if(player.level >= 12 && player.findPerk(PerkLib.Survivalist) > 0) {
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist2));
+	}
+	//Tier 5 Misc Perks
+	if(player.level >= 24 && player.findPerk(PerkLib.JobArcher) > 0 && player.findPerk(PerkLib.JobGuardian) > 0 && player.findPerk(PerkLib.JobSeducer) > 0 && player.findPerk(PerkLib.JobSorcerer) > 0 && player.findPerk(PerkLib.JobWarrior) > 0) {
+		_add(new PerkClass(PerkLib.JobMunchkin));
 	}
 	// FILTER PERKS
 	perkList = perkList.filter(
