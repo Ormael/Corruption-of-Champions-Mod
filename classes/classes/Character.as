@@ -853,11 +853,11 @@ import classes.Items.JewelryLib;
 		public function maxFatigue():Number
 		{
 			var max:Number = 100;
-			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedEndurance2) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedEndurance3) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedEndurance4) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedEndurance5) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 35;
+			if (findPerk(PerkLib.ImprovedEndurance2) >= 0) max += 35;
+			if (findPerk(PerkLib.ImprovedEndurance3) >= 0) max += 35;
+			if (findPerk(PerkLib.ImprovedEndurance4) >= 0) max += 35;
+			if (findPerk(PerkLib.ImprovedEndurance5) >= 0) max += 35;
 			if (findPerk(PerkLib.JobArcher) >= 0) max += 5;
 			if (findPerk(PerkLib.JobSorcerer) >= 0) max += 15;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 100;
