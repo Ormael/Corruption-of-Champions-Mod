@@ -837,6 +837,10 @@ import classes.Items.JewelryLib;
 			var max:Number = 100;
 			if (demonScore() >= 4) max += 20;
 			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl2) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl3) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl4) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl5) >= 0) max += 20;
 			if (findPerk(PerkLib.BroBody) >= 0 || findPerk(PerkLib.BimboBody) >= 0 || findPerk(PerkLib.FutaForm) >= 0) max += 20;
 			if (findPerk(PerkLib.OmnibusGift) >= 0) max += 15;
 			if (findPerk(PerkLib.JobSeducer) >= 0) max += 10;
@@ -850,11 +854,16 @@ import classes.Items.JewelryLib;
 		{
 			var max:Number = 100;
 			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedEndurance2) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedEndurance3) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedEndurance4) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedEndurance5) >= 0) max += 20;
 			if (findPerk(PerkLib.JobArcher) >= 0) max += 5;
 			if (findPerk(PerkLib.JobSorcerer) >= 0) max += 15;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 100;
 			if (findPerk(PerkLib.AscensionEndurance) >= 0) max += perkv1(PerkLib.AscensionEndurance) * 5;
-			if (max > 999) max = 999;
+			max += level * 5;
+			if (max > 1999) max = 1999;
 			return max;
 		}
 		
