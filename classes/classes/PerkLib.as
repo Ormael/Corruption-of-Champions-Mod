@@ -249,6 +249,9 @@ package classes
 		public static const RagingInferno:PerkType = mk("Raging Inferno", "Raging Inferno",
 				"Cumulative 20% damage increase for every subsequent fire spell without interruption.",
 				"You choose the 'Raging Inferno' perk. Cumulative 20% damage increase for every subsequent fire spell without interruption.");
+		public static const RefinedBody:PerkType = mk("Refined Body", "Refined Body",
+				"Raises max HP by 50.",
+				"You choose the 'RefinedBody' perk, giving you an additional 50 HP!");
 		public static const Regeneration:RegenerationPerk = new RegenerationPerk();
 		public static const Regeneration2:Regeneration2Perk = new Regeneration2Perk();
 		public static const Resistance:PerkType = mk("Resistance", "Resistance",
@@ -312,11 +315,8 @@ package classes
 						"]",
 				"You choose the 'Tactician' perk, increasing critical hit chance by up to 10% (Intelligence-based).");
 		public static const Tank:PerkType = mk("Tank", "Tank",
-				"Raises max HP by 50.",
-				"You choose the 'Tank' perk, giving you an additional 50 HP!");
-		public static const Tank2:PerkType = mk("Tank 2", "Tank 2",
 				"+1 extra HP per point of toughness.",
-				"You choose the 'Tank 2' perk, granting an extra maximum HP for each point of toughness.");
+				"You choose the 'Tank' perk, granting an extra maximum HP for each point of toughness.");
 		public static const ThunderousStrikes:PerkType = mk("Thunderous Strikes", "Thunderous Strikes",
 				"+20% 'Attack' damage while strength is at or above 80.",
 				"You choose the 'Thunderous Strikes' perk, increasing normal damage by 20% while your strength is over 80.");
@@ -487,6 +487,8 @@ package classes
 				"Causes you to always cum as hard as if you had max lust.");
 		public static const PureAndLoving:PerkType = mk("Pure and Loving", "Pure and Loving",
 				"Your caring attitude towards love and romance makes you slightly more resistant to lust and corruption.");
+		public static const RapierTraining:PerkType = mk("Rapier Training", "Rapier Training",
+				"After finishing your rapier training their attack power increased.");
 		public static const SensualLover:PerkType = mk("Sensual Lover", "Sensual Lover",
 				"Your sensual attitude towards love and romance makes your tease ability slightly more effective.");
 		public static const Whispered:PerkType = mk("Whispered", "Whispered",
