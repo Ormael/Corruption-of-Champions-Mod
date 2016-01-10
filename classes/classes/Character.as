@@ -819,8 +819,8 @@ import classes.Items.JewelryLib;
 		{
 			var max:Number = 0;
 			max += int(tou * 2 + 50);
-			if (findPerk(PerkLib.Tank) >= 0) max += 50;
-			if (findPerk(PerkLib.Tank2) >= 0) max += Math.round(tou);
+			if (findPerk(PerkLib.RefinedBody) >= 0) max += 50;
+			if (findPerk(PerkLib.Tank) >= 0) max += Math.round(tou);
 			if (findPerk(PerkLib.JobGuardian) >= 0) max += 30;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 150;
 			if (findPerk(PerkLib.ChiReflowDefense) >= 0) max += UmasShop.NEEDLEWORK_DEFENSE_EXTRA_HP;
