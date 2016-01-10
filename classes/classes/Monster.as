@@ -147,8 +147,8 @@
 			var temp:Number = 50 + this.bonusHP;
 			temp += (this.tou * 2);
 			//Apply perks
-			if (findPerk(PerkLib.Tank) >= 0) temp += 50;
-			if (findPerk(PerkLib.Tank2) >= 0) temp += this.tou;
+			if (findPerk(PerkLib.RefinedBody) >= 0) temp += 50;
+			if (findPerk(PerkLib.Tank) >= 0) temp += this.tou;
 			//Apply NG+, NG++, NG+++, etc.
 			if (short == "doppleganger" || short == "pod" || short == "sand trap" || short == "sand tarp") {
 				temp += 200 * player.newGamePlusMod();
