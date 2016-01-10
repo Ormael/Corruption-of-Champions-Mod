@@ -2460,9 +2460,9 @@ public function stats(stre:Number, toug:Number, spee:Number, intel:Number, libi:
 	if(player.tou < 1) player.tou = 1;
 	if(player.spe > player.getMaxStats("spe")) player.spe = player.getMaxStats("spe");
 	if(player.spe < 1) player.spe = 1;
-	if(player.inte > player.getMaxStats("inte")) player.inte= player.getMaxStats("inte");
+	if(player.inte > player.getMaxStats("inte")) player.inte = player.getMaxStats("inte");
 	if(player.inte < 1) player.inte = 1;
-	if(player.lib > 100) player.lib = 100;
+	if(player.lib > player.getMaxStats("libi")) player.lib = player.getMaxStats("libi");
 	if(player.lib < 0) player.lib = 0;
 	//Minimum libido. Rewritten.
 	var minLib:Number = 0;
