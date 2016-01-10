@@ -582,11 +582,11 @@ public function buildPerkList():Array {
 	// TOUGHNESS
 	//------------
 	//slot 2 - toughness perk 1
-	if(player.findPerk(PerkLib.Tank) < 0 && player.tou >= 25) {
-		_add(new PerkClass(PerkLib.Tank));
+	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.tou >= 25) {
+		_add(new PerkClass(PerkLib.RefinedBody));
 	}
 	//slot 2 - regeneration perk
-	if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 50) {
+	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 50) {
 		_add(new PerkClass(PerkLib.Regeneration));
 	}
 	if(player.tou >= 50 && player.str >= 50) {
@@ -598,7 +598,7 @@ public function buildPerkList():Array {
 	//Tier 1 Toughness Perks
 	if(player.level >= 6) {
 		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 60) {
-			_add(new PerkClass(PerkLib.Tank2));
+			_add(new PerkClass(PerkLib.Tank));
 		}
 		if(player.findPerk(PerkLib.Regeneration) >= 0 && player.tou >= 70) {
 			_add(new PerkClass(PerkLib.Regeneration2));
@@ -828,7 +828,7 @@ public function applyPerk(perk:PerkClass):void {
 	player.createPerk(perk.ptype, perk.value1, perk.value2, perk.value3, perk.value4);
 	if (perk.ptype == PerkLib.StrongBack2) player.itemSlot5.unlocked = true;
 	if (perk.ptype == PerkLib.StrongBack) player.itemSlot4.unlocked = true;
-	if (perk.ptype == PerkLib.Tank2) {
+	if (perk.ptype == PerkLib.Tank) {
 		HPChange(player.tou, false);
 		statScreenRefresh();
 	}
