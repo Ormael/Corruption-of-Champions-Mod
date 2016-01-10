@@ -2260,6 +2260,7 @@ use namespace kGAMECLASS;
 			var maxTou:int = 100;
 			var maxSpe:int = 100;
 			var maxInt:int = 100;
+			var maxLib:int = 100;
 			
 			//Alter max speed if you have oversized parts. (Realistic mode)
 			if (flags[kFLAGS.HUNGER_ENABLED] >= 1)
@@ -2391,6 +2392,7 @@ use namespace kGAMECLASS;
 			if (demonScore() >= 4) {
 				maxSpe += 5;
 				maxInt += 5;
+				maxLib += 5;
 			}
 			if (rhinoScore() >= 4) {
 				maxStr += 15;
