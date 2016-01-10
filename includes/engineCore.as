@@ -807,7 +807,7 @@ public function buildPerkList():Array {
 	if(player.level >= 12 && player.findPerk(PerkLib.Survivalist) > 0) {
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist2));
 	}
-	//Tier 5 Misc Perks
+	//Tier 4 Misc Perks
 	if(player.level >= 24 && player.findPerk(PerkLib.JobArcher) > 0 && player.findPerk(PerkLib.JobGuardian) > 0 && player.findPerk(PerkLib.JobSeducer) > 0 && player.findPerk(PerkLib.JobSorcerer) > 0 && player.findPerk(PerkLib.JobWarrior) > 0) {
 		_add(new PerkClass(PerkLib.JobMunchkin));
 	}
