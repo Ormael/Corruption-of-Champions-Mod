@@ -875,6 +875,7 @@ private function postRaphaelCoitus():void {
 		outputText("The only thing left behind is his rapier, sticking out of the moss.  He's bound it with his red sash around the length like a ribbon, as though he has now gifted it to you.  Perhaps it is his way of congratulating you.\n\n", false);
 		//[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
 		inventory.takeItem(weapons.RRAPIER, playerMenu);
+		player.createPerk(PerkLib.RapierTraining,0,0,0,0);
 	}
 	//({When player has reached the INT Conversation apex} 
 	if(flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
@@ -917,6 +918,7 @@ private function declinePuttingOutForRogues():void {
 		outputText("The only thing left behind is his rapier, sticking out of the moss. He's bound it with his red sash around the length like a ribbon, like he has now gifted it to you. Perhaps it is his way of congratulating you.\n\n", false);
 		//[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
 		inventory.takeItem(weapons.RRAPIER, playerMenu);
+		player.createPerk(PerkLib.RapierTraining,0,0,0,0);
 
 	}
 	//({When player has reached the INT Conversation apex}
@@ -1122,6 +1124,7 @@ private function RaphaelThieverySmexPtII():void {
 		outputText("The only thing left behind is his rapier, sticking out of the moss.  He's bound it with his red sash around the length like a ribbon, as though he has now gifted it to you.  Perhaps it is his way of congratulating you.\n\n", false);
 		//[Weapon: Rapier. Speed, instead of strength, influences the damage rating. Never as strong as the heavier weapons or sword, but works great with speed & evasion, encouraged by the rapier.])
 		inventory.takeItem(weapons.RRAPIER, playerMenu);
+		player.createPerk(PerkLib.RapierTraining,0,0,0,0);
 	}
 	//({When player has reached the INT Conversation apex}
 	if(flags[kFLAGS.RAPHAEL_INTELLIGENCE_TRAINING] == 4) {
