@@ -592,6 +592,18 @@ public function buildPerkList():Array {
 	if(player.tou >= 50 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedEndurance));
 	}
+	if(player.tou >= 65 && player.str >= 65 && player.findPerk(ImprovedEndurance) >= 0 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance2));
+	}
+	if(player.tou >= 80 && player.str >= 80 && player.findPerk(ImprovedEndurance2) >= 0 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance3));
+	}
+	if(player.tou >= 95 && player.str >= 95 && player.findPerk(ImprovedEndurance3) >= 0 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance4));
+	}
+	if(player.tou >= 110 && player.str >= 110 && player.findPerk(ImprovedEndurance4) >= 0 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance5));
+	}
 	if(player.tou >= 20) {
 		_add(new PerkClass(PerkLib.JobGuardian));
 	}
@@ -739,6 +751,18 @@ public function buildPerkList():Array {
 	}
 	if(player.lib >= 25 && player.inte >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedSelfControl));
+	}
+	if(player.lib >= 25 && player.inte >= 65 && player.findPerk(ImprovedSelfControl) >= 0 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl2));
+	}
+	if(player.lib >= 25 && player.inte >= 80 && player.findPerk(ImprovedSelfControl2) >= 0 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl3));
+	}
+	if(player.lib >= 25 && player.inte >= 95 && player.findPerk(ImprovedSelfControl3) >= 0 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl4));
+	}
+	if(player.lib >= 25 && player.inte >= 110 && player.findPerk(ImprovedSelfControl4) >= 0 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl5));
 	}
 	//Slot 5 - minimum libido
 	if(player.minLust() >= 20) {
