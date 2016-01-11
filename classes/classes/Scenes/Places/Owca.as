@@ -4,6 +4,7 @@
 	import classes.GlobalFlags.kGAMECLASS;
 	import classes.Items.WeaponLib;
 	import classes.Scenes.Places.Owca.*;
+	import classes.Scenes.NPCs.KindraScene;
 
 	public class Owca extends BaseContent{
 
@@ -588,8 +589,8 @@ private function owcaMainScreenOn():void {
 		//Option: Tavern. Leads to the Tavern, needs 10 attitude
 		tavern = owcaTavern;
 	}
-	//[Pit][Herds][Rebecc][Tavern]
-	simpleChoices("Pit",pit,"Herds",herd,"Rebecc",rebeccMenu,"Tavern",tavern,"Leave",camp.returnToCampUseOneHour);
+	//[Pit][Herds][Rebecc][Tavern][Kindra]
+	simpleChoices("Pit",pit,"Herds",herd,"Rebecc",rebeccMenu,"Tavern",tavern,"Leave",camp.returnToCampUseOneHour,"Kindra",kindra);
 }
 //Tavern (Z)
 public function owcaTavern():void {
