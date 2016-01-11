@@ -44,6 +44,7 @@ package classes.Scenes.Monsters
 					add(weapons.W_STAFF,1).
 					add(armors.FURLOIN,1).
 					add(jewelries.MYSTRNG,1).
+					add(shields.KITE_SH,1).
 					addMany(1,consumables.L_DRAFT,
 							consumables.PINKDYE,
 							consumables.BLUEDYE,
