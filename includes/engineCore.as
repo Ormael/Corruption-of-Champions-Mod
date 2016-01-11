@@ -1980,6 +1980,21 @@ public function displayStats(e:MouseEvent = null):void
 	if (camp.getCampPopulation() > 0)
 		miscStats += "<b>Camp Population:</b> " + camp.getCampPopulation() + "\n";
 	
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)
+		miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/600" + "\n";
+	else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2)
+		miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/200" + "\n";
+
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3)
+		miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n";
+	else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3)
+		miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/300" + "\n";
+	
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4)
+		miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/900" + "\n";	
+	else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4)
+		miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/300" + "\n";
+
 	if (flags[kFLAGS.CORRUPTED_GLADES_DESTROYED] > 0) {
 		if (flags[kFLAGS.CORRUPTED_GLADES_DESTROYED] < 100)
 			miscStats += "<b>Corrupted Glades Status:</b> " + (100 - flags[kFLAGS.CORRUPTED_GLADES_DESTROYED]) + "% remaining\n";
