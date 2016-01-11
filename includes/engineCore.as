@@ -546,14 +546,14 @@ public function buildPerkList():Array {
 	//Tier 1 Strength Perks
 	if(player.level >= 6) {
 		//Thunderous Strikes - +20% basic attack damage while str > 80.
-		if(player.str >= 80) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 80) {
 			_add(new PerkClass(PerkLib.ThunderousStrikes));
 		}
 		//Weapon Mastery - Doubles weapon damage bonus of 'large' type weapons. (Minotaur Axe, M. Hammer, etc)
-		if(player.str > 60) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str > 60) {
 			_add(new PerkClass(PerkLib.WeaponMastery));
 		}
-		if(player.str >= 75)
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 75)
 			_add(new PerkClass(PerkLib.BrutalBlows));
 		if(player.str >= 50)
 			_add(new PerkClass(PerkLib.IronFists));
@@ -568,7 +568,7 @@ public function buildPerkList():Array {
 	if(player.level >= 12) {
 		if(player.str >= 75)
 			_add(new PerkClass(PerkLib.Berzerker));
-		if (player.str >= 80)
+		if (player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 80)
 			_add(new PerkClass(PerkLib.HoldWithBothHands));
 		if (player.str >= 80 && player.tou >= 60)
 			_add(new PerkClass(PerkLib.ShieldSlam));
@@ -582,7 +582,7 @@ public function buildPerkList():Array {
 	// TOUGHNESS
 	//------------
 	//slot 2 - toughness perk 1
-	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.tou >= 25) {
+	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 25) {
 		_add(new PerkClass(PerkLib.RefinedBody));
 	}
 	//slot 2 - regeneration perk
@@ -609,25 +609,25 @@ public function buildPerkList():Array {
 	}
 	//Tier 1 Toughness Perks
 	if(player.level >= 6) {
-		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 60) {
+		if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 60) {
 			_add(new PerkClass(PerkLib.Tank));
 		}
 		if(player.findPerk(PerkLib.Regeneration) >= 0 && player.tou >= 70) {
 			_add(new PerkClass(PerkLib.Regeneration2));
 		}
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.ImmovableObject));
 		}
-		if(player.tou >= 50) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 50) {
 			_add(new PerkClass(PerkLib.ShieldMastery));
 		}
 	}
 	//Tier 2 Toughness Perks
 	if(player.level >= 12) {
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.Resolute));
 		}
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.Juggernaut));
 		}
 		if(player.tou >= 60) {
@@ -674,10 +674,10 @@ public function buildPerkList():Array {
 	}
 	//Tier 2 Speed Perks
 	if(player.level >= 12) {
-		if(player.spe >= 75) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.spe >= 75) {
 			_add(new PerkClass(PerkLib.LungingAttacks));
 		}
-		if(player.spe >= 80 && player.str >= 60) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.spe >= 80 && player.str >= 60) {
 			_add(new PerkClass(PerkLib.Blademaster));
 		}
 	}
@@ -689,17 +689,17 @@ public function buildPerkList():Array {
 			_add(new PerkClass(PerkLib.Precision));
 	}
 	//Spellpower - boosts spell power
-	if(player.inte >= 50) {
+	if(player.findPerk(PerkLib.JobSorcerer) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Spellpower));
-	}
-	if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
-			_add(new PerkClass(PerkLib.Mage));
 	}
 	if(player.inte >= 20) {
 		_add(new PerkClass(PerkLib.JobSorcerer));
 	}
 	//Tier 1 Intelligence Perks
 	if(player.level >= 6) {
+		if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
+			_add(new PerkClass(PerkLib.Mage));
+		}
 		if(player.inte >= 50)
 			_add(new PerkClass(PerkLib.Tactician));
 		if(spellCount() > 0 && player.findPerk(PerkLib.Spellpower) >= 0 && player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 60) {
@@ -739,6 +739,19 @@ public function buildPerkList():Array {
 				_add(new PerkClass(PerkLib.Spellsword));
 		}
 	}
+	//Tier 3 Intelligence perks
+//	if(player.level >= 18) {
+//		if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 100) {
+//			_add(new PerkClass(PerkLib.GrandArchmage));
+//		}
+//	}
+	
+	//Tier 4 Intelligence perks
+//	if(player.level >= 24) {
+//		if(player.findPerk(PerkLib.GrandArchmage) >= 0 && player.findPerk(PerkLib.FocusedMind) >= 0 && player.inte >= 125) {
+//			_add(new PerkClass(PerkLib.GreyArchmage));
+//		}
+//	}
 	
 	//------------
 	// LIBIDO
@@ -748,6 +761,13 @@ public function buildPerkList():Array {
 	//Slot 5 - Fertile+ increases cum production and fertility (+15%)
 	if(player.lib >= 25) {
 			_add(new PerkClass(PerkLib.FertilityPlus,15,1.75,0,0));
+	}
+	//Slot 5 - minimum libido
+	if(player.minLust() >= 20) {
+			_add(new PerkClass(PerkLib.ColdBlooded,20,0,0,0));
+	}
+	if(player.lib >= 50) {
+			_add(new PerkClass(PerkLib.HotBlooded,20,0,0,0));
 	}
 	if(player.lib >= 25 && player.inte >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedSelfControl));
@@ -763,13 +783,6 @@ public function buildPerkList():Array {
 	}
 	if(player.lib >= 25 && player.inte >= 110 && player.findPerk(ImprovedSelfControl4) >= 0 && player.newGamePlusMod >= 4) {
 		_add(new PerkClass(PerkLib.ImprovedSelfControl5));
-	}
-	//Slot 5 - minimum libido
-	if(player.minLust() >= 20) {
-			_add(new PerkClass(PerkLib.ColdBlooded,20,0,0,0));
-	}
-	if(player.lib >= 50) {
-			_add(new PerkClass(PerkLib.HotBlooded,20,0,0,0));
 	}
 	if(player.lib >= 20) {
 		_add(new PerkClass(PerkLib.JobSeducer));
@@ -787,6 +800,15 @@ public function buildPerkList():Array {
 		//Slot 5 - minimum libido
 		if(player.lib >= 60 && player.cor >= 50) {
 			_add(new PerkClass(PerkLib.Masochist));
+		}
+		if(player.findPerk(PerkLib.JobSeducer) >= 0 && player.lib >= 50) {
+			_add(new PerkClass(PerkLib.InhumanDesire));
+		}
+	}
+	//Tier 2 Libido Perks
+	if(player.level >= 12) {
+		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75) {
+			_add(new PerkClass(PerkLib.DemonicDesire));
 		}
 	}
 	//------------
@@ -822,19 +844,22 @@ public function buildPerkList():Array {
 			_add(new PerkClass(PerkLib.ArousingAura));
 		}
 	}
-	//Tier 1 Misc Perks
+	//------------
+	// MISCELLANEOUS
+	//------------
+	//Tier 1
 	if(player.level >= 6) {
 		_add(new PerkClass(PerkLib.Resistance));
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist));
 	}
-	//Tier 2 Misc Perks
+	//Tier 2
 	if(player.level >= 12 && player.findPerk(PerkLib.Survivalist) > 0) {
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist2));
 	}
-	//Tier 4 Misc Perks
-	if(player.level >= 24 && player.findPerk(PerkLib.JobArcher) > 0 && player.findPerk(PerkLib.JobGuardian) > 0 && player.findPerk(PerkLib.JobSeducer) > 0 && player.findPerk(PerkLib.JobSorcerer) > 0 && player.findPerk(PerkLib.JobWarrior) > 0) {
-		_add(new PerkClass(PerkLib.JobMunchkin));
-	}
+	//Tier 4
+//	if(player.level >= 24 && player.findPerk(PerkLib.JobArcher) > 0 && player.findPerk(PerkLib.JobGuardian) > 0 && player.findPerk(PerkLib.JobSeducer) > 0 && player.findPerk(PerkLib.JobSorcerer) > 0 && player.findPerk(PerkLib.JobWarrior) > 0 && player.str >= 100 && player.tou >= 100 && player.spe >= 100 && player.inte >= 100 && player.lib >= 50) {
+//		_add(new PerkClass(PerkLib.JobMunchkin));
+//	}	(Still need some other related stuff added to make PC true Munchkin)
 	// FILTER PERKS
 	perkList = perkList.filter(
 			function(perk:*,idx:int,array:Array):Boolean{
