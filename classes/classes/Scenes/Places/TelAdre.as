@@ -1864,7 +1864,14 @@ private function carpentryShopBuyNailsYes():void {
 		if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_HAMMER_TIME] >= 300) awardAchievement("Hammer Time", kACHIEVEMENTS.GENERAL_HAMMER_TIME);
 		player.addKeyValue("Carpenter's Toolbox", 1, nails);
 		outputText("You hand over " + (nails * 2) + " gems. \"<i>Done,</i>\" he says as he hands over bundle of " + nails +" nails to you.\n\n");
-		if (player.keyItemv1("Carpenter's Toolbox") > 200)
+		if (player.keyItemv1("Carpenter's Toolbox") > 600 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2))
+		{
+			outputText("Unfortunately, your toolbox can't hold anymore nails. You notify him and he refunds you the gems.\n\n", false);
+			player.gems += ((player.keyItemv1("Carpenter's Toolbox") - 600) * 2);
+			player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 600));
+		}
+		outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600");		
+		else (player.keyItemv1("Carpenter's Toolbox") > 200 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2))
 		{
 			outputText("Unfortunately, your toolbox can't hold anymore nails. You notify him and he refunds you the gems.\n\n", false);
 			player.gems += ((player.keyItemv1("Carpenter's Toolbox") - 200) * 2);
@@ -1903,11 +1910,18 @@ private function carpentryShopBuyWoodYes():void {
 		if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_IM_NO_LUMBERJACK] >= 100) awardAchievement("I'm No Lumberjack", kACHIEVEMENTS.GENERAL_IM_NO_LUMBERJACK);
 		flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] += wood;
 		outputText("You hand over " + (wood * 10) + " gems. \"<i>I'll have the caravan deliver the wood to your camp as soon as you leave my shop,</i>\" he says.\n\n", true);
-		if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] > 999)
+		if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] > 900 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3))
 		{
 			outputText("Unfortunately, your wood supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
-			player.gems += ((flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 999) * 10);
-			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 999);
+			player.gems += ((flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 900) * 10);
+			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 900);
+		}
+		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES]);
+		else (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] > 300 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3))
+		{
+			outputText("Unfortunately, your wood supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
+			player.gems += ((flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 300) * 10);
+			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 300);
 		}
 		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES]);
 	}
@@ -1942,11 +1956,18 @@ private function carpentryShopBuyStoneYes():void {
 		if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_YABBA_DABBA_DOO] >= 100) awardAchievement("Yabba Dabba Doo", kACHIEVEMENTS.GENERAL_YABBA_DABBA_DOO);
 		flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] += stone;
 		outputText("You hand over " + (stone * 20) + " gems. \"<i>I'll have the caravan deliver the stones to your camp as soon as you leave my shop,</i>\" he says.\n\n", true);
-		if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] > 999)
+		if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] > 900 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4))
 		{
 			outputText("Unfortunately, your stone seem to be full. You inform him. He refunds you the gems.\n\n", false);
-			player.gems += ((flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 999) * 10);
-			flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 999);
+			player.gems += ((flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 900) * 10);
+			flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 900);
+		}
+		outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES]);
+		else (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] > 300 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4))
+		{
+			outputText("Unfortunately, your stone seem to be full. You inform him. He refunds you the gems.\n\n", false);
+			player.gems += ((flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 300) * 10);
+			flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 300);
 		}
 		outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES]);
 	}
@@ -1981,7 +2002,12 @@ private function carpentryShopSellNailsYes():void {
 		player.gems += nail;
 		player.keyItemv1("Carpenter's Toolbox") -= nail;
 		outputText("You sign the permission form for " + num2Text(nail) + " " + (player.keyItemv1("Carpenter's Toolbox") ? "piece" : "pieces") + " of nails to be taken from your camp. \"<i>Deal. Here are " + nail + " gems,</i>\" he says.\n\n", true);
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) {
+		outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600");
+		}
+		else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) {
 		outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200");
+		}
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough nails.</i>\"", true);
 	statScreenRefresh();
@@ -2013,7 +2039,12 @@ private function carpentryShopSellWoodYes():void {
 		player.gems += (wood * 5);
 		flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= wood;
 		outputText("You sign the permission form for " + num2Text(wood) + " " + (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] == 1 ? "piece" : "pieces") + " of wood to be unloaded from your camp. \"<i>Deal. Here are " + (wood * 5) + " gems,</i>\" he says.\n\n", true);
-		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/999");
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
+		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900");
+		}
+		else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
+		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300");
+		}
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough wood.</i>\"", true);
 	statScreenRefresh();
@@ -2045,7 +2076,12 @@ private function carpentryShopSellStoneYes():void {
 		player.gems += (stone * 10);
 		flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= stone;
 		outputText("You sign the permission form for " + num2Text(stone) + " " + (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] == 1 ? "piece" : "pieces") + " of stones to be unloaded from your camp. \"<i>Deal. Here are " + (stone * 10) + " gems,</i>\" he says.\n\n", true);
-		outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/999");
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4) {
+		outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/900");
+		}
+		else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4) {
+		outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/300");
+		}
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough stones.</i>\"", true);
 	statScreenRefresh();
