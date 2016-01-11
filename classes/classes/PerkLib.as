@@ -137,6 +137,9 @@ package classes
 		public static const CorruptedLibido:PerkType = mk("Corrupted Libido", "Corrupted Libido",
 				"Reduces lust gain by 10%.",
 				"You choose the 'Corrupted Libido' perk.  As a result of your body's corruption, you've become a bit harder to turn on. (Lust gain reduced by 10%!)");
+		public static const DemonicDesire:PerkType = mk("Demonic Desire", "Demonic Desire",
+				"+1 extra LP per point of libido.",
+				"You choose the 'Demonic Desire' perk, granting an extra maximum LP for each point of libido.");
 		public static const DoubleAttack:PerkType = mk("Double Attack", "Double Attack",
 				"[if (player.spe<50)" +
 						"<b>You're too slow to double attack!</b>" +
@@ -201,6 +204,9 @@ package classes
 		public static const ImprovedSelfControl5:PerkType = mk("Improved Self-Control 5", "Improved Self-Control 5",
 				"Increases maximum lust by 20.",
 				"You choose the 'Improved Self-Control 5' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const InhumanDesire:PerkType = mk("Inhuman Desire", "Inhuman Desire",
+				"Raises max LP by 20.",
+				"You choose the 'Inhuman Desire' perk, giving you an additional 20 LP!");
 		public static const IronFists:PerkType = mk("Iron Fists", "Iron Fists",
 				"Hardens your fists to increase attack rating by 5.",
 				"You choose the 'Iron Fists' perk, hardening your fists. This increases attack power by 5.");
@@ -275,7 +281,7 @@ package classes
 				"You choose the 'Raging Inferno' perk. Cumulative 20% damage increase for every subsequent fire spell without interruption.");
 		public static const RefinedBody:PerkType = mk("Refined Body", "Refined Body",
 				"Raises max HP by 50.",
-				"You choose the 'RefinedBody' perk, giving you an additional 50 HP!");
+				"You choose the 'Refined Body' perk, giving you an additional 50 HP!");
 		public static const Regeneration:RegenerationPerk = new RegenerationPerk();
 		public static const Regeneration2:Regeneration2Perk = new Regeneration2Perk();
 		public static const Resistance:PerkType = mk("Resistance", "Resistance",
