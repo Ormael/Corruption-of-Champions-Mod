@@ -233,7 +233,11 @@ package classes.Scenes.Camp
 		public function incrementWoodSupply(amount:int):void {
 			outputText("<b>(+" + amount + " wood!");
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] += amount;
-			if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= maxWoodSupply) {
+			if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 900 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
+				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = maxWoodSupply;
+				outputText(" Your wood capacity is full.")
+			}
+			else (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
 				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = maxWoodSupply;
 				outputText(" Your wood capacity is full.")
 			}
@@ -241,8 +245,18 @@ package classes.Scenes.Camp
 		}
 		
 		public function checkMaterials():void {
-			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "\n");
-			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/" + maxNailSupply + " \n");
+			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
+			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n");
+			}
+			else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
+			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300" + "\n");
+			}
+			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) { 
+			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600" + " \n");
+			}
+			else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) { 
+			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200" + " \n");
+			}
 		}
 		
 		//STAGE 6 - Work on cabin part 2. Planning your cabin.
