@@ -2675,6 +2675,7 @@ package classes.Scenes.Areas.Desert
 			else (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4) {
 				flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] = 300;
 				outputText(" Your stone capacity is full.")
+			outputText(")</b>");
 			}
 			doNext(camp.returnToCampUseOneHour);
 		}
