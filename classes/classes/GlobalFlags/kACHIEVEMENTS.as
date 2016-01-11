@@ -198,8 +198,10 @@ package classes.GlobalFlags
 		public static const GENERAL_YOU_BASTARD:int			= 169;
 		public static const GENERAL_YABBA_DABBA_DOO:int			= 170;
 		public static const GENERAL_ANTWORKS:int			= 171;
-		public static const UNKNOWN_ACHIEVEMENT_172:int			= 172;
-		public static const UNKNOWN_ACHIEVEMENT_173:int			= 173;
+		public static const GENERAL_MEGA_PERKY:int			= 172;
+		public static const GENERAL_HYPER_PERKY:int			= 173;
+		public static const UNKNOWN_ACHIEVEMENT_174:int			= 174;
+		public static const UNKNOWN_ACHIEVEMENT_175:int			= 175;
 		
 	}
 
