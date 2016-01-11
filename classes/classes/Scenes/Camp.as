@@ -705,10 +705,10 @@ private function doCamp():void { //Only called by playerMenu
 	}
 	
 	//Unlock cabin.
-	if (flags[kFLAGS.CAMP_CABIN_PROGRESS] <= 0 && model.time.days >= 30)
+	if (flags[kFLAGS.CAMP_CABIN_PROGRESS] <= 0 && model.time.days >= 14)
 	{
 		flags[kFLAGS.CAMP_CABIN_PROGRESS] = 1;
-		outputText("You realize that you have spent a month sleeping in tent every night. You think of something so you can sleep nicely and comfortably. Perhaps a cabin will suffice?", true)
+		outputText("You realize that you have spent two weeks sleeping in tent every night. You think of something so you can sleep nicely and comfortably. Perhaps a cabin will suffice?", true)
 		doNext(playerMenu);
 		return;
 	}
