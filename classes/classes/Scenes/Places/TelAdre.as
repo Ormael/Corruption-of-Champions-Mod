@@ -40,6 +40,7 @@
 		
 		public var nails:Number = 0;
 		public var wood:Number = 0;
+		public var stone:Number = 0;
 		
 		public function TelAdre()
 		{
@@ -1804,7 +1805,11 @@ private function debitJewel(itype:ItemType):void {
 //-----------------
 public function carpentryShopEntry():void {
 	outputText("You enter the shop marked by a sign with hammer and saw symbol painted on it. There are array of tools all hung neatly. A six feet tall zebra-morph stallion stands behind the counter. He appears to be wearing typical lumberjack outfit.\n\n", true);
-	outputText("\"<i>Welcome to my hardware shop dear customer. Feel free to look around,</i>\" he says. \n\n", false); //Still not have any idea how to make codex for zebra-morphs unlocks. Kitteh would you kindly help me on that?
+	outputText("\"<i>Welcome to my hardware shop dear customer. Feel free to look around,</i>\" he says. \n\n", false);
+	if (flags[kFLAGS.CODEX_ENTRY_ZEBRAS] <= 0) {
+		flags[kFLAGS.CODEX_ENTRY_ZEBRAS] = 1;
+		outputText("\n\n<b>New codex entry unlocked: Zebra-Morphs!</b>\n\n");
+	}
 	doNext(carpentryShopInside);
 }
 
