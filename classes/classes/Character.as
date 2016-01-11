@@ -841,6 +841,8 @@ import classes.Items.JewelryLib;
 			if (findPerk(PerkLib.ImprovedSelfControl3) >= 0) max += 20;
 			if (findPerk(PerkLib.ImprovedSelfControl4) >= 0) max += 20;
 			if (findPerk(PerkLib.ImprovedSelfControl5) >= 0) max += 20;
+			if (findPerk(PerkLib.InhumanDesire) >= 0) max += 20;
+			if (findPerk(PerkLib.DemonicDesire) >= 0) max += Math.round(lib);
 			if (findPerk(PerkLib.BroBody) >= 0 || findPerk(PerkLib.BimboBody) >= 0 || findPerk(PerkLib.FutaForm) >= 0) max += 20;
 			if (findPerk(PerkLib.OmnibusGift) >= 0) max += 15;
 			if (findPerk(PerkLib.JobSeducer) >= 0) max += 10;
