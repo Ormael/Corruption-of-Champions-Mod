@@ -17,8 +17,7 @@ package classes.Scenes.Camp
 	 */
 	public class CabinProgress extends BaseContent {
 		
-		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] <2) public var maxNailSupply:int = 200;
-		else public var maxNailSupply:int = 600;
+		public var maxNailSupply:int = 600;
 		public var maxWoodSupply:int = 999;
 		public var maxStoneSupply:int = 999;
 
