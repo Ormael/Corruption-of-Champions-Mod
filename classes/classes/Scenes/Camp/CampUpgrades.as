@@ -18,8 +18,8 @@ package classes.Scenes.Camp
 	public class CabinProgress extends BaseContent {
 		
 		public var maxNailSupply:int = 600;
-		public var maxWoodSupply:int = 999;
-		public var maxStoneSupply:int = 999;
+		public var maxWoodSupply:int = 900;
+		public var maxStoneSupply:int = 900;
 
 //flags[kFLAGS.MATERIALS_STORAGE_UPGRADES]:
 //1 - Toolbox bought
