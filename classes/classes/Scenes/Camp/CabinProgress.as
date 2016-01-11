@@ -238,7 +238,7 @@ package classes.Scenes.Camp
 				outputText(" Your wood capacity is full.")
 			}
 			else (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
-				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = maxWoodSupply;
+				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = 300;
 				outputText(" Your wood capacity is full.")
 			}
 			outputText(")</b>");
