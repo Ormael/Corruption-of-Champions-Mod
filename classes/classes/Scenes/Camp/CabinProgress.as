@@ -17,9 +17,9 @@ package classes.Scenes.Camp
 	 */
 	public class CabinProgress extends BaseContent {
 		
-		public var maxNailSupply:int = 200;
-		public var maxWoodSupply:int = 999;
-		public var maxStoneSupply:int = 999;
+		public var maxNailSupply:int = 600;
+		public var maxWoodSupply:int = 900;
+		public var maxStoneSupply:int = 900;
 		
 		public function CabinProgress() {
 			
