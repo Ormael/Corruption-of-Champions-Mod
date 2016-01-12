@@ -560,7 +560,11 @@ public function buildPerkList():Array {
 		if(player.str >= 65 && player.findPerk(IronFists) >= 0 && player.newGamePlusMod >= 1)
 			_add(new PerkClass(PerkLib.IronFists2));
 		if(player.str >= 80 && player.findPerk(IronFists2) >= 0 && player.newGamePlusMod >= 2)
-			_add(new PerkClass(PerkLib.IronFists3));			
+			_add(new PerkClass(PerkLib.IronFists3));
+		if(player.str >= 95 && player.findPerk(IronFists3) >= 0 && player.newGamePlusMod >= 3)
+			_add(new PerkClass(PerkLib.IronFists4));
+		if(player.str >= 110 && player.findPerk(IronFists4) >= 0 && player.newGamePlusMod >= 4)
+			_add(new PerkClass(PerkLib.IronFists5));
 		if(player.str >= 50 && player.spe >= 50)
 			_add(new PerkClass(PerkLib.Parry));
 	}
