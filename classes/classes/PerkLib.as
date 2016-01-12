@@ -215,7 +215,13 @@ package classes
 				"You choose the 'Iron Fists 2' perk, further hardening your fists. This increases attack power by another 5.");
 		public static const IronFists3:PerkType = mk("Iron Fists 3", "Iron Fists 3",
 				"Even more hardens your fists to increase attack rating again by 5.",
-				"You choose the 'Iron Fists 3' perk, even further hardening your fists. This increases attack power again by 5.");				
+				"You choose the 'Iron Fists 3' perk, even further hardening your fists. This increases attack power again by 5.");
+		public static const IronFists4:PerkType = mk("Iron Fists 4", "Iron Fists 4",
+				"Next training to harden your fists increased their attack rating by 5.",
+				"You choose the 'Iron Fists 4' perk, again hardening your fists. This increases attack power for another 5.");
+		public static const IronFists5:PerkType = mk("Iron Fists 5", "Iron Fists 5",
+				"Almost hellish taining increeased your fists attack rating by another 5.",
+				"You choose the 'Iron Fists 5' perk, to once again make your first more tough. This increases attack power once more for 5.");
 		public static const IronMan:PerkType = mk("Iron Man", "Iron Man",
 				"Reduces the fatigue cost of physical specials by 50%.",
 				"You choose the 'Iron Man' perk, reducing the fatigue cost of physical special attacks by 50%");
