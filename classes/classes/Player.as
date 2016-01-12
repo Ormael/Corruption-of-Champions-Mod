@@ -335,7 +335,13 @@ use namespace kGAMECLASS;
 			}
 			if(findPerk(PerkLib.IronFists3) >= 0 && str >= 80 && weaponName == "fists") {
 				attack += 5;
-			}			
+			}
+			if(findPerk(PerkLib.IronFists4) >= 0 && str >= 95 && weaponName == "fists") {
+				attack += 5;
+			}
+			if(findPerk(PerkLib.IronFists5) >= 0 && str >= 110 && weaponName == "fists") {
+				attack += 5;
+			}
 			if(findStatusAffect(StatusAffects.Berzerking) >= 0) attack += 30;
 			attack += statusAffectv1(StatusAffects.ChargeWeapon);
 			return attack;
