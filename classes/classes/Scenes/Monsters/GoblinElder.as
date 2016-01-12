@@ -208,7 +208,7 @@ package classes.Scenes.Monsters
 			this.special1 = goblinDrugAttack;
 			this.special2 = goblinTeaseAttack;
 			this.createPerk(PerkLib.Tank, 0, 0, 0, 0);
-			this.createPerk(PerkLib.Tank2, 0, 0, 0, 0);
+			this.createPerk(PerkLib.RefinedBody, 0, 0, 0, 0);
 			//this.special3 = castSpell;
 			checkMonster();
 		}
