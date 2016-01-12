@@ -301,7 +301,7 @@ public function startUrtaQuest():void {
 	player.createPerk(PerkLib.BrutalBlows,0,0,0,0);
 	player.createPerk(PerkLib.Brawler,0,0,0,0);
 	player.createPerk(PerkLib.Berzerker,0,0,0,0);
-	player.createPerk(PerkLib.Tank,0,0,0,0);
+	player.createPerk(PerkLib.RefinedBody,0,0,0,0);
 	player.createPerk(PerkLib.HistoryFighter,0,0,0,0);
 
 	//GEAR!
