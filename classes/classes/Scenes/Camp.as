@@ -2008,8 +2008,8 @@ public function places():Boolean {
 	//Build menu
 	menu();
 	if (dungeonFound()) addButton(0, "Dungeons", dungeons, null, null, null, "Delve into dungeons.");
-	if (flags[kFLAGS.BAZAAR_ENTERED] > 1) addButton(0, "Bazaar", kGAMECLASS.bazaar.enterTheBazaar, null, null, null, "Visit the Bizarre Bazaar where the demons and corrupted beings hang out.");
-	if (player.statusAffectv1(StatusAffects.TelAdre) >= 1) addButton(2, "Tel'Adre", kGAMECLASS.telAdre.telAdreMenu, null, null, null, "Visit the city of Tel'Adre in desert, easily recognized by the massive tower.");
+	if (player.statusAffectv1(StatusAffects.TelAdre) >= 1) addButton(1, "Tel'Adre", kGAMECLASS.telAdre.telAdreMenu, null, null, null, "Visit the city of Tel'Adre in desert, easily recognized by the massive tower.");
+	if (flags[kFLAGS.BAZAAR_ENTERED] > 1) addButton(2, "Bazaar", kGAMECLASS.bazaar.enterTheBazaar, null, null, null, "Visit the Bizarre Bazaar where the demons and corrupted beings hang out.");
 	if (player.findStatusAffect(StatusAffects.BoatDiscovery) >= 0) addButton(3, "Boat", kGAMECLASS.boat.boatExplore, null, null, null, "Get on the boat and explore the lake. \n\nRecommended level: 4");
 
 	if (flags[kFLAGS.FOUND_CATHEDRAL] > 0) 
