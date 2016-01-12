@@ -75,10 +75,12 @@ package classes.Scenes.Areas
 					flags[kFLAGS.ACHIEVEMENT_PROGRESS_SCAVENGER] += extractedNail;
 					player.addKeyValue("Carpenter's Toolbox", 1, extractedNail);
 					outputText("After spending nearly an hour scavenging, you've managed to extract " + extractedNail + " nails.\n\n");
-					if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)
+					if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) {
 					outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600")
-					else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2)
+					}
+					else {
 					outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200")
+					}
 					if (player.keyItemv1("Carpenter's Toolbox") > 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 600));
 					else (player.keyItemv1("Carpenter's Toolbox") > 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 200));
 					doNext(camp.returnToCampUseOneHour);
