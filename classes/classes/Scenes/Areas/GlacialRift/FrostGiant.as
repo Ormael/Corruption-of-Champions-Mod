@@ -237,14 +237,14 @@ package classes.Scenes.Areas.GlacialRift
 			//this.skinDesc = Appearance.Appearance.DEFAULT_SKIN_DESCS[SKIN_TYPE_FUR];
 			this.hairColor = "white";
 			this.hairLength = 8;
-			initStrTouSpeInte(120, 100, 60, 75);
+			initStrTouSpeInte(130, 110, 60, 75);
 			initLibSensCor(20, 15, 35);
 			this.weaponName = "fists";
 			this.weaponVerb="punch";
 			this.weaponAttack = 27;
 			this.armorName = "ice";
 			this.armorDef = 17;
-			this.bonusHP = 600;
+			this.bonusHP = 700;
 			this.lust = 10;
 			this.lustVuln = 0.4;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
@@ -254,7 +254,7 @@ package classes.Scenes.Areas.GlacialRift
 					.add(consumables.ICICLE_, 1)
 					.add(null, 3);
 			this.createPerk(PerkLib.Tank, 0, 0, 0, 0);
-			this.createPerk(PerkLib.Tank2, 0, 0, 0, 0);
+			this.createPerk(PerkLib.RefinedBody, 0, 0, 0, 0);
 			checkMonster();
 		}
 		

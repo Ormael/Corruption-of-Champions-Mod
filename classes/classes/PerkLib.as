@@ -137,6 +137,9 @@ package classes
 		public static const CorruptedLibido:PerkType = mk("Corrupted Libido", "Corrupted Libido",
 				"Reduces lust gain by 10%.",
 				"You choose the 'Corrupted Libido' perk.  As a result of your body's corruption, you've become a bit harder to turn on. (Lust gain reduced by 10%!)");
+		public static const DemonicDesire:PerkType = mk("Demonic Desire", "Demonic Desire",
+				"+1 extra LP per point of libido.",
+				"You choose the 'Demonic Desire' perk, granting an extra maximum LP for each point of libido.");
 		public static const DoubleAttack:PerkType = mk("Double Attack", "Double Attack",
 				"[if (player.spe<50)" +
 						"<b>You're too slow to double attack!</b>" +
@@ -172,11 +175,38 @@ package classes
 						"]",
 				"You choose the 'Immovable Object' perk, granting 10% physical damage reduction.</b>");
 		public static const ImprovedEndurance:PerkType = mk("Improved Endurance", "Improved Endurance",
-				"Increases maximum fatigue by 20.",
-				"You choose the 'Improved Endurance' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 20!</b>");
+				"Increases maximum fatigue by 35.",
+				"You choose the 'Improved Endurance' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
+		public static const ImprovedEndurance2:PerkType = mk("Improved Endurance 2", "Improved Endurance 2",
+				"Increases maximum fatigue by 35.",
+				"You choose the 'Improved Endurance 2' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");	
+		public static const ImprovedEndurance3:PerkType = mk("Improved Endurance 3", "Improved Endurance 3",
+				"Increases maximum fatigue by 35.",
+				"You choose the 'Improved Endurance 3' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
+		public static const ImprovedEndurance4:PerkType = mk("Improved Endurance 4", "Improved Endurance 4",
+				"Increases maximum fatigue by 35.",
+				"You choose the 'Improved Endurance 4' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
+		public static const ImprovedEndurance5:PerkType = mk("Improved Endurance 5", "Improved Endurance 5",
+				"Increases maximum fatigue by 35.",
+				"You choose the 'Improved Endurance 5' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
 		public static const ImprovedSelfControl:PerkType = mk("Improved Self-Control", "Improved Self-Control",
 				"Increases maximum lust by 20.",
 				"You choose the 'Improved Self-Control' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const ImprovedSelfControl2:PerkType = mk("Improved Self-Control 2", "Improved Self-Control 2",
+				"Increases maximum lust by 20.",
+				"You choose the 'Improved Self-Control 2' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const ImprovedSelfControl3:PerkType = mk("Improved Self-Control 3", "Improved Self-Control 3",
+				"Increases maximum lust by 20.",
+				"You choose the 'Improved Self-Control 3' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const ImprovedSelfControl4:PerkType = mk("Improved Self-Control 4", "Improved Self-Control 4",
+				"Increases maximum lust by 20.",
+				"You choose the 'Improved Self-Control 4' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const ImprovedSelfControl5:PerkType = mk("Improved Self-Control 5", "Improved Self-Control 5",
+				"Increases maximum lust by 20.",
+				"You choose the 'Improved Self-Control 5' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+		public static const InhumanDesire:PerkType = mk("Inhuman Desire", "Inhuman Desire",
+				"Raises max LP by 20.",
+				"You choose the 'Inhuman Desire' perk, giving you an additional 20 LP!");
 		public static const IronFists:PerkType = mk("Iron Fists", "Iron Fists",
 				"Hardens your fists to increase attack rating by 5.",
 				"You choose the 'Iron Fists' perk, hardening your fists. This increases attack power by 5.");
@@ -189,6 +219,24 @@ package classes
 		public static const IronMan:PerkType = mk("Iron Man", "Iron Man",
 				"Reduces the fatigue cost of physical specials by 50%.",
 				"You choose the 'Iron Man' perk, reducing the fatigue cost of physical special attacks by 50%");
+		public static const JobArcher:PerkType = mk("Job: Archer", "Job: Archer",
+				"You're trained in ranged combat.",
+				"You choose 'Job: Archer' perk, training yourself to became Archer.");
+		public static const JobGuardian:PerkType = mk("Job: Guardian", "Job: Guardian",
+				"You're trained in defensive combat.",
+				"You choose 'Job: Guardian' perk, training yourself to became Guardian.");
+		public static const JobMunchkin:PerkType = mk("Job: Munchkin", "Job: Munchkin",
+				"You're Munchkin, an ultimate being that possess a god-like body and powers.",
+				"You choose 'Job: Munchkin' perk, becoming an ultimate being with a god-like body and powers.");
+		public static const JobSeducer:PerkType = mk("Job: Seducer", "Job: Seducer",
+				"You've trained the art of seduction.",
+				"You choose 'Job: Seducer' perk, training yourself to became Seducer.");
+		public static const JobSorcerer:PerkType = mk("Job: Sorcerer", "Job: Sorcerer",
+				"You're trained in magic combat.",
+				"You choose 'Job: Sorcerer' perk, training yourself to became Sorcerer.");
+		public static const JobWarrior:PerkType = mk("Job: Warrior", "Job: Warrior",
+				"You're trained in melee combat.",
+				"You choose 'Job: Warrior' perk, training yourself to became Warrior.");
 		public static const Juggernaut:PerkType = mk("Juggernaut", "Juggernaut",
 				"When wearing heavy armor, you have extra 10% damage resistance and are immune to damage from being constricted/squeezed.",
 				"You choose the 'Juggernaut' perk, granting extra 10% damage resistance when wearing heavy armor and immunity to damage from been constricted/squeezed.");
@@ -231,6 +279,9 @@ package classes
 		public static const RagingInferno:PerkType = mk("Raging Inferno", "Raging Inferno",
 				"Cumulative 20% damage increase for every subsequent fire spell without interruption.",
 				"You choose the 'Raging Inferno' perk. Cumulative 20% damage increase for every subsequent fire spell without interruption.");
+		public static const RefinedBody:PerkType = mk("Refined Body", "Refined Body",
+				"Raises max HP by 50.",
+				"You choose the 'Refined Body' perk, giving you an additional 50 HP!");
 		public static const Regeneration:RegenerationPerk = new RegenerationPerk();
 		public static const Regeneration2:Regeneration2Perk = new Regeneration2Perk();
 		public static const Resistance:PerkType = mk("Resistance", "Resistance",
@@ -294,11 +345,8 @@ package classes
 						"]",
 				"You choose the 'Tactician' perk, increasing critical hit chance by up to 10% (Intelligence-based).");
 		public static const Tank:PerkType = mk("Tank", "Tank",
-				"Raises max HP by 50.",
-				"You choose the 'Tank' perk, giving you an additional 50 HP!");
-		public static const Tank2:PerkType = mk("Tank 2", "Tank 2",
 				"+1 extra HP per point of toughness.",
-				"You choose the 'Tank 2' perk, granting an extra maximum HP for each point of toughness.");
+				"You choose the 'Tank' perk, granting an extra maximum HP for each point of toughness.");
 		public static const ThunderousStrikes:PerkType = mk("Thunderous Strikes", "Thunderous Strikes",
 				"+20% 'Attack' damage while strength is at or above 80.",
 				"You choose the 'Thunderous Strikes' perk, increasing normal damage by 20% while your strength is over 80.");
@@ -469,6 +517,8 @@ package classes
 				"Causes you to always cum as hard as if you had max lust.");
 		public static const PureAndLoving:PerkType = mk("Pure and Loving", "Pure and Loving",
 				"Your caring attitude towards love and romance makes you slightly more resistant to lust and corruption.");
+		public static const RapierTraining:PerkType = mk("Rapier Training", "Rapier Training",
+				"After finishing your rapier training their attack power increased.");
 		public static const SensualLover:PerkType = mk("Sensual Lover", "Sensual Lover",
 				"Your sensual attitude towards love and romance makes your tease ability slightly more effective.");
 		public static const Whispered:PerkType = mk("Whispered", "Whispered",

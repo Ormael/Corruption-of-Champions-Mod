@@ -186,7 +186,9 @@ package classes.Scenes
 			addAchievement("Clean Slate", kACHIEVEMENTS.GENERAL_CLEAN_SLATE, "Go from 100 corruption to zero for the first time.");
 			addAchievement("Perky", kACHIEVEMENTS.GENERAL_PERKY, "Have at least 20 perks.");
 			addAchievement("Super Perky", kACHIEVEMENTS.GENERAL_SUPER_PERKY, "Have at least 35 perks.");
-			addAchievement("Ultra Perky", kACHIEVEMENTS.GENERAL_ULTRA_PERKY, "Have at least 50 perks.");
+			addAchievement("Mega Perky", kACHIEVEMENTS.GENERAL_MEGA_PERKY, "Have at least 50 perks.");
+			addAchievement("Ultra Perky", kACHIEVEMENTS.GENERAL_ULTRA_PERKY, "Have at least 75 perks.", "", true);
+			addAchievement("Hyper Perky", kACHIEVEMENTS.GENERAL_HYPER_PERKY, "Have at least 100 perks.", "", true);
 			addAchievement("Jack of All Trades", kACHIEVEMENTS.GENERAL_STATS_50, "Have at least 50 of each stat. (Libido, sensitivity, corruption optional)");
 			addAchievement("Incredible Stats", kACHIEVEMENTS.GENERAL_STATS_100, "Have at least 100 of each stat. (Libido, sensitivity, corruption optional)");
 			addAchievement("Like Chuck Norris", kACHIEVEMENTS.GENERAL_LIKE_CHUCK_NORRIS, "Defeat the Frost Giant without any equipment.", "Defeat the Frost Giant without any equipment. Way to be a badass!");

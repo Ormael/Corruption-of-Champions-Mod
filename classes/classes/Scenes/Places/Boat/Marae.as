@@ -145,35 +145,35 @@ package classes.Scenes.Places.Boat
 			this.hairColor = "green";
 			this.hairLength = 36;
 			if (game.flags[kFLAGS.FACTORY_SHUTDOWN] == 2) {
-				initStrTouSpeInte(150, 150, 70, 110);
+				initStrTouSpeInte(175, 175, 80, 120);
 				initLibSensCor(60, 25, 100);
 				this.weaponName = "tentacles";
 				this.weaponVerb="slap";
 				this.weaponAttack = 40;
 			}
 			else {
-				initStrTouSpeInte(200, 150, 100, 150);
+				initStrTouSpeInte(225, 175, 110, 160);
 				initLibSensCor(25, 25, 0);
 				this.weaponName = "fists";
 				this.weaponVerb="wrathful punch";
 				this.weaponAttack = 50;
 			}
 			this.weaponPerk = "";
-			this.weaponValue = 25;
+			this.weaponValue = 35;
 			this.armorName = "bark";
-			this.armorDef = 30;
-			this.bonusHP = 4750;
+			this.armorDef = 45;
+			this.bonusHP = 5000;
 			if (game.flags[kFLAGS.FACTORY_SHUTDOWN] == 1) {
-				this.bonusHP += 2700;
-				if (game.flags[kFLAGS.MINERVA_TOWER_TREE] > 0) this.bonusHP += 1000;
+				this.bonusHP += 3000;
+				if (game.flags[kFLAGS.MINERVA_TOWER_TREE] > 0) this.bonusHP += 1150;
 			}
 			this.lust = 30;
 			this.lustVuln = .04;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 99;
-			this.additionalXP = 2500;
+			this.additionalXP = 3000;
 			if (game.flags[kFLAGS.FACTORY_SHUTDOWN] == 1) {
-				this.additionalXP += 500;
+				this.additionalXP += 750;
 			}
 			this.drop = NO_DROP;
 			this.gems = 1000;
@@ -185,7 +185,7 @@ package classes.Scenes.Places.Boat
 				this.special2 = tentacleRape;
 			}
 			this.createPerk(PerkLib.Tank, 0, 0, 0, 0);
-			this.createPerk(PerkLib.Tank2, 0, 0, 0, 0);
+			this.createPerk(PerkLib.RefinedBody, 0, 0, 0, 0);
 			checkMonster();
 		}
 		

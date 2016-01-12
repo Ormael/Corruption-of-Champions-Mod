@@ -2668,6 +2668,15 @@ package classes.Scenes.Areas.Desert
 				outputText("\n\n\"<i>Is there anything else you wanted to do while you're down here?</i>\"");
 				outputText("\n\nYou gain " + stone + " stones.");
 			}
+			if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] >= 900 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4) {
+				flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] = 900;
+				outputText(" Your stone capacity is full.")
+			}
+			else if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4) {
+				flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] = 300;
+				outputText(" Your stone capacity is full.")
+			outputText(")</b>");
+			}
 			doNext(camp.returnToCampUseOneHour);
 		}
 

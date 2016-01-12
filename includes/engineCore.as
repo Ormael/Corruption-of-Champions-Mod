@@ -540,17 +540,20 @@ public function buildPerkList():Array {
 	if(player.findPerk(PerkLib.StrongBack) >= 0 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.StrongBack2));
 	}
+	if(player.str >= 20) {
+		_add(new PerkClass(PerkLib.JobWarrior));
+	}
 	//Tier 1 Strength Perks
 	if(player.level >= 6) {
 		//Thunderous Strikes - +20% basic attack damage while str > 80.
-		if(player.str >= 80) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 80) {
 			_add(new PerkClass(PerkLib.ThunderousStrikes));
 		}
 		//Weapon Mastery - Doubles weapon damage bonus of 'large' type weapons. (Minotaur Axe, M. Hammer, etc)
-		if(player.str > 60) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str > 60) {
 			_add(new PerkClass(PerkLib.WeaponMastery));
 		}
-		if(player.str >= 75)
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 75)
 			_add(new PerkClass(PerkLib.BrutalBlows));
 		if(player.str >= 50)
 			_add(new PerkClass(PerkLib.IronFists));
@@ -565,7 +568,7 @@ public function buildPerkList():Array {
 	if(player.level >= 12) {
 		if(player.str >= 75)
 			_add(new PerkClass(PerkLib.Berzerker));
-		if (player.str >= 80)
+		if (player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 80)
 			_add(new PerkClass(PerkLib.HoldWithBothHands));
 		if (player.str >= 80 && player.tou >= 60)
 			_add(new PerkClass(PerkLib.ShieldSlam));
@@ -579,37 +582,52 @@ public function buildPerkList():Array {
 	// TOUGHNESS
 	//------------
 	//slot 2 - toughness perk 1
-	if(player.findPerk(PerkLib.Tank) < 0 && player.tou >= 25) {
-		_add(new PerkClass(PerkLib.Tank));
+	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 25) {
+		_add(new PerkClass(PerkLib.RefinedBody));
 	}
 	//slot 2 - regeneration perk
-	if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 50) {
+	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 50) {
 		_add(new PerkClass(PerkLib.Regeneration));
 	}
 	if(player.tou >= 50 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedEndurance));
 	}
+	if(player.tou >= 65 && player.str >= 65 && player.findPerk(ImprovedEndurance) >= 0 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance2));
+	}
+	if(player.tou >= 80 && player.str >= 80 && player.findPerk(ImprovedEndurance2) >= 0 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance3));
+	}
+	if(player.tou >= 95 && player.str >= 95 && player.findPerk(ImprovedEndurance3) >= 0 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance4));
+	}
+	if(player.tou >= 110 && player.str >= 110 && player.findPerk(ImprovedEndurance4) >= 0 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.ImprovedEndurance5));
+	}
+	if(player.tou >= 20) {
+		_add(new PerkClass(PerkLib.JobGuardian));
+	}
 	//Tier 1 Toughness Perks
 	if(player.level >= 6) {
-		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 60) {
-			_add(new PerkClass(PerkLib.Tank2));
+		if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 60) {
+			_add(new PerkClass(PerkLib.Tank));
 		}
 		if(player.findPerk(PerkLib.Regeneration) >= 0 && player.tou >= 70) {
 			_add(new PerkClass(PerkLib.Regeneration2));
 		}
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.ImmovableObject));
 		}
-		if(player.tou >= 50) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 50) {
 			_add(new PerkClass(PerkLib.ShieldMastery));
 		}
 	}
 	//Tier 2 Toughness Perks
 	if(player.level >= 12) {
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.Resolute));
 		}
-		if(player.tou >= 75) {
+		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.Juggernaut));
 		}
 		if(player.tou >= 60) {
@@ -631,7 +649,9 @@ public function buildPerkList():Array {
 	if(player.findPerk(PerkLib.Evade) >= 0 && player.findPerk(PerkLib.Runner) >= 0 && player.spe >= 50) {
 			_add(new PerkClass(PerkLib.DoubleAttack));
 	}
-
+	if(player.spe >= 20) {
+		_add(new PerkClass(PerkLib.JobArcher));
+	}
 	//Tier 1 Speed Perks
 	if(player.level >= 6) {
 		//Speedy Recovery - Regain Fatigue 50% faster speed.
@@ -654,10 +674,10 @@ public function buildPerkList():Array {
 	}
 	//Tier 2 Speed Perks
 	if(player.level >= 12) {
-		if(player.spe >= 75) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.spe >= 75) {
 			_add(new PerkClass(PerkLib.LungingAttacks));
 		}
-		if(player.spe >= 80 && player.str >= 60) {
+		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.spe >= 80 && player.str >= 60) {
 			_add(new PerkClass(PerkLib.Blademaster));
 		}
 	}
@@ -669,14 +689,17 @@ public function buildPerkList():Array {
 			_add(new PerkClass(PerkLib.Precision));
 	}
 	//Spellpower - boosts spell power
-	if(player.inte >= 50) {
+	if(player.findPerk(PerkLib.JobSorcerer) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Spellpower));
 	}
-	if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
-			_add(new PerkClass(PerkLib.Mage));
+	if(player.inte >= 20) {
+		_add(new PerkClass(PerkLib.JobSorcerer));
 	}
 	//Tier 1 Intelligence Perks
 	if(player.level >= 6) {
+		if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
+			_add(new PerkClass(PerkLib.Mage));
+		}
 		if(player.inte >= 50)
 			_add(new PerkClass(PerkLib.Tactician));
 		if(spellCount() > 0 && player.findPerk(PerkLib.Spellpower) >= 0 && player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 60) {
@@ -716,6 +739,19 @@ public function buildPerkList():Array {
 				_add(new PerkClass(PerkLib.Spellsword));
 		}
 	}
+	//Tier 3 Intelligence perks
+//	if(player.level >= 18) {
+//		if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 100) {
+//			_add(new PerkClass(PerkLib.GrandArchmage));
+//		}
+//	}
+	
+	//Tier 4 Intelligence perks
+//	if(player.level >= 24) {
+//		if(player.findPerk(PerkLib.GrandArchmage) >= 0 && player.findPerk(PerkLib.FocusedMind) >= 0 && player.inte >= 125) {
+//			_add(new PerkClass(PerkLib.GreyArchmage));
+//		}
+//	}
 	
 	//------------
 	// LIBIDO
@@ -726,15 +762,30 @@ public function buildPerkList():Array {
 	if(player.lib >= 25) {
 			_add(new PerkClass(PerkLib.FertilityPlus,15,1.75,0,0));
 	}
-	if(player.lib >= 25 && player.inte >= 50) {
-		_add(new PerkClass(PerkLib.ImprovedSelfControl));
-	}
 	//Slot 5 - minimum libido
 	if(player.minLust() >= 20) {
 			_add(new PerkClass(PerkLib.ColdBlooded,20,0,0,0));
 	}
 	if(player.lib >= 50) {
 			_add(new PerkClass(PerkLib.HotBlooded,20,0,0,0));
+	}
+	if(player.lib >= 25 && player.inte >= 50) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl));
+	}
+	if(player.lib >= 25 && player.inte >= 65 && player.findPerk(ImprovedSelfControl) >= 0 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl2));
+	}
+	if(player.lib >= 25 && player.inte >= 80 && player.findPerk(ImprovedSelfControl2) >= 0 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl3));
+	}
+	if(player.lib >= 25 && player.inte >= 95 && player.findPerk(ImprovedSelfControl3) >= 0 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl4));
+	}
+	if(player.lib >= 25 && player.inte >= 110 && player.findPerk(ImprovedSelfControl4) >= 0 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.ImprovedSelfControl5));
+	}
+	if(player.lib >= 20) {
+		_add(new PerkClass(PerkLib.JobSeducer));
 	}
 	//Tier 1 Libido Perks
 	if(player.level >= 6) {
@@ -749,6 +800,15 @@ public function buildPerkList():Array {
 		//Slot 5 - minimum libido
 		if(player.lib >= 60 && player.cor >= 50) {
 			_add(new PerkClass(PerkLib.Masochist));
+		}
+		if(player.findPerk(PerkLib.JobSeducer) >= 0 && player.lib >= 50) {
+			_add(new PerkClass(PerkLib.InhumanDesire));
+		}
+	}
+	//Tier 2 Libido Perks
+	if(player.level >= 12) {
+		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75) {
+			_add(new PerkClass(PerkLib.DemonicDesire));
 		}
 	}
 	//------------
@@ -784,15 +844,22 @@ public function buildPerkList():Array {
 			_add(new PerkClass(PerkLib.ArousingAura));
 		}
 	}
-	//Tier 1 Misc Perks
+	//------------
+	// MISCELLANEOUS
+	//------------
+	//Tier 1
 	if(player.level >= 6) {
 		_add(new PerkClass(PerkLib.Resistance));
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist));
 	}
-	//Tier 2 Misc Perks
+	//Tier 2
 	if(player.level >= 12 && player.findPerk(PerkLib.Survivalist) > 0) {
 		if (flags[kFLAGS.HUNGER_ENABLED] > 0) _add(new PerkClass(PerkLib.Survivalist2));
 	}
+	//Tier 4
+//	if(player.level >= 24 && player.findPerk(PerkLib.JobArcher) > 0 && player.findPerk(PerkLib.JobGuardian) > 0 && player.findPerk(PerkLib.JobSeducer) > 0 && player.findPerk(PerkLib.JobSorcerer) > 0 && player.findPerk(PerkLib.JobWarrior) > 0 && player.str >= 100 && player.tou >= 100 && player.spe >= 100 && player.inte >= 100 && player.lib >= 50) {
+//		_add(new PerkClass(PerkLib.JobMunchkin));
+//	}	(Still need some other related stuff added to make PC true Munchkin)
 	// FILTER PERKS
 	perkList = perkList.filter(
 			function(perk:*,idx:int,array:Array):Boolean{
@@ -810,7 +877,7 @@ public function applyPerk(perk:PerkClass):void {
 	player.createPerk(perk.ptype, perk.value1, perk.value2, perk.value3, perk.value4);
 	if (perk.ptype == PerkLib.StrongBack2) player.itemSlot5.unlocked = true;
 	if (perk.ptype == PerkLib.StrongBack) player.itemSlot4.unlocked = true;
-	if (perk.ptype == PerkLib.Tank2) {
+	if (perk.ptype == PerkLib.Tank) {
 		HPChange(player.tou, false);
 		statScreenRefresh();
 	}
@@ -1912,7 +1979,28 @@ public function displayStats(e:MouseEvent = null):void
 
 	if (camp.getCampPopulation() > 0)
 		miscStats += "<b>Camp Population:</b> " + camp.getCampPopulation() + "\n";
+
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {	
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)
+			miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/600" + "\n";
+		else
+			miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/200" + "\n";
+	}
 	
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3)
+			miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n";
+		else
+			miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300" + "\n";
+	}
+
+	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4)
+			miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/900" + "\n";	
+		else
+			miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/300" + "\n";
+	}
+
 	if (flags[kFLAGS.CORRUPTED_GLADES_DESTROYED] > 0) {
 		if (flags[kFLAGS.CORRUPTED_GLADES_DESTROYED] < 100)
 			miscStats += "<b>Corrupted Glades Status:</b> " + (100 - flags[kFLAGS.CORRUPTED_GLADES_DESTROYED]) + "% remaining\n";
@@ -2442,9 +2530,9 @@ public function stats(stre:Number, toug:Number, spee:Number, intel:Number, libi:
 	if(player.tou < 1) player.tou = 1;
 	if(player.spe > player.getMaxStats("spe")) player.spe = player.getMaxStats("spe");
 	if(player.spe < 1) player.spe = 1;
-	if(player.inte > player.getMaxStats("inte")) player.inte= player.getMaxStats("inte");
+	if(player.inte > player.getMaxStats("inte")) player.inte = player.getMaxStats("inte");
 	if(player.inte < 1) player.inte = 1;
-	if(player.lib > 100) player.lib = 100;
+	if(player.lib > player.getMaxStats("libi")) player.lib = player.getMaxStats("libi");
 	if(player.lib < 0) player.lib = 0;
 	//Minimum libido. Rewritten.
 	var minLib:Number = 0;
