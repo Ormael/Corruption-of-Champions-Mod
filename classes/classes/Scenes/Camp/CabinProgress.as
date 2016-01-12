@@ -237,7 +237,7 @@ package classes.Scenes.Camp
 				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = maxWoodSupply;
 				outputText(" Your wood capacity is full.")
 			}
-			else (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
+			else if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
 				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = 300;
 				outputText(" Your wood capacity is full.")
 			}
@@ -248,13 +248,13 @@ package classes.Scenes.Camp
 			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
 			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n");
 			}
-			else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
+			else {
 			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300" + "\n");
 			}
 			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) { 
 			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600" + " \n");
 			}
-			else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) { 
+			else { 
 			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200" + " \n");
 			}
 		}
