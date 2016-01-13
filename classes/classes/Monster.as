@@ -145,10 +145,18 @@
 		{
 			//Base HP
 			var temp:Number = 50 + this.bonusHP;
-			temp += (this.tou * 2);
+			temp += (this.tou * 2);   //How to make monsters to use of hp per tou changes too??
 			//Apply perks
 			if (findPerk(PerkLib.RefinedBody) >= 0) temp += 50;
+			if (findPerk(PerkLib.RefinedBody2) >= 0) temp += 50;
+			if (findPerk(PerkLib.RefinedBody3) >= 0) temp += 50;
+			if (findPerk(PerkLib.RefinedBody4) >= 0) temp += 50;
+			if (findPerk(PerkLib.RefinedBody5) >= 0) temp += 50;
 			if (findPerk(PerkLib.Tank) >= 0) temp += this.tou;
+			if (findPerk(PerkLib.Tank2) >= 0) temp += this.tou;
+			if (findPerk(PerkLib.Tank3) >= 0) temp += this.tou;
+			if (findPerk(PerkLib.Tank4) >= 0) temp += this.tou;
+			if (findPerk(PerkLib.Tank5) >= 0) temp += this.tou;
 			//Apply NG+, NG++, NG+++, etc.
 			if (short == "doppleganger" || short == "pod" || short == "sand trap" || short == "sand tarp") {
 				temp += 200 * player.newGamePlusMod();
