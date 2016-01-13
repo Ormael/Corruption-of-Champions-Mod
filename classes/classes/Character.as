@@ -818,11 +818,24 @@ import classes.Items.JewelryLib;
 		public function maxHP():Number
 		{
 			var max:Number = 0;
-			max += int(tou * 2 + 50);
+			if (player.tou < 20) max += int(tou * 2 + 50);
+			else if (player.tou >= 20 && player.tou < 40) max += int(tou * 3 + 50);
+			else if (player.tou >= 40 && player.tou < 60) max += int(tou * 4 + 50);
+			else if (player.tou >= 60 && player.tou < 80) max += int(tou * 5 + 50);
+			else (player.tou >= 80) max += int(tou * 6 + 50);
 			if (findPerk(PerkLib.RefinedBody) >= 0) max += 50;
+			if (findPerk(PerkLib.RefinedBody2) >= 0) max += 50;
+			if (findPerk(PerkLib.RefinedBody3) >= 0) max += 50;
+			if (findPerk(PerkLib.RefinedBody4) >= 0) max += 50;
+			if (findPerk(PerkLib.RefinedBody5) >= 0) max += 50;
 			if (findPerk(PerkLib.Tank) >= 0) max += Math.round(tou);
+			if (findPerk(PerkLib.Tank2) >= 0) max += Math.round(tou);
+			if (findPerk(PerkLib.Tank3) >= 0) max += Math.round(tou);
+			if (findPerk(PerkLib.Tank4) >= 0) max += Math.round(tou);
+			if (findPerk(PerkLib.Tank5) >= 0) max += Math.round(tou);
 			if (findPerk(PerkLib.JobGuardian) >= 0) max += 30;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 150;
+			if (findPerk(PerkLib.AscensionHardiness) >= 0) max += perkv1(PerkLib.AscensionHardiness) * 20;
 			if (findPerk(PerkLib.ChiReflowDefense) >= 0) max += UmasShop.NEEDLEWORK_DEFENSE_EXTRA_HP;
 			max += level * 15;
 			if (jewelryEffectId == JewelryLib.MODIFIER_HP) max += jewelryEffectMagnitude;
