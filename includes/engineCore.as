@@ -2550,7 +2550,11 @@ public function stats(stre:Number, toug:Number, spee:Number, intel:Number, libi:
 	if(player.sens < 10) player.sens = 10;
 	
 	//Add HP for toughness change.
-	HPChange(toug*2, false);
+	if (player.tou < 20) HPChange(toug*2, false);
+	else if (player.tou >= 20 && player.tou < 40) HPChange(toug*3, false);
+	else if (player.tou >= 40 && player.tou < 60) HPChange(toug*4, false);
+	else if (player.tou >= 60 && player.tou < 80) HPChange(toug*5, false);
+	else (player.tou >= 80) HPChange(toug*6, false);
 	//Reduce hp if over max
 	if(player.HP > maxHP()) player.HP = maxHP();
 	
