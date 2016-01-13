@@ -748,10 +748,10 @@ private function doCamp():void { //Only called by playerMenu
 		removeButton(0); //Explore
 		removeButton(1); //Places
 		if (model.time.hours >= 23 || model.time.hours < 5) {
-			removeButton(4); //Followers
-			removeButton(5); //Lovers
-			removeButton(6); //Slaves
-			removeButton(7); //Camp Actions
+			removeButton(4); //Camp Actions
+			removeButton(5); //Followers
+			removeButton(6); //Lovers
+			removeButton(7); //Slaves
 		}
 	}
 	if (player.lust >= player.maxLust() && canFap) {
@@ -1113,39 +1113,39 @@ public function campSlavesMenu(descOnly:Boolean = false):void {
 		getGame().DLCPrompt("Slaves DLC", "Get the Slaves DLC to be able to interact with them. Show them that you're dominating!", "$4.99", doCamp);
 		return;
 	}
-	//Modified Camp/Follower List Description:
-	if(amilyScene.amilyFollower() && flags[kFLAGS.AMILY_FOLLOWER] == 2 && flags[kFLAGS.AMILY_BLOCK_COUNTDOWN_BECAUSE_CORRUPTED_JOJO] == 0 && flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0) {
-		outputText("Sometimes you hear a faint moan from not too far away. No doubt the result of your slutty toy mouse playing with herself.\n\n", false);
-		addButton(0, "Amily", amilyScene.amilyFollowerEncounter);
+	if(latexGooFollower() && flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0) {
+		outputText(flags[kFLAGS.GOO_NAME] + " lurks in a secluded section of rocks, only venturing out when called for or when she needs to gather water from the stream.\n\n");
+		addButton(0, flags[kFLAGS.GOO_NAME], latexGirl.approachLatexy);
+	}
+	if(milkSlave() && flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) {
+		outputText("Your well-endowed, dark-skinned milk-girl is here.  She flicks hopeful eyes towards you whenever she thinks she has your attention.\n\n");
+		addButton(1, flags[kFLAGS.MILK_NAME], milkWaifu.milkyMenu);
 	}
 	//Ceraph
 	if (ceraphIsFollower()) {
-		addButton(1, "Ceraph", ceraphFollowerScene.ceraphFollowerEncounter);
-	}
-	//JOJO
-	//If Jojo is corrupted, add him to the masturbate menu.
-	if (campCorruptJojo() && flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) {
-		outputText("From time to time you can hear movement from around your camp, and you routinely find thick puddles of mouse semen.  You are sure Jojo is here if you ever need to sate yourself.\n\n", false);
-		addButton(2, "Jojo", jojoScene.corruptCampJojo, null, null, null, "Call your corrupted pet into camp in order to relieve your desires in a variety of sexual positions?  He's ever so willing after your last encounter with him.");
+		addButton(5, "Ceraph", ceraphFollowerScene.ceraphFollowerEncounter);
 	}
 	//Vapula
 	if(vapulaSlave() && flags[kFLAGS.FOLLOWER_AT_FARM_VAPULA] == 0) {
 		vapula.vapulaSlaveFlavorText();
 		outputText("\n\n");
-		addButton(4, "Vapula", vapula.callSlaveVapula);
+		addButton(6, "Vapula", vapula.callSlaveVapula);
+	}
+	//Modified Camp/Follower List Description:
+	if(amilyScene.amilyFollower() && flags[kFLAGS.AMILY_FOLLOWER] == 2 && flags[kFLAGS.AMILY_BLOCK_COUNTDOWN_BECAUSE_CORRUPTED_JOJO] == 0 && flags[kFLAGS.FOLLOWER_AT_FARM_AMILY] == 0) {
+		outputText("Sometimes you hear a faint moan from not too far away. No doubt the result of your slutty toy mouse playing with herself.\n\n", false);
+		addButton(10, "Amily", amilyScene.amilyFollowerEncounter);
+	}
+	//JOJO
+	//If Jojo is corrupted, add him to the masturbate menu.
+	if (campCorruptJojo() && flags[kFLAGS.FOLLOWER_AT_FARM_JOJO] == 0) {
+		outputText("From time to time you can hear movement from around your camp, and you routinely find thick puddles of mouse semen.  You are sure Jojo is here if you ever need to sate yourself.\n\n", false);
+		addButton(11, "Jojo", jojoScene.corruptCampJojo, null, null, null, "Call your corrupted pet into camp in order to relieve your desires in a variety of sexual positions?  He's ever so willing after your last encounter with him.");
 	}
 	//Bimbo Sophie
 	if(bimboSophie() && flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
 		sophieBimbo.sophieCampLines();
-		addButton(3, "Sophie", sophieBimbo.approachBimboSophieInCamp);
-	}
-	if(latexGooFollower() && flags[kFLAGS.FOLLOWER_AT_FARM_LATEXY] == 0) {
-		outputText(flags[kFLAGS.GOO_NAME] + " lurks in a secluded section of rocks, only venturing out when called for or when she needs to gather water from the stream.\n\n");
-		addButton(8, flags[kFLAGS.GOO_NAME], latexGirl.approachLatexy);
-	}
-	if(milkSlave() && flags[kFLAGS.FOLLOWER_AT_FARM_BATH_GIRL] == 0) {
-		outputText("Your well-endowed, dark-skinned milk-girl is here.  She flicks hopeful eyes towards you whenever she thinks she has your attention.\n\n");
-		addButton(7, flags[kFLAGS.MILK_NAME], milkWaifu.milkyMenu);
+		addButton(12, "Sophie", sophieBimbo.approachBimboSophieInCamp);
 	}
 	addButton(14, "Back", playerMenu);
 }
@@ -1164,9 +1164,28 @@ public function campFollowers(descOnly:Boolean = false):void {
 		emberScene.emberCampDesc();
 		addButton(0, "Ember", emberScene.emberCampMenu, null, null, null, "Check up on Ember the dragon-" + (flags[kFLAGS.EMBER_ROUNDFACE] == 0 ? "morph" : flags[kFLAGS.EMBER_GENDER] == 1 ? "boy" : "girl" ) + "");
 	}
-	//Helspawn
-	if (helspawnFollower()) {
-		addButton(1, flags[kFLAGS.HELSPAWN_NAME], helSpawnScene.helspawnsMainMenu);
+	//Sophie
+	if(sophieFollower() && flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
+		if(rand(5) == 0) outputText("Sophie is sitting by herself, applying yet another layer of glittering lip gloss to her full lips.\n\n");
+		else if(rand(4) == 0) outputText("Sophie is sitting in her nest, idly brushing out her feathers.  Occasionally, she looks up from her work to give you a sultry wink and a come-hither gaze.\n\n");
+		else if(rand(3) == 0) outputText("Sophie is fussing around in her nest, straightening bits of straw and grass, trying to make it more comfortable.  After a few minutes, she flops down in the middle and reclines, apparently satisfied for the moment.\n\n");
+		else if(rand(2) == 0 || flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 0) {
+			if(flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0) outputText("Your platinum-blonde harpy, Sophie, is currently reading a book - a marked change from her bimbo-era behavior.  Occasionally, though, she glances up from the page and gives you a lusty look.  Some things never change....\n\n");
+			else outputText("Your pink harpy, Sophie, is currently reading a book.  She seems utterly absorbed in it, though you question how she obtained it.  Occasionally, though, she'll glance up from the pages to shoot you a lusty look.\n\n");
+		}
+		else {
+			outputText("Sophie is sitting in her nest, ");
+			if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] < 5) {
+				outputText("across from your daughter");
+				if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 1) outputText("s");
+			}
+			else outputText("surrounded by your daughters");
+			outputText(", apparently trying to teach ");
+			if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) outputText("her");
+			else outputText("them");
+			outputText(" about hunting and gathering techniques.  Considering their unusual upbringing, it can't be as easy for them...\n\n");
+		}
+		addButton(1, "Sophie", sophieFollowerScene.followerSophieMainScreen, null, null, null, "Check up on Sophie the harpy.");
 	}
 	//Pure Jojo
 	if (player.findStatusAffect(StatusAffects.PureCampJojo) >= 0) {
@@ -1185,6 +1204,13 @@ public function campFollowers(descOnly:Boolean = false):void {
 			addButton(2, "Jojo", jojoScene.jojoCamp, null, null, null, "Go find Jojo around the edges of your camp and meditate with him or talk about watch duty.");
 		}
 	}
+	//Helspawn
+	if (helspawnFollower()) {
+		addButton(6, flags[kFLAGS.HELSPAWN_NAME], helSpawnScene.helspawnsMainMenu);
+	}
+	if (flags[kFLAGS.VALARIA_AT_CAMP] == 1) {
+		addButton(7, "Valeria", valeria.valeriaFollower, null, null, null, "Visit Valeria the goo-girl. You can even take and wear her as goo armor if you like.");
+	}
 	//RATHAZUL
 	//if rathazul has joined the camp
 	if (player.findStatusAffect(StatusAffects.CampRathazul) >= 0) {
@@ -1196,7 +1222,7 @@ public function campFollowers(descOnly:Boolean = false):void {
 			outputText("\n\n", false);
 		}
 		else outputText("Tucked into a shaded corner of the rocks is a bevy of alchemical devices and equipment.  The alchemist Rathazul looks to be hard at work on the silken equipment you've commissioned him to craft.\n\n", false);
-		addButton(3, "Rathazul", kGAMECLASS.rathazul.returnToRathazulMenu, null, null, null, "Visit with Rathazul to see what alchemical supplies and services he has available at the moment.");
+		addButton(10, "Rathazul", kGAMECLASS.rathazul.returnToRathazulMenu, null, null, null, "Visit with Rathazul to see what alchemical supplies and services he has available at the moment.");
 	}
 	else
 	{
@@ -1229,34 +1255,9 @@ public function campFollowers(descOnly:Boolean = false):void {
 	}
 	//Shouldra
 	if (followerShouldra()) {
-		addButton(4, "Shouldra", shouldraFollower.shouldraFollowerScreen, null, null, null, "Talk to Shouldra. She is currently residing in your body.");
+		addButton(11, "Shouldra", shouldraFollower.shouldraFollowerScreen, null, null, null, "Talk to Shouldra. She is currently residing in your body.");
 	}
-	//Sophie
-	if(sophieFollower() && flags[kFLAGS.FOLLOWER_AT_FARM_SOPHIE] == 0) {
-		if(rand(5) == 0) outputText("Sophie is sitting by herself, applying yet another layer of glittering lip gloss to her full lips.\n\n");
-		else if(rand(4) == 0) outputText("Sophie is sitting in her nest, idly brushing out her feathers.  Occasionally, she looks up from her work to give you a sultry wink and a come-hither gaze.\n\n");
-		else if(rand(3) == 0) outputText("Sophie is fussing around in her nest, straightening bits of straw and grass, trying to make it more comfortable.  After a few minutes, she flops down in the middle and reclines, apparently satisfied for the moment.\n\n");
-		else if(rand(2) == 0 || flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 0) {
-			if(flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00282] > 0) outputText("Your platinum-blonde harpy, Sophie, is currently reading a book - a marked change from her bimbo-era behavior.  Occasionally, though, she glances up from the page and gives you a lusty look.  Some things never change....\n\n");
-			else outputText("Your pink harpy, Sophie, is currently reading a book.  She seems utterly absorbed in it, though you question how she obtained it.  Occasionally, though, she'll glance up from the pages to shoot you a lusty look.\n\n");
-		}
-		else {
-			outputText("Sophie is sitting in her nest, ");
-			if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] < 5) {
-				outputText("across from your daughter");
-				if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] > 1) outputText("s");
-			}
-			else outputText("surrounded by your daughters");
-			outputText(", apparently trying to teach ");
-			if(flags[kFLAGS.SOPHIE_ADULT_KID_COUNT] == 1) outputText("her");
-			else outputText("them");
-			outputText(" about hunting and gathering techniques.  Considering their unusual upbringing, it can't be as easy for them...\n\n");
-		}
-		addButton(5, "Sophie", sophieFollowerScene.followerSophieMainScreen, null, null, null, "Check up on Sophie the harpy.");
-	}
-	if (flags[kFLAGS.VALARIA_AT_CAMP] == 1) {
-		addButton(6, "Valeria", valeria.valeriaFollower, null, null, null, "Visit Valeria the goo-girl. You can even take and wear her as goo armor if you like.");
-	}
+
 	addButton(14,"Back",playerMenu);
 }
 
