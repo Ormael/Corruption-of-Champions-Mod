@@ -40,6 +40,7 @@ package classes
 		// Ascension perks
 		public static const AscensionDesires:AscensionDesiresPerk = new AscensionDesiresPerk();
 		public static const AscensionEndurance:AscensionEndurancePerk = new AscensionEndurancePerk();
+		public static const AscensionDesires:AscensionHardinessPerk = new AscensionHardinessPerk();
 		public static const AscensionFertility:AscensionFertilityPerk = new AscensionFertilityPerk();
 		public static const AscensionFortune:AscensionFortunePerk = new AscensionFortunePerk();
 		public static const AscensionMoralShifter:AscensionMoralShifterPerk = new AscensionMoralShifterPerk();
@@ -284,6 +285,9 @@ package classes
 				"You choose the 'Refined Body' perk, giving you an additional 50 HP!");
 		public static const Regeneration:RegenerationPerk = new RegenerationPerk();
 		public static const Regeneration2:Regeneration2Perk = new Regeneration2Perk();
+		public static const Regeneration2:Regeneration3Perk = new Regeneration3Perk();
+		public static const Regeneration2:Regeneration4Perk = new Regeneration4Perk();
+		public static const Regeneration2:Regeneration5Perk = new Regeneration5Perk();
 		public static const Resistance:PerkType = mk("Resistance", "Resistance",
 				"Reduces lust gain by 10%.",
 				"You choose the 'Resistance' perk, reducing the rate at which your lust increases by 10%.");
