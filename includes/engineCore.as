@@ -585,9 +585,33 @@ public function buildPerkList():Array {
 	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 25) {
 		_add(new PerkClass(PerkLib.RefinedBody));
 	}
+	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 25 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.RefinedBody2));
+	}
+	if(player.findPerk(PerkLib.RefinedBody2) >= 0 && player.tou >= 40 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.RefinedBody3));
+	}
+	if(player.findPerk(PerkLib.RefinedBody3) >= 0 && player.tou >= 55 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.RefinedBody4));
+	}
+	if(player.findPerk(PerkLib.RefinedBody4) >= 0 && player.tou >= 70 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.RefinedBody5));
+	}
 	//slot 2 - regeneration perk
 	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 50) {
 		_add(new PerkClass(PerkLib.Regeneration));
+	}
+	if(player.findPerk(PerkLib.Regeneration) >= 0 && player.tou >= 70 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.Regeneration2));
+	}
+	if(player.findPerk(PerkLib.Regeneration2) >= 0 && player.tou >= 90 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.Regeneration3));
+	}
+	if(player.findPerk(PerkLib.Regeneration3) >= 0 && player.tou >= 110 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.Regeneration4));
+	}
+	if(player.findPerk(PerkLib.Regeneration4) >= 0 && player.tou >= 130 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.Regeneration5));
 	}
 	if(player.tou >= 50 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedEndurance));
@@ -612,8 +636,17 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 60) {
 			_add(new PerkClass(PerkLib.Tank));
 		}
-		if(player.findPerk(PerkLib.Regeneration) >= 0 && player.tou >= 70) {
-			_add(new PerkClass(PerkLib.Regeneration2));
+		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 80 && player.newGamePlusMod >= 1) {
+			_add(new PerkClass(PerkLib.Tank2));
+		}
+		if(player.findPerk(PerkLib.Tank2) >= 0 && player.tou >= 100 && player.newGamePlusMod >= 2) {
+			_add(new PerkClass(PerkLib.Tank3));
+		}
+		if(player.findPerk(PerkLib.Tank3) >= 0 && player.tou >= 120 && player.newGamePlusMod >= 3) {
+			_add(new PerkClass(PerkLib.Tank4));
+		}
+		if(player.findPerk(PerkLib.Tank4) >= 0 && player.tou >= 140 && player.newGamePlusMod >= 4) {
+			_add(new PerkClass(PerkLib.Tank5));
 		}
 		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.ImmovableObject));
