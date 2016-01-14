@@ -2414,26 +2414,26 @@ use namespace kGAMECLASS;
 			if (isTaur() || isDrider()) maxSpe += 20;
 			//Job perks
 			if (findPerk(PerkLib.JobArcher) >= 0) {
-				maxSpe +=5
+				maxSpe += 5
 			}
 			if (findPerk(PerkLib.JobGuardian) >= 0) {
-				maxTou +=5
+				maxTou += 5
 			}
 			if (findPerk(PerkLib.JobMunchkin) >= 0) {
-				maxStr +=30
-				maxTou +=30
-				maxSpe +=30
-				maxInt +=30
-				maxLib +=20
+				maxStr += 30
+				maxTou += 30
+				maxSpe += 30
+				maxInt += 30
+				maxLib += 20
 			}
 			if (findPerk(PerkLib.JobSeducer) >= 0) {
-				maxLib +=5
+				maxLib += 5
 			}
 			if (findPerk(PerkLib.JobSorcerer) >= 0) {
-				maxInt +=5
+				maxInt += 5
 			}
 			if (findPerk(PerkLib.JobWarrior) >= 0) {
-				maxStr +=5
+				maxStr += 5
 			}
 			//Apply New Game+
 			maxStr += 25 * newGamePlusMod();
