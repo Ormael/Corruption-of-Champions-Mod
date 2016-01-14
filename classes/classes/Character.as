@@ -818,11 +818,11 @@ import classes.Items.JewelryLib;
 		public function maxHP():Number
 		{
 			var max:Number = 0;
-			if (player.tou < 20) max += int(tou * 2 + 50);
-			else if (player.tou >= 20 && player.tou < 40) max += int(tou * 3 + 50);
-			else if (player.tou >= 40 && player.tou < 60) max += int(tou * 4 + 50);
-			else if (player.tou >= 60 && player.tou < 80) max += int(tou * 5 + 50);
-			else (player.tou >= 80) max += int(tou * 6 + 50);
+			if (player.tou < 21) max += int(tou * 2 + 50);
+			else if (player.tou >= 21 && player.tou < 41) max += int(tou * 3 + 30);
+			else if (player.tou >= 41 && player.tou < 61) max += int(tou * 4 - 10);
+			else if (player.tou >= 61 && player.tou < 81) max += int(tou * 5 - 70);
+			else (player.tou >= 81) max += int(tou * 6 - 150);
 			if (findPerk(PerkLib.RefinedBody) >= 0) max += 50;
 			if (findPerk(PerkLib.RefinedBody2) >= 0) max += 50;
 			if (findPerk(PerkLib.RefinedBody3) >= 0) max += 50;
