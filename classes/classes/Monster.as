@@ -145,7 +145,11 @@
 		{
 			//Base HP
 			var temp:Number = 50 + this.bonusHP;
-			temp += (this.tou * 2);   //How to make monsters to use of hp per tou changes too??
+			if (this.tou < 21) temp += (this.tou * 2);
+			else if (this.tou >= 21 && this.tou < 41) temp += (this.tou * 3 - 20);
+			else if (this.tou >= 41 && this.tou < 61) temp += (this.tou * 4 - 60);
+			else if (this.tou >= 61 && this.tou < 81) temp += (this.tou * 5 - 120);
+			else (this.tou >= 81) temp += (this.tou * 6 - 200);
 			//Apply perks
 			if (findPerk(PerkLib.RefinedBody) >= 0) temp += 50;
 			if (findPerk(PerkLib.RefinedBody2) >= 0) temp += 50;
