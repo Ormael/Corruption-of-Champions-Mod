@@ -20,6 +20,7 @@
 		public const MAX_MORALSHIFTER_LEVEL:int = 10;
 		public const MAX_DESIRES_LEVEL:int = 10;
 		public const MAX_ENDURANCE_LEVEL:int = 10;
+		public const MAX_HARDINESS_LEVEL:int = 10;
 		public const MAX_MYSTICALITY_LEVEL:int = 10;
 		public const MAX_WISDOM_LEVEL:int = 5;
 		public const MAX_FORTUNE_LEVEL:int = -1; //No maximum level.
