@@ -2025,13 +2025,20 @@ public function regeneration(combat:Boolean = true):void {
 		healingPercent = 0;
 		if (player.hunger >= 25 || flags[kFLAGS.HUNGER_ENABLED] <= 0)
 		{
-			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 1;
-			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 1;
+			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 0,5;
+			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 0,5;
+			if(player.findPerk(PerkLib.Regeneration3) >= 0) healingPercent += 0,5;
+			if(player.findPerk(PerkLib.Regeneration4) >= 0) healingPercent += 0,5;
+			if(player.findPerk(PerkLib.Regeneration5) >= 0) healingPercent += 0,5;
 		}
-		if(player.armor.name == "skimpy nurse's outfit") healingPercent += 1;
+		if(player.armor.name == "skimpy nurse's outfit") healingPercent += 0,5;
 		if(player.armor == armors.GOOARMR) healingPercent += (valeria.valeriaFluidsEnabled() ? (flags[kFLAGS.VALERIA_FLUIDS] < 50 ? flags[kFLAGS.VALERIA_FLUIDS] / 25 : 2) : 2);
-		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 1;
-		if(healingPercent > 5) healingPercent = 5;
+		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 0,5;
+		if(healingPercent > 2 && player.newGamePlusMod == 0) healingPercent = 2;
+		if(healingPercent > 3 && player.newGamePlusMod == 1) healingPercent = 3;
+		if(healingPercent > 4 && player.newGamePlusMod == 2) healingPercent = 4;
+		if(healingPercent > 5 && player.newGamePlusMod == 3) healingPercent = 5;
+		if(healingPercent > 6 && player.newGamePlusMod >= 4) healingPercent = 6;
 		HPChange(Math.round(maxHP() * healingPercent / 100), false);
 	}
 	else {
@@ -2039,13 +2046,20 @@ public function regeneration(combat:Boolean = true):void {
 		healingPercent = 0;
 		if (player.hunger >= 25 || flags[kFLAGS.HUNGER_ENABLED] <= 0)
 		{
-			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 2;
-			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 2;
+			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 1;
+			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 1;
+			if(player.findPerk(PerkLib.Regeneration3) >= 0) healingPercent += 1;
+			if(player.findPerk(PerkLib.Regeneration4) >= 0) healingPercent += 1;
+			if(player.findPerk(PerkLib.Regeneration5) >= 0) healingPercent += 1;
 		}
-		if(player.armorName == "skimpy nurse's outfit") healingPercent += 2;
+		if(player.armorName == "skimpy nurse's outfit") healingPercent += 1;
 		if(player.armorName == "goo armor") healingPercent += (valeria.valeriaFluidsEnabled() ? (flags[kFLAGS.VALERIA_FLUIDS] < 50 ? flags[kFLAGS.VALERIA_FLUIDS] / 16 : 3) : 3);
-		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 2;
-		if(healingPercent > 10) healingPercent = 10;
+		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 1;
+		if(healingPercent > 4 && player.newGamePlusMod == 0) healingPercent = 4;
+		if(healingPercent > 6 && player.newGamePlusMod == 1) healingPercent = 6;
+		if(healingPercent > 8 && player.newGamePlusMod == 2) healingPercent = 8;
+		if(healingPercent > 10 && player.newGamePlusMod == 3) healingPercent = 10;
+		if(healingPercent > 12 && player.newGamePlusMod >= 4) healingPercent = 12;
 		HPChange(Math.round(maxHP() * healingPercent / 100), false);
 	}
 }
