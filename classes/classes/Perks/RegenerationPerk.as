@@ -16,8 +16,8 @@ package classes.Perks
 		public function RegenerationPerk() 
 		{
 			super("Regeneration", "Regeneration",
-				"Regenerates 2% of max HP/hour and 1% of max HP/round.",
-				"You choose the 'Regeneration' perk, allowing you to heal 1% of max HP every round of combat and 2% of max HP every hour!");
+				"Regenerates 1% of max HP/hour and 0,5% of max HP/round.",
+				"You choose the 'Regeneration' perk, allowing you to heal 0,5% of max HP every round of combat and 1% of max HP every hour!");
 		}
 		
 	}
