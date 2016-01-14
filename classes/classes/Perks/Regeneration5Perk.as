@@ -16,8 +16,8 @@ package classes.Perks
 		public function Regeneration5Perk() 
 		{
 			super("Regeneration 5", "Regeneration 5",
-				"Regenerates further 2% of max HP/hour and 1% of max HP/round.",
-				"You choose the 'Regeneration 5' perk, giving you an additional 1% of max HP per turn in combat and 2% of max HP per hour.");
+				"Regenerates further 1% of max HP/hour and 0,5% of max HP/round.",
+				"You choose the 'Regeneration 5' perk, giving you an additional 0,5% of max HP per turn in combat and 1% of max HP per hour.");
 		}
 		
 	}
