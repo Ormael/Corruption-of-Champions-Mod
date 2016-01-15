@@ -33,6 +33,7 @@ package classes.Scenes.Areas
 			choice[choice.length] = 0; //Behemoth
 			if (rand(3) == 0) choice[choice.length] = 1; //Find Drake's Heart
 			if (rand(3) == 0) choice[choice.length] = 1; //Find nothing! The rand will be removed from this once the Volcanic Crag is populated with more encounters.
+			choice[choice.length] = 2; //Imps
 			
 			//DLC april fools
 			if (isAprilFools() && flags[kFLAGS.DLC_APRIL_FOOLS] == 0) {
@@ -52,6 +53,9 @@ package classes.Scenes.Areas
 				case 1:
 					outputText("While you're minding your own business, you spot a flower. You walk over to it, pick it up and smell it. By Marae, it smells amazing! It looks like Drake's Heart as the legends foretold. ", true);
 					inventory.takeItem(consumables.DRAKHRT, camp.returnToCampUseOneHour);
+					break;
+				case 2:
+					genericImpEncounters2;
 					break;
 				default:
 					outputText("You spend one hour exploring the infernal landscape but you don't manage to find anything interesting.", true);
