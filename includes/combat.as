@@ -703,6 +703,8 @@ private function fireBow():void {
 		outputText("<b>(<font color=\"#800000\">" + String(damage) + "</font>)</b>");
 		outputText("\n\n");
 		checkAchievementDamage(damage);
+		flags[kFLAGS.ARROWS_SHOT]++;
+		bowPerkUnlock();
 		doNext(endHpVictory);
 		return;
 	}
