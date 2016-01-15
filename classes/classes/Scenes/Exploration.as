@@ -185,6 +185,77 @@ package classes.Scenes
 				}
 			}
 		}
+
+		public function genericImpEncounters1(even:Boolean = false):void {
+			//Imptacular Encounter
+			var impChooser:int = rand(100);
+			//Level modifier
+			if (player.level < 20) impChooser += player.level;
+			else impChooser += 20;
+			//Limit chooser ranges
+			if (impChooser > 100) impChooser = 100;
+			if (player.level < 8 && impChooser >= 40) impChooser = 39;
+			else if (player.level < 12 && impChooser >= 60) impChooser = 59;
+			else if (player.level < 16 && impChooser >= 80) impChooser = 79;
+			//Imp Lord
+			if (impChooser >= 50 && impChooser < 70) {
+				kGAMECLASS.impScene.impLordEncounter();
+				spriteSelect(29);
+				return;
+			}
+			//Imp Warlord
+			else if (impChooser >= 70 && impChooser < 90) {
+				kGAMECLASS.impScene.impWarlordEncounter();
+				spriteSelect(125);
+				return;
+			}
+			//Imp Overlord (Rare!)
+			else if (impChooser >= 90) {
+				kGAMECLASS.impScene.impOverlordEncounter();
+				spriteSelect(126);
+				return;
+			}
+			else {
+				outputText("An imp wings out of the sky and attacks!", true);
+				if (flags[kFLAGS.CODEX_ENTRY_IMPS] <= 0) {
+					flags[kFLAGS.CODEX_ENTRY_IMPS] = 1;
+					outputText("\n\n<b>New codex entry unlocked: Imps!</b>")
+				}
+				startCombat(new Imp());
+				spriteSelect(29);
+			}
+			return;
+		}
+
+		public function genericImpEncounters2(even:Boolean = false):void {
+			//Imptacular Encounter
+			var impChooser:int = rand(100);
+			//Level modifier
+			if (player.level < 20) impChooser += player.level;
+			else impChooser += 20;
+			//Limit chooser ranges
+			if (impChooser > 100) impChooser = 100;
+			if (player.level < 16 && impChooser >= 75) impChooser = 74;
+			//Imp Warlord
+			if (impChooser >= 50 && impChooser < 75) {
+				kGAMECLASS.impScene.impWarlordEncounter();
+				spriteSelect(125);
+				return;
+			}
+			//Imp Overlord
+			else if (impChooser >= 75) {
+				kGAMECLASS.impScene.impOverlordEncounter();
+				spriteSelect(126);
+				return;
+			}
+			//Pack of Imps
+			else {
+				outputText("An pack of imps wings out of the sky and attacks!", true);
+				startCombat(new ImpPack());
+				spriteSelect(29);
+			}
+			return;
+		}
 		
 		
 		//Try to find a new location - called from doExplore once the first location is found
