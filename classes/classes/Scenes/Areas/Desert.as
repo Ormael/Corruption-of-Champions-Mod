@@ -18,6 +18,7 @@ package classes.Scenes.Areas
 		public var sandTrapScene:SandTrapScene = new SandTrapScene();
 		public var sandWitchScene:SandWitchScene = new SandWitchScene();
 		public var wanderer:Wanderer = new Wanderer();
+		public var genericImpEncounters1:GenericImpEncounters1 = new genericImpEncounters1();
 		public function Desert()
 		{
 		}
@@ -53,6 +54,11 @@ package classes.Scenes.Areas
 			//Ant colony debug chances
 			if (player.level >= 5 && flags[kFLAGS.ANT_WAIFU] == 0 && (player.exploredDesert % 8 == 0) && flags[kFLAGS.ANTS_PC_FAILED_PHYLLA] == 0 && flags[kFLAGS.ANT_COLONY_KEPT_HIDDEN] == 0) {
 				antsScene.antColonyEncounter();
+				return;
+			}
+			//Imps
+			if (player.level >= 2 && rand(20) < 10) {
+				kGAMECLASS.exploration.genericImpEncounters1();
 				return;
 			}
 			//int over 50?  Chance of alice encounter!
