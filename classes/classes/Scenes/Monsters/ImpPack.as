@@ -14,7 +14,7 @@ package classes.Scenes.Camp
 		
 		override public function defeated(hpVictory:Boolean):void
 		{
-      impGangVICTORY1();
+			impGangVICTORY1();
 		}
 
 		override public function won(hpVictory:Boolean, pcCameWorms:Boolean):void
