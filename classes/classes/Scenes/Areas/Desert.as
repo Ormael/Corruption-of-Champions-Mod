@@ -18,7 +18,6 @@ package classes.Scenes.Areas
 		public var sandTrapScene:SandTrapScene = new SandTrapScene();
 		public var sandWitchScene:SandWitchScene = new SandWitchScene();
 		public var wanderer:Wanderer = new Wanderer();
-		public var genericImpEncounters1:GenericImpEncounters1 = new genericImpEncounters1();
 		public function Desert()
 		{
 		}
@@ -60,6 +59,11 @@ package classes.Scenes.Areas
 			if (player.level >= 2 && rand(20) < 10) {
 				kGAMECLASS.exploration.genericImpEncounters1();
 				return;
+			}
+			//Boosts imps rates!
+			if (player.findPerk(PerkLib.PiercedLethite) >= 0 && rand(3) == 0) {
+				if (rand(2) == 0) chooser = 1;
+				else chooser = 3;
 			}
 			//int over 50?  Chance of alice encounter!
 			if (rand(4) == 0 && player.inte > 50) {
