@@ -58,7 +58,8 @@ package classes.Scenes.Areas
 					genericImpEncounters2;
 					break;
 				default:
-					outputText("You spend one hour exploring the infernal landscape but you don't manage to find anything interesting.", true);
+					outputText("You spend one hour exploring the infernal landscape but you don't manage to find anything interesting, yet you this time you managed walk a little further inside this place than the last time.", true);
+					dynStats("spe", .5);
 					doNext(camp.returnToCampUseOneHour);
 			}
 		}
