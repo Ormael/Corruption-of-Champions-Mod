@@ -593,7 +593,7 @@ private function struggle():void {
 
 private function fireBow():void {
 	clearOutput();
-	if (player.fatigue + physicalCost(25) > player.maxFatigue()) {
+	if (player.fatigue + bowCost(25) > player.maxFatigue()) {
 		outputText("You're too fatigued to fire the bow!");
 		menu();
 		addButton(0, "Next", combatMenu, false);
@@ -711,6 +711,21 @@ private function fireBow():void {
 	else outputText(".  It's clearly very painful. <b>(<font color=\"#800000\">" + String(damage) + "</font>)</b>\n\n");
 	checkAchievementDamage(damage);
 	enemyAI();
+}
+
+public function bowPerkUnlock():void {
+	if(flags[kFLAGS.ARROWS_SHOT] >= 20 && player.findPerk(PerkLib.BowShooting) < 0) {
+		outputText("<b>You've become more comfortable with using bow, unlocking the Bow Shooting perk and reducing fatigue cost of shooting arrows by 20%!</b>\n\n");
+		player.createPerk(PerkLib.BowShooting,20,0,0,0);
+	}
+	if(flags[kFLAGS.ARROWS_SHOT] >= 50 && player.perkv1(PerkLib.BowShooting) < 40) {
+		outputText("<b>You've become more comfortable with using bow, further reducing cost of shooting arrows by an additional 20%!</b>\n\n");
+		player.setPerkValue(PerkLib.BowShooting,1,40);
+	}
+	if(flags[kFLAGS.ARROWS_SHOT] >= 125 && player.perkv1(PerkLib.BowShooting) < 60) {
+		outputText("<b>You've become more comfortable with using bow, further reducing cost of shooting arrows by an additional 20%!</b>\n\n");
+		player.setPerkValue(PerkLib.BowShooting,1,60);
+	}
 }
 
 private function fireBreathMenu():void {
