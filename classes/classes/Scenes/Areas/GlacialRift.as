@@ -120,7 +120,8 @@ package classes.Scenes.Areas
 					genericImpEncounters2;
 					break;
 				default:
-					outputText("You spend an hour trudging through the bleak and bitingly cold glaciers but you don’t find anything interesting.", true);
+					outputText("You spend an hour trudging through the bleak and bitingly cold glaciers but you don’t find anything interesting. But on your way back you feel you're a little more used to traveling throu this harsh area.", true);
+					dynStats("tou", .5);
 					doNext(camp.returnToCampUseOneHour);
 			}
 		}
