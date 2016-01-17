@@ -153,6 +153,9 @@
 			if (short == "doppleganger" || short == "pod" || short == "sand trap" || short == "sand tarp") {
 				temp += 200 * player.newGamePlusMod();
 			}
+			else if (short == "Marae") {
+				temp += 2500 * player.newGamePlusMod();
+			}
 			else {
 				temp += 1000 * player.newGamePlusMod();
 			}
@@ -184,7 +187,12 @@
 			if (findPerk(PerkLib.InhumanDesire) >= 0) temp += 20;
 			if (findPerk(PerkLib.DemonicDesire) >= 0) temp += this.lib;
 			//Apply NG+, NG++, NG+++, etc.
-			temp += 10 * player.newGamePlusMod();
+			if (short == "Marae") {
+				temp += 50 * player.newGamePlusMod();
+			}
+			else {
+				temp += 10 * player.newGamePlusMod();
+			}
 		}
 
 		/**
