@@ -56,6 +56,7 @@ package classes.Scenes.Camp
 			this.armorName = "leathery skin";
 			this.armorDef = 3;
 			this.bonusHP = 300;
+			this.bonusLust = 75;
 			this.lust = 30;
 			this.lustVuln = .65;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
