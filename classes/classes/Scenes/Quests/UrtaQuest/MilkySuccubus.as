@@ -115,6 +115,7 @@ package classes.Scenes.Quests.UrtaQuest
 			this.armorName = "demonic skin";
 			this.armorDef = 10;
 			this.bonusHP = 700;
+			this.bonusLust = 20;
 			this.lust = 40;
 			this.lustVuln = .3;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
