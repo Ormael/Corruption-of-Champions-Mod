@@ -167,6 +167,7 @@
 			this.weaponAttack = 3;
 			this.armorName = RELIGIOUS_CLOTHES;
 			this.armorDef = 5;
+			this.bonusLust = 10;
 			this.lust = 25;
 			this.lustVuln = 0.75;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
