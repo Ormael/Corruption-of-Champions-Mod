@@ -123,6 +123,8 @@ package classes.Scenes.Areas.Forest
 			this.armorName = "leather straps";
 			this.bonusHP = 50 + (int(flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2) * 15);
 			if (bonusHP > 3350) bonusHP = 3350;
+			this.bonusLust = 10 + (int(flags[kFLAGS.TAMANI_NUMBER_OF_DAUGHTERS] / 2) * 5);
+			if (bonusLust > 1010) bonusLust = 1010;
 			this.lust = 30;
 			this.lustVuln = .65;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
