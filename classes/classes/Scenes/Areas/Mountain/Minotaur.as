@@ -83,6 +83,7 @@
 			this.weaponVerb = hasAxe?"cleave":"punch";
 			this.armorName = "thick fur";
 			this.bonusHP = 20 + rand(this.ballSize*2);
+			this.bonusLust = rand(this.ballSize*2,5);
 			this.lust = this.ballSize * 3;
 			this.lustVuln = hasAxe?0.84:0.87;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
