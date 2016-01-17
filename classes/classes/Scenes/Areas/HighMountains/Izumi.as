@@ -31,6 +31,7 @@ package classes.Scenes.Areas.HighMountains
 			this.weaponVerb="punch";
 			this.armorName = "silken kimono";
 			this.bonusHP = 660;
+			this.bonusLust = 5;
 			this.lust = 10;
 			this.lustVuln = 0.33;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
