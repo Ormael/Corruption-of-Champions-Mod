@@ -118,6 +118,7 @@
 			this.weaponVerb="claw";
 			this.armorName = "demonic skin";
 			this.bonusHP = 200;
+			this.bonusLust = 20;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 6;
