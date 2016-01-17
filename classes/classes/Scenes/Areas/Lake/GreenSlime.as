@@ -79,6 +79,7 @@
 			this.weaponVerb="slap";
 			this.armorName = "gelatinous skin";
 			this.bonusHP = 30;
+			this.bonusLust = 10;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 2;
