@@ -140,6 +140,7 @@ package classes.Scenes.Areas.HighMountains
 			this.armorName = "chainmail and loincloth";
 			this.armorDef = 26;
 			this.bonusHP = 750;
+			this.bonusLust = 5;
 			this.lust = 10;
 			this.lustVuln = .7;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
