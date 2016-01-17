@@ -183,6 +183,7 @@ package classes.Scenes.Areas.Swamp
 			if (pierced) {
 				this.nipplesPierced = 1;
 				this.bonusHP = 325;
+				this.bonusLust = 15;
 				this.lust = 35;
 				this.lustVuln = .25;
 				this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
@@ -190,6 +191,7 @@ package classes.Scenes.Areas.Swamp
 				this.gems = rand(10) + 30;
 			} else {
 				this.bonusHP = 250;
+				this.bonusLust = 10;
 				this.lust = 30;
 				this.lustVuln = .4;
 				this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
