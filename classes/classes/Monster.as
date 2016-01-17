@@ -171,6 +171,22 @@
 			else if (this.HP>eMaxHP()) this.HP = eMaxHP();
 		}
 
+		public function eMaxLust():Number
+		{
+			//Base lust
+			var temp:Number = 100 + this.bonusLust;
+			//Apply perks
+			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) temp += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl2) >= 0) temp += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl3) >= 0) temp += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl4) >= 0) temp += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl5) >= 0) temp += 20;
+			if (findPerk(PerkLib.InhumanDesire) >= 0) temp += 20;
+			if (findPerk(PerkLib.DemonicDesire) >= 0) temp += this.lib;
+			//Apply NG+, NG++, NG+++, etc.
+			temp += 10 * player.newGamePlusMod();
+		}
+
 		/**
 		 * @return HP/eMaxHP()
 		 */
@@ -1070,7 +1086,7 @@
 			result += Hehas + "str=" + str + ", tou=" + tou + ", spe=" + spe+", inte=" + inte+", lib=" + lib + ", sens=" + sens + ", cor=" + cor + ".\n";
 			result += Pronoun1 + " can " + weaponVerb + " you with  " + weaponPerk + " " + weaponName+" (attack " + weaponAttack + ", value " + weaponValue+").\n";
 			result += Pronoun1 + " is guarded with " + armorPerk + " " + armorName+" (defense " + armorDef + ", value " + armorValue+").\n";
-			result += Hehas + HP + "/" + eMaxHP() + " HP, " + lust + "/100 lust, " + fatigue+"/100 fatigue. " + Pronoun3 + " bonus HP=" + bonusHP + ", and lust vulnerability=" + lustVuln + ".\n";
+			result += Hehas + HP + "/" + eMaxHP() + " HP, " + lust + "/" + eMaxLust() + " lust, " + fatigue+"/100 fatigue. " + Pronoun3 + " bonus HP=" + bonusHP + ", bonus lust=" + bonusLust + ", and lust vulnerability=" + lustVuln + ".\n";
 			result += Heis + "level " + level + " and " + have+" " + gems + " gems. You will be awarded " + XP + " XP.\n";
 			
 			var numSpec:int = (special1 != null ? 1 : 0) + (special2 != null ? 1 : 0) + (special3 != null ? 1 : 0);
