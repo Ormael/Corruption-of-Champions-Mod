@@ -122,6 +122,7 @@ package classes.Scenes.Areas.Bog
 			this.armorName = "loincloth";
 			this.armorDef = 8;
 			this.bonusHP = 350;
+			this.bonusLust = 0;
 			this.lust = 20;
 			this.lustVuln = .7;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
