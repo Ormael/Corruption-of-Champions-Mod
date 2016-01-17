@@ -162,6 +162,7 @@ package classes.Scenes.Areas.Plains
 			this.weaponVerb="punch";
 			this.armorName = "thick fur";
 			this.bonusHP = 300;
+			this.bonusLust = 10;
 			this.lust = 20;
 			this.lustVuln = 0.30;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
