@@ -198,6 +198,7 @@
 			this.armorName = "shimmering pelt";
 			this.armorDef = 5;
 			this.bonusHP = 20;
+			this.bonusLust = 20;
 			this.lust = 30;
 			this.lustVuln = 0.8;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
