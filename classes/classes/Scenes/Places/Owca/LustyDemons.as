@@ -69,13 +69,14 @@ package classes.Scenes.Places.Owca
 			this.skinTone = "red";
 			this.hairColor = "black";
 			this.hairLength = 15;
-			initStrTouSpeInte(80, 10, 10, 5);
+			initStrTouSpeInte(80, 50, 10, 5);
 			initLibSensCor(50, 60, 100);
 			this.weaponName = "claws";
 			this.weaponVerb="claw";
 			this.armorName = "demonic skin";
 			//6 attacks: 5 from demons (10 damage each), 1 from Vapula (80 damage), 200 gems, 200 xp, 700 hp*/
-			this.bonusHP = 680;
+			this.bonusHP = 880;
+			this.bonusLust = 175;
 			this.lust = 30;
 			this.lustVuln = .3;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
