@@ -148,6 +148,7 @@ package classes.Scenes.Areas.Bog
 			this.armorName = "skin";
 			this.armorDef = 20;
 			this.bonusHP = 350;
+			this.bonusLust = 0;
 			this.lust = 30;
 			this.lustVuln = .25;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
