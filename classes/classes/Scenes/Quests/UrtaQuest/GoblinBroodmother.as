@@ -51,6 +51,7 @@ package classes.Scenes.Quests.UrtaQuest
 			this.weaponAttack = 20;
 			this.armorName = "leather straps";
 			this.bonusHP = 300;
+			this.bonusLust = 15;
 			this.lust = 50;
 			this.lustVuln = 0.5;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
