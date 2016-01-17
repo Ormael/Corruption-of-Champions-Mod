@@ -65,6 +65,7 @@
 			this.armorName = "tough skin";
 			this.armorDef = 5;
 			this.bonusHP = 20;
+			this.bonusLust = 10;
 			this.lust = 40;
 			this.lustVuln = .9;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
