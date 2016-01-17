@@ -187,6 +187,7 @@ package classes.Scenes.Quests.UrtaQuest
 			this.weaponAttack = 50;
 			this.armorName = "thick fur";
 			this.bonusHP = 700;
+			this.bonusLust = 10;
 			this.lust = 50;
 			this.lustVuln = 0.33;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
