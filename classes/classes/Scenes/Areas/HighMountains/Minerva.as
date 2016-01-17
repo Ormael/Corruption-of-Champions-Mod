@@ -235,6 +235,7 @@ package classes.Scenes.Areas.HighMountains
 			this.armorPerk = "";
 			this.armorValue = 5;
 			this.bonusHP = 470;
+			this.bonusLust = 10;
 			this.lust = 20;
 			this.lustVuln = .2;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
