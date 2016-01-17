@@ -132,6 +132,7 @@ package classes.Scenes.Areas.GlacialRift
 			this.armorName = "thick fur";
 			this.armorDef = 3;
 			this.bonusHP = 400;
+			this.bonusLust = 0;
 			this.lust = 10;
 			this.lustVuln = 0.4;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
