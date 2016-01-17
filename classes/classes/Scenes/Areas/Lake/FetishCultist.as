@@ -175,6 +175,7 @@
 			this.weaponName = "whip";
 			this.weaponVerb="whip-crack";
 			this.armorName = FETISHY_OUTFIT;
+			this.bonusLust = 10;
 			this.lust = 25;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 2;
