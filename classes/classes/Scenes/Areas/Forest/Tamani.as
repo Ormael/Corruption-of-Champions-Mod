@@ -149,6 +149,7 @@ package classes.Scenes.Areas.Forest
 			this.weaponVerb="tiny punch";
 			this.armorName = "leather straps";
 			this.bonusHP = 40;
+			this.bonusLust = 10;
 			this.lust = 40;
 			this.lustVuln = 0.9;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
