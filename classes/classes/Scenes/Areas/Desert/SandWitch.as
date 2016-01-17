@@ -77,6 +77,7 @@
 			this.weaponVerb="kick";
 			this.armorName = "robes";
 			this.bonusHP = 20;
+			this.bonusLust = 10;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
 			this.level = 3;
