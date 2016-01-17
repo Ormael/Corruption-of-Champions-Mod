@@ -120,6 +120,7 @@ package classes.Scenes.Areas.HighMountains
 			this.armorPerk = "";
 			this.armorValue = 70;
 			this.bonusHP = 200;
+			this.bonusLust = 5;
 			this.lust = 30;
 			this.lustVuln = .5;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
