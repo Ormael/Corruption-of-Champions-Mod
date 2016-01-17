@@ -185,6 +185,7 @@ package classes.Scenes.Areas.HighMountains
 			if((game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3) * 2 > 13) lustVuln = .3;
 			else lustVuln -= (game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3) * 0.02;
 			this.bonusHP = bonusHP;
+			this.bonusLust = 10 * Math.round((game.flags[kFLAGS.UNKNOWN_FLAG_NUMBER_00326] - 3)/2);
 			this.lust = 30;
 			this.lustVuln = lustVuln;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
