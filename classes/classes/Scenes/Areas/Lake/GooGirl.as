@@ -175,6 +175,7 @@ package classes.Scenes.Areas.Lake
 			this.weaponVerb="slap";
 			this.armorName = "gelatinous skin";
 			this.bonusHP = 40;
+			this.bonusLust = 5;
 			this.lust = 45;
 			this.lustVuln = .75;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
