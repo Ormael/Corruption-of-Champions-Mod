@@ -124,6 +124,7 @@ package classes.Scenes.Areas.Swamp
 			this.weaponVerb="claws";
 			this.armorName = "chitin";
 			this.bonusHP = 1200;
+			this.bonusLust = 25;
 			this.lustVuln = .2;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 18;
