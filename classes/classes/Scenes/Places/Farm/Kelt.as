@@ -160,6 +160,7 @@ package classes.Scenes.Places.Farm
 			this.armorName = "tough skin";
 			this.armorDef = 4;
 			this.bonusHP = 200;
+			this.bonusLust = 10;
 			this.lust = 40;
 			this.lustVuln = 0.83;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
