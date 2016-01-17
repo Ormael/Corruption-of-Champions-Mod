@@ -78,7 +78,7 @@ package classes.Scenes.Areas.VolcanicCrag
 			this.armorName = "loincloth";
 			this.armorDef = 4;
 			this.bonusHP = 800;
-			this.bonusLust = 0;
+			this.bonusLust = 10;
 			this.lust = 15;
 			this.lustVuln = 0.3;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
