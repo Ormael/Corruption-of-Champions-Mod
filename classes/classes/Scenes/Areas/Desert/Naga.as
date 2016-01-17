@@ -122,6 +122,7 @@
 			this.weaponAttack = 3;
 			this.armorName = "scales";
 			this.armorDef = 5;
+			this.bonusLust = 5;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 2;
