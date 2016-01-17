@@ -364,6 +364,7 @@ package classes.Scenes.Areas.Plains
 			this.armorName = "skin";
 			this.armorDef = 2;
 			this.bonusHP = 250;
+			this.bonusLust = 5;
 			this.lust = 30;
 			this.lustVuln = .35;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
