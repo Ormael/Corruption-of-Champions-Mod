@@ -165,6 +165,7 @@
 			this.weaponVerb="claw";
 			this.weaponAttack = 10;
 			this.armorName = "thick fur";
+			this.bonusLust = 5;
 			this.lust = 25;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 5;
