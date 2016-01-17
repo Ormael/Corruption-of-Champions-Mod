@@ -166,7 +166,7 @@ package classes.Scenes.Areas.GlacialRift
 			this.armorName = "bronze plates";
 			this.armorDef = 17;
 			this.bonusHP = 380;
-			this.bonusLust = 0;
+			this.bonusLust = 5;
 			this.lust = 25 + rand(15);
 			this.lustVuln = 0.46;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
