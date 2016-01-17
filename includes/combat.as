@@ -51,7 +51,7 @@ public function cleanupAfterCombat(nextFunc:Function = null):void {
 		//Clear itemswapping in case it hung somehow
 //No longer used:		itemSwapping = false;
 		//Player won
-		if(monster.HP < 1 || monster.lust > 99) {
+		if(monster.HP < 1 || monster.lust > (eMaxLust - 1)) {
 			awardPlayer(nextFunc);
 		}
 		//Player lost
@@ -842,7 +842,7 @@ public function bite():void {
 	outputText("\n\n", false);
 	checkAchievementDamage(damage);
 	//Kick back to main if no damage occured!
-	if(monster.HP > 0 && monster.lust < 100) {
+	if(monster.HP > 0 && monster.lust < eMaxLust) {
 		enemyAI();
 	}
 	else {
@@ -1061,7 +1061,7 @@ public function attack():void {
 				outputText("You stare into her hangdog expression and lose most of the killing intensity you had summoned up for your attack, stopping a few feet short of hitting her.\n", false);
 				damage = 0;
 				//Kick back to main if no damage occured!
-				if(monster.HP > 0 && monster.lust < 100) {
+				if(monster.HP > 0 && monster.lust < eMaxLust) {
 					if(player.findStatusAffect(StatusAffects.FirstAttack) >= 0) {
 						attack();
 						return;
@@ -1192,7 +1192,7 @@ public function attack():void {
 	
 	if (monster is JeanClaude && player.findStatusAffect(StatusAffects.FirstAttack) < 0)
 	{
-		if (monster.HP < 1 || monster.lust > 99)
+		if (monster.HP < 1 || monster.lust > (eMaxLust - 1))
 		{
 			// noop
 		}
@@ -1223,7 +1223,7 @@ public function attack():void {
 	outputText("\n", false);
 	checkAchievementDamage(damage);
 	//Kick back to main if no damage occured!
-	if(monster.HP >= 1 && monster.lust <= 99) {
+	if(monster.HP >= 1 && monster.lust <= (eMaxLust - 1)) {
 		if(player.findStatusAffect(StatusAffects.FirstAttack) >= 0) {
 			attack();
 			return;
@@ -1332,10 +1332,10 @@ public function goreAttack():void {
 	outputText("\n\n");
 	checkAchievementDamage(damage);
 	//Victory ORRRRR enemy turn.
-	if(monster.HP > 0 && monster.lust < 100) enemyAI();
+	if(monster.HP > 0 && monster.lust < eMaxLust) enemyAI();
 	else {
 		if(monster.HP <= 0) doNext(endHpVictory);
-		if(monster.lust >= 100) doNext(endLustVictory);
+		if(monster.lust >= eMaxLust) doNext(endLustVictory);
 	}
 }
 //Upheaval Attack
@@ -1420,10 +1420,10 @@ public function upheavalAttack():void {
 	outputText("\n\n");
 	checkAchievementDamage(damage);
 	//Victory ORRRRR enemy turn.
-	if(monster.HP > 0 && monster.lust < 100) enemyAI();
+	if(monster.HP > 0 && monster.lust < eMaxLust) enemyAI();
 	else {
 		if(monster.HP <= 0) doNext(endHpVictory);
-		if(monster.lust >= 100) doNext(endLustVictory);
+		if(monster.lust >= eMaxLust) doNext(endLustVictory);
 	}
 }
 //Player sting attack
@@ -1493,7 +1493,7 @@ public function playerStinger():void {
 	//Use tail mp
 	player.tailVenom -= 25;
 	//Kick back to main if no damage occured!
-	if(monster.HP > 0 && monster.lust < 100) enemyAI();
+	if(monster.HP > 0 && monster.lust < eMaxLust) enemyAI();
 	else doNext(endLustVictory);
 }
 
@@ -1693,7 +1693,7 @@ public function awardPlayer(nextFunc:Function = null):void
 	}
 	if (player.findPerk(PerkLib.HistoryWhore) >= 0) {
 		var bonusGems3:int = (monster.gems * 0.04) * player.teaseLevel;
-		if (monster.lust >= 100) monster.gems += bonusGems3;
+		if (monster.lust >= eMaxLust) monster.gems += bonusGems3;
 	}
 	if (player.findPerk(PerkLib.AscensionFortune) >= 0) {
 		monster.gems *= 1 + (player.perkv1(PerkLib.AscensionFortune) * 0.1);
@@ -1841,13 +1841,13 @@ private function combatStatusesUpdate():void {
 		outputText("<b>Your muscles twitch in agony as the acid keeps burning you. <b>(<font color=\"#800000\">" + slap + "</font>)</b></b>\n\n", false);
 	}
 	if(player.findPerk(PerkLib.ArousingAura) >= 0 && monster.lustVuln > 0 && player.cor >= 70) {
-		if(monster.lust < 50) outputText("Your aura seeps into " + monster.a + monster.short + " but does not have any visible effects just yet.\n\n", false);
-		else if(monster.lust < 60) {
+		if(monster.lust < (eMaxLust * 0,5) outputText("Your aura seeps into " + monster.a + monster.short + " but does not have any visible effects just yet.\n\n", false);
+		else if(monster.lust < (eMaxLust * 0,6)) {
 			if(!monster.plural) outputText(monster.capitalA + monster.short + " starts to squirm a little from your unholy presence.\n\n", false);
 			else outputText(monster.capitalA + monster.short + " start to squirm a little from your unholy presence.\n\n", false);
 		}
-		else if(monster.lust < 75) outputText("Your arousing aura seems to be visibly affecting " + monster.a + monster.short + ", making " + monster.pronoun2 + " squirm uncomfortably.\n\n", false);
-		else if(monster.lust < 85) {
+		else if(monster.lust < (eMaxLust * 0,75)) outputText("Your arousing aura seems to be visibly affecting " + monster.a + monster.short + ", making " + monster.pronoun2 + " squirm uncomfortably.\n\n", false);
+		else if(monster.lust < (eMaxLust * 0,85)) {
 			if(!monster.plural) outputText(monster.capitalA + monster.short + "'s skin colors red as " + monster.pronoun1 + " inadvertantly basks in your presence.\n\n", false);
 			else outputText(monster.capitalA + monster.short + "' skin colors red as " + monster.pronoun1 + " inadvertantly bask in your presence.\n\n", false);
 		}
@@ -2118,7 +2118,7 @@ public function display():void {
 	var math:Number = monster.HPRatio();
 	//hpDisplay = "(<b>" + String(int(math * 1000) / 10) + "% HP</b>)";
 	hpDisplay = monster.HP + " / " + monster.eMaxHP() + " (" + (int(math * 1000) / 10) + "%)";
-	lustDisplay = Math.floor(monster.lust) + " / " + 100;
+	lustDisplay = Math.floor(monster.lust) + " / " + eMaxLust;
 
 	//trace("trying to show monster image!");
 	if (monster.imageName != "")
@@ -2202,118 +2202,118 @@ public function showMonsterLust():void {
 	}
 	if(monster.short == "harpy") {
 		//(Enemy slightly aroused) 
-		if(monster.lust >= 45 && monster.lust < 70) outputText("The harpy's actions are becoming more and more erratic as she runs her mad-looking eyes over your body, her chest jiggling, clearly aroused.  ", false);
+		if(monster.lust >= (eMaxLust * 0,45) && monster.lust < (eMaxLust * 0,7) outputText("The harpy's actions are becoming more and more erratic as she runs her mad-looking eyes over your body, her chest jiggling, clearly aroused.  ", false);
 		//(Enemy moderately aroused) 
-		if(monster.lust >= 70 && monster.lust < 90) outputText("She stops flapping quite so frantically and instead gently sways from side to side, showing her soft, feathery body to you, even twirling and raising her tail feathers, giving you a glimpse of her plush pussy, glistening with fluids.", false);
+		if(monster.lust >= (eMaxLust * 0,7) && monster.lust < (eMaxLust * 0,9)) outputText("She stops flapping quite so frantically and instead gently sways from side to side, showing her soft, feathery body to you, even twirling and raising her tail feathers, giving you a glimpse of her plush pussy, glistening with fluids.", false);
 		//(Enemy dangerously aroused) 
-		if(monster.lust >= 90) outputText("You can see her thighs coated with clear fluids, the feathers matted and sticky as she struggles to contain her lust.", false);
+		if(monster.lust >= (eMaxLust * 0,9)) outputText("You can see her thighs coated with clear fluids, the feathers matted and sticky as she struggles to contain her lust.", false);
 	}
 	else if(monster is Clara)
 	{
 		//Clara is becoming aroused
-		if(monster.lust <= 40)	 {}
-		else if(monster.lust <= 65) outputText("The anger in her motions is weakening.");
+		if(monster.lust <= (eMaxLust * 0,4))	 {}
+		else if(monster.lust <= (eMaxLust * 0,65)) outputText("The anger in her motions is weakening.");
 		//Clara is somewhat aroused
-		else if(monster.lust <= 75) outputText("Clara seems to be becoming more aroused than angry now.");
+		else if(monster.lust <= (eMaxLust * 0,75)) outputText("Clara seems to be becoming more aroused than angry now.");
 		//Clara is very aroused
-		else if(monster.lust <= 85) outputText("Clara is breathing heavily now, the signs of her arousal becoming quite visible now.");
+		else if(monster.lust <= (eMaxLust * 0,85)) outputText("Clara is breathing heavily now, the signs of her arousal becoming quite visible now.");
 		//Clara is about to give in
 		else outputText("It looks like Clara is on the verge of having her anger overwhelmed by her lusts.");
 	}
 	//{Bonus Lust Descripts}
 	else if(monster.short == "Minerva") {
-		if(monster.lust < 40) {}
+		if(monster.lust < (eMaxLust * 0,4)) {}
 		//(40)
-		else if(monster.lust < 60) outputText("Letting out a groan Minerva shakes her head, focusing on the fight at hand.  The bulge in her short is getting larger, but the siren ignores her growing hard-on and continues fighting.  ");
+		else if(monster.lust < (eMaxLust * 0,6)) outputText("Letting out a groan Minerva shakes her head, focusing on the fight at hand.  The bulge in her short is getting larger, but the siren ignores her growing hard-on and continues fighting.  ");
 		//(60) 
-		else if(monster.lust < 80) outputText("Tentacles are squirming out from the crotch of her shorts as the throbbing bulge grows bigger and bigger, becoming harder and harder... for Minerva to ignore.  A damp spot has formed just below the bulge.  ");
+		else if(monster.lust < (eMaxLust * 0,8)) outputText("Tentacles are squirming out from the crotch of her shorts as the throbbing bulge grows bigger and bigger, becoming harder and harder... for Minerva to ignore.  A damp spot has formed just below the bulge.  ");
 		//(80)
 		else outputText("She's holding onto her weapon for support as her face is flushed and pain-stricken.  Her tiny, short shorts are painfully holding back her quaking bulge, making the back of the fabric act like a thong as they ride up her ass and struggle against her cock.  Her cock-tentacles are lashing out in every direction.  The dampness has grown and is leaking down her leg.");
 	}
 	else if(monster.short == "Cum Witch") {
 		//{Bonus Lust Desc (40+)}
-		if(monster.lust < 40) {}
-		else if(monster.lust < 50) outputText("Her nipples are hard, and poke two visible tents into the robe draped across her mountainous melons.  ");
+		if(monster.lust < (eMaxLust * 0,4)) {}
+		else if(monster.lust < (eMaxLust * 0,5)) outputText("Her nipples are hard, and poke two visible tents into the robe draped across her mountainous melons.  ");
 		//{Bonus Lust Desc (50-75)}
-		else if(monster.lust < 75) outputText("Wobbling dangerously, you can see her semi-hard shaft rustling the fabric as she moves, evidence of her growing needs.  ");
+		else if(monster.lust < (eMaxLust * 0,75)) outputText("Wobbling dangerously, you can see her semi-hard shaft rustling the fabric as she moves, evidence of her growing needs.  ");
 		//{75+}
-		if(monster.lust >= 75) outputText("Swelling obscenely, the Cum Witch's thick cock stands out hard and proud, its bulbous tip rustling through the folds of her fabric as she moves and leaving dark smears in its wake.  ");
+		if(monster.lust >= (eMaxLust * 0,75)) outputText("Swelling obscenely, the Cum Witch's thick cock stands out hard and proud, its bulbous tip rustling through the folds of her fabric as she moves and leaving dark smears in its wake.  ");
 		//(85+}
-		if(monster.lust >= 85) outputText("Every time she takes a step, those dark patches seem to double in size.  ");
+		if(monster.lust >= (eMaxLust * 0,85)) outputText("Every time she takes a step, those dark patches seem to double in size.  ");
 		//{93+}
-		if(monster.lust >= 93) outputText("There's no doubt about it, the Cum Witch is dripping with pre-cum and so close to caving in.  Hell, the lower half of her robes are slowly becoming a seed-stained mess.  ");
+		if(monster.lust >= (eMaxLust * 0,93)) outputText("There's no doubt about it, the Cum Witch is dripping with pre-cum and so close to caving in.  Hell, the lower half of her robes are slowly becoming a seed-stained mess.  ");
 		//{Bonus Lust Desc (60+)}
-		if(monster.lust >= 70) outputText("She keeps licking her lips whenever she has a moment, and she seems to be breathing awfully hard.  ");
+		if(monster.lust >= (eMaxLust * 0,7)) outputText("She keeps licking her lips whenever she has a moment, and she seems to be breathing awfully hard.  ");
 	}
 	else if(monster.short == "Kelt") {
 		//Kelt Lust Levels
 		//(sub 50)
-		if(monster.lust < 50) outputText("Kelt actually seems to be turned off for once in his miserable life.  His maleness is fairly flaccid and droopy.  ");
+		if(monster.lust < (eMaxLust * 0,5)) outputText("Kelt actually seems to be turned off for once in his miserable life.  His maleness is fairly flaccid and droopy.  ");
 		//(sub 60)
-		else if(monster.lust < 60) outputText("Kelt's gotten a little stiff down below, but he still seems focused on taking you down.  ");
+		else if(monster.lust < (eMaxLust * 0,6)) outputText("Kelt's gotten a little stiff down below, but he still seems focused on taking you down.  ");
 		//(sub 70)
-		else if(monster.lust < 70) outputText("Kelt's member has grown to its full size and even flared a little at the tip.  It bobs and sways with every movement he makes, reminding him how aroused you get him.  ");
+		else if(monster.lust < (eMaxLust * 0,7)) outputText("Kelt's member has grown to its full size and even flared a little at the tip.  It bobs and sways with every movement he makes, reminding him how aroused you get him.  ");
 		//(sub 80)
-		else if(monster.lust < 80) outputText("Kelt is unabashedly aroused at this point.  His skin is flushed, his manhood is erect, and a thin bead of pre has begun to bead underneath.  ");
+		else if(monster.lust < (eMaxLust * 0,8)) outputText("Kelt is unabashedly aroused at this point.  His skin is flushed, his manhood is erect, and a thin bead of pre has begun to bead underneath.  ");
 		//(sub 90)
-		else if(monster.lust < 90) outputText("Kelt seems to be having trouble focusing.  He keeps pausing and flexing his muscles, slapping his cock against his belly and moaning when it smears his pre-cum over his equine underside.  ");
+		else if(monster.lust < (eMaxLust * 0,9)) outputText("Kelt seems to be having trouble focusing.  He keeps pausing and flexing his muscles, slapping his cock against his belly and moaning when it smears his pre-cum over his equine underside.  ");
 		//(sub 100) 
 		else outputText("There can be no doubt that you're having quite the effect on Kelt.  He keeps fidgeting, dripping pre-cum everywhere as he tries to keep up the facade of fighting you.  His maleness is continually twitching and bobbing, dripping messily.  He's so close to giving in...");
 	}
 	else if(monster.short == "green slime") {
-		if(monster.lust >= 45 && monster.lust < 65) outputText("A lump begins to form at the base of the figure's torso, where its crotch would be.  ", false); 
-		if(monster.lust >= 65 && monster.lust < 85) outputText("A distinct lump pulses at the base of the slime's torso, as if something inside the creature were trying to escape.  ", false);
-		if(monster.lust >= 85 && monster.lust < 93) outputText("A long, thick pillar like a small arm protrudes from the base of the slime's torso.  ", false);
-		if(monster.lust >= 93) outputText("A long, thick pillar like a small arm protrudes from the base of the slime's torso.  Its entire body pulses, and it is clearly beginning to lose its cohesion.  ", false);
+		if(monster.lust >= (eMaxLust * 0,45) && monster.lust < (eMaxLust * 0,65)) outputText("A lump begins to form at the base of the figure's torso, where its crotch would be.  ", false); 
+		if(monster.lust >= (eMaxLust * 0,65) && monster.lust < (eMaxLust * 0,85)) outputText("A distinct lump pulses at the base of the slime's torso, as if something inside the creature were trying to escape.  ", false);
+		if(monster.lust >= (eMaxLust * 0,85) && monster.lust < (eMaxLust * 0,93)) outputText("A long, thick pillar like a small arm protrudes from the base of the slime's torso.  ", false);
+		if(monster.lust >= (eMaxLust * 0,93)) outputText("A long, thick pillar like a small arm protrudes from the base of the slime's torso.  Its entire body pulses, and it is clearly beginning to lose its cohesion.  ", false);
 	}
 	else if(monster.short == "Sirius, a naga hypnotist") {
-		if(monster.lust < 40) {}
-		else if(monster.lust >= 40) outputText("You can see the tip of his reptilian member poking out of its protective slit. ");
-		else if(monster.lust >= 60) outputText("His cock is now completely exposed and half-erect, yet somehow he still stays focused on your eyes and his face is inexpressive.  ");
+		if(monster.lust < (eMaxLust * 0,4)) {}
+		else if(monster.lust >= (eMaxLust * 0,4)) outputText("You can see the tip of his reptilian member poking out of its protective slit. ");
+		else if(monster.lust >= (eMaxLust * 0,6)) outputText("His cock is now completely exposed and half-erect, yet somehow he still stays focused on your eyes and his face is inexpressive.  ");
 		else outputText("His cock is throbbing hard, you don't think it will take much longer for him to pop.   Yet his face still looks inexpressive... despite the beads of sweat forming on his brow.  ");
 
 	}
 	else if(monster.short == "kitsune") {
 		//Kitsune Lust states:
 		//Low
-		if(monster.lust > 30 && monster.lust < 50) outputText("The kitsune's face is slightly flushed.  She fans herself with her hand, watching you closely.");
+		if(monster.lust > (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,5)) outputText("The kitsune's face is slightly flushed.  She fans herself with her hand, watching you closely.");
 		//Med
-		else if(monster.lust > 30 && monster.lust < 75) outputText("The kitsune's cheeks are bright pink, and you can see her rubbing her thighs together and squirming with lust.");
+		else if(monster.lust > (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,75)) outputText("The kitsune's cheeks are bright pink, and you can see her rubbing her thighs together and squirming with lust.");
 		//High
-		else if(monster.lust > 30) {
+		else if(monster.lust > (eMaxLust * 0,3)) {
 			//High (redhead only)
 			if(monster.hairColor == "red") outputText("The kitsune is openly aroused, unable to hide the obvious bulge in her robes as she seems to be struggling not to stroke it right here and now.");
 			else outputText("The kitsune is openly aroused, licking her lips frequently and desperately trying to hide the trail of fluids dripping down her leg.");
 		}
 	}
 	else if(monster.short == "demons") {
-		if(monster.lust > 30 && monster.lust < 60) outputText("The demons lessen somewhat in the intensity of their attack, and some even eye up your assets as they strike at you.", false);
-		if(monster.lust >= 60 && monster.lust < 80) outputText("The demons are obviously steering clear from damaging anything you might use to fuck and they're starting to leave their hands on you just a little longer after each blow. Some are starting to cop quick feels with their other hands and you can smell the demonic lust of a dozen bodies on the air.", false);
-		if(monster.lust >= 80) outputText(" The demons are less and less willing to hit you and more and more willing to just stroke their hands sensuously over you. The smell of demonic lust is thick on the air and part of the group just stands there stroking themselves openly.", false);
+		if(monster.lust > (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,6)) outputText("The demons lessen somewhat in the intensity of their attack, and some even eye up your assets as they strike at you.", false);
+		if(monster.lust >= (eMaxLust * 0,6) && monster.lust < (eMaxLust * 0,8)) outputText("The demons are obviously steering clear from damaging anything you might use to fuck and they're starting to leave their hands on you just a little longer after each blow. Some are starting to cop quick feels with their other hands and you can smell the demonic lust of a dozen bodies on the air.", false);
+		if(monster.lust >= (eMaxLust * 0,8)) outputText(" The demons are less and less willing to hit you and more and more willing to just stroke their hands sensuously over you. The smell of demonic lust is thick on the air and part of the group just stands there stroking themselves openly.", false);
 	}
 	else {
 		if(monster.plural) {
-			if(monster.lust > 50 && monster.lust < 60) outputText(monster.capitalA + monster.short + "' skin remains flushed with the beginnings of arousal.  ", false);
-			if(monster.lust >= 60 && monster.lust < 70) outputText(monster.capitalA + monster.short + "' eyes constantly dart over your most sexual parts, betraying " + monster.pronoun3 + " lust.  ", false);
+			if(monster.lust > (eMaxLust * 0,5) && monster.lust < (eMaxLust * 0,6)) outputText(monster.capitalA + monster.short + "' skin remains flushed with the beginnings of arousal.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.lust < (eMaxLust * 0,7)) outputText(monster.capitalA + monster.short + "' eyes constantly dart over your most sexual parts, betraying " + monster.pronoun3 + " lust.  ", false);
 			if(monster.cocks.length > 0) {
-				if(monster.lust >= 70 && monster.lust < 85) outputText(monster.capitalA + monster.short + " are having trouble moving due to the rigid protrusion in " + monster.pronoun3 + " groins.  ", false);
-				if(monster.lust >= 85) outputText(monster.capitalA + monster.short + " are panting and softly whining, each movement seeming to make " + monster.pronoun3 + " bulges more pronounced.  You don't think " + monster.pronoun1 + " can hold out much longer.  ", false);
+				if(monster.lust >= (eMaxLust * 0,7) && monster.lust < (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " are having trouble moving due to the rigid protrusion in " + monster.pronoun3 + " groins.  ", false);
+				if(monster.lust >= (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " are panting and softly whining, each movement seeming to make " + monster.pronoun3 + " bulges more pronounced.  You don't think " + monster.pronoun1 + " can hold out much longer.  ", false);
 			}
 			if(monster.vaginas.length > 0) {
-				if(monster.lust >= 70 && monster.lust < 85) outputText(monster.capitalA + monster.short + " are obviously turned on, you can smell " + monster.pronoun3 + " arousal in the air.  ", false);
-				if(monster.lust >= 85) outputText(monster.capitalA + monster.short + "' " + monster.vaginaDescript() + "s are practically soaked with their lustful secretions.  ", false);
+				if(monster.lust >= (eMaxLust * 0,7) && monster.lust < (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " are obviously turned on, you can smell " + monster.pronoun3 + " arousal in the air.  ", false);
+				if(monster.lust >= (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + "' " + monster.vaginaDescript() + "s are practically soaked with their lustful secretions.  ", false);
 			}
 		}
 		else {
-			if(monster.lust > 50 && monster.lust < 60) outputText(monster.capitalA + monster.short + "'s skin remains flushed with the beginnings of arousal.  ", false);
-			if(monster.lust >= 60 && monster.lust < 70) outputText(monster.capitalA + monster.short + "'s eyes constantly dart over your most sexual parts, betraying " + monster.pronoun3 + " lust.  ", false);
+			if(monster.lust > (eMaxLust * 0,5) && monster.lust < (eMaxLust * 0,6)) outputText(monster.capitalA + monster.short + "'s skin remains flushed with the beginnings of arousal.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.lust < (eMaxLust * 0,7)) outputText(monster.capitalA + monster.short + "'s eyes constantly dart over your most sexual parts, betraying " + monster.pronoun3 + " lust.  ", false);
 			if(monster.cocks.length > 0) {
-				if(monster.lust >= 70 && monster.lust < 85) outputText(monster.capitalA + monster.short + " is having trouble moving due to the rigid protrusion in " + monster.pronoun3 + " groin.  ", false);
-				if(monster.lust >= 85) outputText(monster.capitalA + monster.short + " is panting and softly whining, each movement seeming to make " + monster.pronoun3 + " bulge more pronounced.  You don't think " + monster.pronoun1 + " can hold out much longer.  ", false);
+				if(monster.lust >= (eMaxLust * 0,7) && monster.lust < (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " is having trouble moving due to the rigid protrusion in " + monster.pronoun3 + " groin.  ", false);
+				if(monster.lust >= (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " is panting and softly whining, each movement seeming to make " + monster.pronoun3 + " bulge more pronounced.  You don't think " + monster.pronoun1 + " can hold out much longer.  ", false);
 			}
 			if(monster.vaginas.length > 0) {
-				if(monster.lust >= 70 && monster.lust < 85) outputText(monster.capitalA + monster.short + " is obviously turned on, you can smell " + monster.pronoun3 + " arousal in the air.  ", false);
-				if(monster.lust >= 85) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " is practically soaked with her lustful secretions.  ", false);
+				if(monster.lust >= (eMaxLust * 0,7) && monster.lust < (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + " is obviously turned on, you can smell " + monster.pronoun3 + " arousal in the air.  ", false);
+				if(monster.lust >= (eMaxLust * 0,85)) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " is practically soaked with her lustful secretions.  ", false);
 			}
 		}
 	}
@@ -3751,7 +3751,7 @@ public function combatRoundOver():Boolean { //Called after the monster's action
 		doNext(endHpVictory);
 		return true;
 	}
-	if(monster.lust > 99) {
+	if(monster.lust > (eMaxLust - 1)) {
 		doNext(endLustVictory);
 		return true;
 	}
@@ -3884,7 +3884,7 @@ public function spellArouse():void {
 		flags[kFLAGS.SPELLS_CAST]++;
 		spellPerkUnlock();
 		doNext(playerMenu);
-		if(monster.lust >= 100) doNext(endLustVictory);
+		if(monster.lust >= eMaxLust) doNext(endLustVictory);
 		else enemyAI();
 		return;
 	}
@@ -3896,35 +3896,35 @@ public function spellArouse():void {
 		return;
 	}
 	var lustDmg:Number = monster.lustVuln * (player.inte/5*spellMod() + rand(monster.lib - monster.inte*2 + monster.cor)/5);
-	if(monster.lust < 30) outputText(monster.capitalA + monster.short + " squirms as the magic affects " + monster.pronoun2 + ".  ", false);
-	if(monster.lust >= 30 && monster.lust < 60) {
+	if(monster.lust < (eMaxLust * 0,3)) outputText(monster.capitalA + monster.short + " squirms as the magic affects " + monster.pronoun2 + ".  ", false);
+	if(monster.lust >= (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,6)) {
 		if(monster.plural) outputText(monster.capitalA + monster.short + " stagger, suddenly weak and having trouble focusing on staying upright.  ", false);
 		else outputText(monster.capitalA + monster.short + " staggers, suddenly weak and having trouble focusing on staying upright.  ", false);
 	}
-	if(monster.lust >= 60) {
+	if(monster.lust >= (eMaxLust * 0,6)) {
 		outputText(monster.capitalA + monster.short + "'");
 		if(!monster.plural) outputText("s");
 		outputText(" eyes glaze over with desire for a moment.  ", false);
 	}
 	if(monster.cocks.length > 0) {
-		if(monster.lust >= 60 && monster.cocks.length > 0) outputText("You see " + monster.pronoun3 + " " + monster.multiCockDescriptLight() + " dribble pre-cum.  ", false);
-		if(monster.lust >= 30 && monster.lust < 60 && monster.cocks.length == 1) outputText(monster.capitalA + monster.short + "'s " + monster.cockDescriptShort(0) + " hardens, distracting " + monster.pronoun2 + " further.  ", false);
-		if(monster.lust >= 30 && monster.lust < 60 && monster.cocks.length > 1) outputText("You see " + monster.pronoun3 + " " + monster.multiCockDescriptLight() + " harden uncomfortably.  ", false);
+		if(monster.lust >= (eMaxLust * 0,6) && monster.cocks.length > 0) outputText("You see " + monster.pronoun3 + " " + monster.multiCockDescriptLight() + " dribble pre-cum.  ", false);
+		if(monster.lust >= (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,6) && monster.cocks.length == 1) outputText(monster.capitalA + monster.short + "'s " + monster.cockDescriptShort(0) + " hardens, distracting " + monster.pronoun2 + " further.  ", false);
+		if(monster.lust >= (eMaxLust * 0,3) && monster.lust < (eMaxLust * 0,6) && monster.cocks.length > 1) outputText("You see " + monster.pronoun3 + " " + monster.multiCockDescriptLight() + " harden uncomfortably.  ", false);
 	}
 	if(monster.vaginas.length > 0) {
 		if(monster.plural) {
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_NORMAL) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s dampen perceptibly.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_WET) outputText(monster.capitalA + monster.short + "'s crotches become sticky with girl-lust.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLICK) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s become sloppy and wet.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_DROOLING) outputText("Thick runners of girl-lube stream down the insides of " + monster.a + monster.short + "'s thighs.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s instantly soak " + monster.pronoun2 + " groin.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_NORMAL) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s dampen perceptibly.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_WET) outputText(monster.capitalA + monster.short + "'s crotches become sticky with girl-lust.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLICK) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s become sloppy and wet.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_DROOLING) outputText("Thick runners of girl-lube stream down the insides of " + monster.a + monster.short + "'s thighs.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + "s instantly soak " + monster.pronoun2 + " groin.  ", false);
 		}
 		else {
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_NORMAL) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " dampens perceptibly.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_WET) outputText(monster.capitalA + monster.short + "'s crotch becomes sticky with girl-lust.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLICK) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " becomes sloppy and wet.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_DROOLING) outputText("Thick runners of girl-lube stream down the insides of " + monster.a + monster.short + "'s thighs.  ", false);
-			if(monster.lust >= 60 && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " instantly soaks her groin.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_NORMAL) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " dampens perceptibly.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_WET) outputText(monster.capitalA + monster.short + "'s crotch becomes sticky with girl-lust.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLICK) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " becomes sloppy and wet.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_DROOLING) outputText("Thick runners of girl-lube stream down the insides of " + monster.a + monster.short + "'s thighs.  ", false);
+			if(monster.lust >= (eMaxLust * 0,6) && monster.vaginas[0].vaginalWetness == VAGINA_WETNESS_SLAVERING) outputText(monster.capitalA + monster.short + "'s " + monster.vaginaDescript() + " instantly soaks her groin.  ", false);
 		}
 	}
 	monster.teased(lustDmg);
@@ -3932,7 +3932,7 @@ public function spellArouse():void {
 	doNext(playerMenu);
 	flags[kFLAGS.SPELLS_CAST]++;
 	spellPerkUnlock();
-	if(monster.lust >= 100) doNext(endLustVictory);
+	if(monster.lust >= eMaxLust) doNext(endLustVictory);
 	else enemyAI();
 	return;	
 }
@@ -4421,7 +4421,7 @@ public function hellFire():void {
 	if(monster.HP < 1) {
 		doNext(endHpVictory);
 	}
-	else if(monster.lust >= 99) {
+	else if(monster.lust >= (eMaxLust - 1)) {
 		doNext(endLustVictory);
 	}
 	else enemyAI();
@@ -4544,7 +4544,7 @@ public function kick():void {
 	}
 	outputText("\n\n", false);
 	checkAchievementDamage(damage);
-	if(monster.HP < 1 || monster.lust > 99) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > (eMaxLust - 1)) combatRoundOver();
 	else enemyAI();
 }
 
@@ -4595,7 +4595,7 @@ public function PCWebAttack():void {
 	}
 	awardAchievement("How Do I Shot Web?", kACHIEVEMENTS.COMBAT_SHOT_WEB);
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > 99) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > (eMaxLust - 1)) combatRoundOver();
 	else enemyAI();
 }
 public function nagaBiteAttack():void {
@@ -4643,7 +4643,7 @@ public function nagaBiteAttack():void {
        outputText("You lunge headfirst, fangs bared. Your attempt fails horrendously, as " + monster.a + monster.short + " manages to counter your lunge, knocking your head away with enough force to make your ears ring.", false);
 	}
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > 99) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > (eMaxLust - 1)) combatRoundOver();
 	else enemyAI();
 }
 public function spiderBiteAttack():void {
@@ -4693,7 +4693,7 @@ public function spiderBiteAttack():void {
        outputText("You lunge headfirst, fangs bared. Your attempt fails horrendously, as " + monster.a + monster.short + " manages to counter your lunge, pushing you back out of range.", false);
 	}
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > 99) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > (eMaxLust - 1)) combatRoundOver();
 	else enemyAI();
 }
 
