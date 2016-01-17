@@ -126,6 +126,7 @@ package classes.Scenes.Quests.UrtaQuest
 			this.armorName = "scales";
 			this.armorDef = 30;
 			this.bonusHP = 400;
+			this.bonusLust = 5;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 12;
