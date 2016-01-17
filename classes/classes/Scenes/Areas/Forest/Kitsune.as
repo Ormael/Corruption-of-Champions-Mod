@@ -223,6 +223,7 @@ package classes.Scenes.Areas.Forest
 			this.weaponVerb="punch";
 			this.armorName = "skin";
 			this.bonusHP = 120;
+			this.bonusLust = 10;
 			this.lust = 20;
 			this.lustVuln = 0.9;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
