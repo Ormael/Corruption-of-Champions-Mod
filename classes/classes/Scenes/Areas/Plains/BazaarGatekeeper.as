@@ -143,6 +143,7 @@ package classes.Scenes.Areas.Plains
 			this.armorName = "tunic and pants";
 			this.armorDef = 0;
 			this.bonusHP = 1750;
+			this.bonusLust = 20;
 			this.lust = 0;
 			this.lustVuln = .15;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
