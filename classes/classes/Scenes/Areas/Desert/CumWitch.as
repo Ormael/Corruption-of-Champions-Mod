@@ -196,6 +196,7 @@ package classes.Scenes.Areas.Desert
 			this.weaponVerb="punches";
 			this.armorName = "robes";
 			this.bonusHP = 100;
+			this.bonusLust = 10;
 			this.lust = 30;
 			this.lustVuln = .8;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
