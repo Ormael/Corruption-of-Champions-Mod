@@ -140,6 +140,7 @@
 			this.weaponVerb="armored punch";
 			this.armorName = "chitin";
 			this.armorDef = 9;
+			this.bonusLust = 10;
 			this.lust = 20 + rand(40);
 			this.lustVuln = 0.9;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
