@@ -146,6 +146,7 @@ package classes.Scenes.Dungeons.D3
 				armorDef = 32;
 			}
 			this.bonusHP = 1200;
+			this.bonusLust = 30;
 			this.additionalXP = 1000;
 			this.gems = 500 + rand(50);
 			this.level = 30;
