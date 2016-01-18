@@ -104,6 +104,7 @@
 			this.armorName = "leathery skin";
 			this.armorDef = 5;
 			this.bonusHP = 100;
+			this.bonusLust = 15;
 			this.lust = 30;
 			this.lustVuln = .65;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
