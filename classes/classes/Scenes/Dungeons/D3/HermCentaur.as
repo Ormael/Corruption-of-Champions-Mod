@@ -44,6 +44,7 @@ package classes.Scenes.Dungeons.D3
 			this.armorName = "wraps";
 			
 			this.bonusHP = 800;
+			this.bonusLust = 20;
 			
 			this.gems = 75 + rand(50);
 			this.level = 22;
