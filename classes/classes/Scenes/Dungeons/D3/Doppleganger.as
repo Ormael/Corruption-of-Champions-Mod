@@ -74,7 +74,7 @@ package classes.Scenes.Dungeons.D3
 				return;
 			}
 			
-			if (lust > 99)
+			if (lust > (eMaxLust - 1))
 			{
 				doNext(game.endLustVictory);
 				return;
@@ -224,6 +224,7 @@ package classes.Scenes.Dungeons.D3
 			skinType = player.skinType;
 			
 			this.bonusHP = 250;
+			this.bonusLust = 20;
 			
 			this.weaponName = player.weaponName;
 			this.weaponAttack = player.weaponAttack;
