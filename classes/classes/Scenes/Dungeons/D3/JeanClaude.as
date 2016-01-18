@@ -108,6 +108,7 @@ package classes.Scenes.Dungeons.D3
 			weaponAttack = 20;
 			
 			this.bonusHP = 400;
+			this.bonusLust = 15;
 			
 			armorName = "leather tunic";
 			lustVuln = 0.6;
