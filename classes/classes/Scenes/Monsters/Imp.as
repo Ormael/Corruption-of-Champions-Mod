@@ -96,6 +96,7 @@
 			this.weaponName = "claws";
 			this.weaponVerb="claw-slash";
 			this.armorName = "leathery skin";
+			this.bonusLust = 15;
 			this.lust = 40;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
 			this.level = 1;
