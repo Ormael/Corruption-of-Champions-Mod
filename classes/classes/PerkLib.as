@@ -406,6 +406,7 @@ package classes
 		public static const WizardsFocus:WizardsFocusPerk = new WizardsFocusPerk();
 
 		// Achievement perks
+		public static const BowShooting:BowShootingPerk = new BowShootingPerk();
 		public static const BroodMother:PerkType = mk("Brood Mother", "Brood Mother",
 				"Pregnancy moves twice as fast as a normal woman's.");
 		public static const SpellcastingAffinity:SpellcastingAffinityPerk = new SpellcastingAffinityPerk();
