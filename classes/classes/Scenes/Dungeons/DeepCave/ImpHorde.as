@@ -218,6 +218,7 @@
 			this.weaponVerb="punches";
 			this.armorName = "skin";
 			this.bonusHP = 450;
+			this.bonusLust = 75;
 			this.lust = 10;
 			this.lustVuln = .5;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
