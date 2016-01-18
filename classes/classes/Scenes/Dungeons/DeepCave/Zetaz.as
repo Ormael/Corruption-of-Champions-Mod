@@ -185,6 +185,7 @@ package classes.Scenes.Dungeons.DeepCave
 			this.weaponVerb="claw-slash";
 			this.armorName = "leathery skin";
 			this.bonusHP = 350;
+			this.bonusLust = 25;
 			this.lust = 40;
 			this.lustVuln = .35;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
