@@ -140,6 +140,7 @@ package classes.Scenes.Dungeons.DesertCave
 			this.armorName = "robes";
 			this.armorDef = 1;
 			this.bonusHP = 130;
+			this.bonusLust = 15;
 			this.lust = 20;
 			this.lustVuln = .6;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
