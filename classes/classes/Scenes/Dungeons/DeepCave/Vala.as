@@ -127,6 +127,7 @@ package classes.Scenes.Dungeons.DeepCave
 			var lust:Number = 30 + game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] * 10;
 			if(lust > 80) lust = 80;
 			this.bonusHP = 350;
+			this.bonusLust = 10;
 			this.lust = lust;
 			this.lustVuln = lustVuln;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
