@@ -229,6 +229,7 @@ package classes.Scenes.Monsters
 			this.armorName = "sexy black chitin armor-plating";
 			this.armorDef = 20;
 			this.bonusHP = 600;
+			this.bonusLust = 15;
 			this.lust = 30;
 			this.lustVuln = .3;
 			this.fatigue = 0;
