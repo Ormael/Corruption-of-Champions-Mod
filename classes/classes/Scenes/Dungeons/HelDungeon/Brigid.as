@@ -84,6 +84,7 @@ package classes.Scenes.Dungeons.HelDungeon
 			this.armorName = "armor";
 			this.armorDef = 20;
 			this.bonusHP = 1000;
+			this.bonusLust = 15;
 			this.lust = 20;
 			this.lustVuln = .25;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
