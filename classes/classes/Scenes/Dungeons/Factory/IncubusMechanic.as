@@ -197,6 +197,7 @@ package classes.Scenes.Dungeons.Factory
 			this.armorName = "demonic skin";
 			this.armorDef = 10;
 			this.bonusHP = 150;
+			this.bonusLust = 20;
 			this.lust = 50;
 			this.lustVuln = .5;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
