@@ -70,6 +70,7 @@ package classes.Scenes.Dungeons.Factory
 			this.armorName = "demonic skin";
 			this.armorDef = 4;
 			this.bonusHP = 100;
+			this.bonusLust = 20;
 			this.lust = 30;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 7;
