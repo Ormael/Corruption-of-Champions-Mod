@@ -92,6 +92,7 @@ package classes.Scenes.Monsters
 			this.armorName = "platemail";
 			this.armorDef = 17;
 			this.bonusHP = 350;
+			this.bonusLust = 15;
 			this.lust = 30;
 			this.lustVuln = .4;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
