@@ -316,6 +316,7 @@ package classes.Scenes.NPCs
 				this.tou += 30;
 				this.inte += 30;
 				bonusHP += 200;
+				this.bonusLust += 15;
 				lust= 50;
 				lustVuln= .15;
 				//-all special attacks are lust damage
@@ -331,6 +332,7 @@ package classes.Scenes.NPCs
 			this.armorName = "clothes";
 			this.armorDef = 4;
 			this.bonusHP = bonusHP;
+			this.bonusLust = 5;
 			this.lust = lust;
 			this.lustVuln = lustVuln;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
