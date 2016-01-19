@@ -103,6 +103,7 @@ package classes.Scenes.NPCs
 			this.weaponAttack = 5;
 			this.armorName = "clammy skin";
 			this.bonusHP = 120;
+			this.bonusLust = 10;
 			this.lust = 30;
 			this.lustVuln = .9;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
