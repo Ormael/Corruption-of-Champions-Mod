@@ -127,6 +127,7 @@ package classes.Scenes.NPCs
 			this.armorName = "armor";
 			this.armorDef = 50;
 			this.bonusHP = 500;
+			this.bonusLust = 10;
 			this.lustVuln = .35;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
 			this.level = 16;
