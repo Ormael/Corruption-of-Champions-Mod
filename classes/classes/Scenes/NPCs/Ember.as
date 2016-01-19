@@ -184,6 +184,7 @@ package classes.Scenes.NPCs
 			this.armorName = "scales";
 			this.armorDef = 40;
 			this.bonusHP = 550 + (game.flags[kFLAGS.EMBER_AFFECTION] * 2);
+			this.bonusLust = 5 + (game.flags[kFLAGS.EMBER_AFFECTION] / 10);
 			this.lust = 20;
 			this.lustVuln = .25;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
