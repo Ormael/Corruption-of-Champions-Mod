@@ -202,7 +202,7 @@ public function ImpGang()
 	this.armorName = "leathery skin";
 	this.armorDef = 9;
 	this.bonusHP = 500;
-	this.bonusLust = 15;
+	this.bonusLust = 75;
 	this.lust = 30;
 	this.lustVuln = .6;
 	this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
