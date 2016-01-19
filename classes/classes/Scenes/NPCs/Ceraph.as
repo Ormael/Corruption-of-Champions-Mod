@@ -316,6 +316,7 @@
 			this.weaponAttack = 15;
 			this.armorName = "demon-skin";
 			this.bonusHP = 200;
+			this.bonusLust = 20;
 			this.lust = 30;
 			this.lustVuln = 0.75;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
