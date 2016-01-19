@@ -269,6 +269,7 @@
 			this.armorName = "rags";
 			this.armorDef = 1;
 			this.bonusHP = 20;
+			this.bonusLust = 5;
 			this.lust = 20;
 			this.lustVuln = .85;
 			this.level = 4;
