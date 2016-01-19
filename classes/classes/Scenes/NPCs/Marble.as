@@ -104,6 +104,7 @@
 			this.weaponAttack = 10;
 			this.armorName = "tough hide";
 			this.armorDef = 5;
+			this.bonusLust = 10;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 7;
 			this.gems = rand(5) + 25;
