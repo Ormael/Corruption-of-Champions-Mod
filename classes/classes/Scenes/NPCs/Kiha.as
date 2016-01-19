@@ -201,6 +201,7 @@ package classes.Scenes.NPCs
 			if (game.flags[kFLAGS.KIHA_UNDERGARMENTS] > 0)
 				this.armorDef += 2;
 			this.bonusHP = 430;
+			this.bonusLust = 10;
 			this.lust = 10;
 			this.lustVuln = 0.4;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
