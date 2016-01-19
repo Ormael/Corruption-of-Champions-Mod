@@ -161,6 +161,7 @@
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 5;
 			this.bonusHP = 30;
+			this.bonusLust = 10;
 			this.gems = rand(5) + 25;
 			this.drop = NO_DROP;
 			this.tailType = TAIL_TYPE_COW;
