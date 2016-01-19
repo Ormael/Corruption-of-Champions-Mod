@@ -258,6 +258,7 @@ package classes.Scenes.NPCs
 			this.armorName = "bark";
 			this.armorDef = 40;
 			this.bonusHP = 1000;
+			this.bonusLust = 20;
 			this.lust = 20;
 			this.lustVuln = .2;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
