@@ -191,6 +191,7 @@ private function calledShot():void {
 			this.armorPerk = "";
 			this.armorValue = 50;
 			this.bonusHP = 175;
+			this.bonusLust = 5;
 			this.lust = 30;
 			this.lustVuln = .55;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
