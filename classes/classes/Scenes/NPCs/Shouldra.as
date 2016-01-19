@@ -118,6 +118,7 @@ package classes.Scenes.NPCs
 			this.weaponVerb="punches";
 			this.armorName = "comfortable clothes";
 			this.bonusHP = 30;
+			this.bonusLust = 5;
 			this.lust = 10;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
 			this.level = 4;
