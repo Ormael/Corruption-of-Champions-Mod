@@ -290,6 +290,7 @@
 			this.armorName = "feathers";
 			this.armorDef = 5;
 			this.bonusHP = 250;
+			this.bonusLust = 10;
 			this.lust = 10;
 			this.lustVuln = .3;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
