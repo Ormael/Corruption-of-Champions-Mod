@@ -198,6 +198,7 @@ package classes.Scenes.NPCs
 			this.armorPerk = "";
 			this.armorValue = 50;
 			this.bonusHP = 275;
+			this.bonusLust = 10;
 			this.lust = 30;
 			this.lustVuln = .35;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
