@@ -168,6 +168,7 @@ package classes.Scenes.NPCs
 			this.armorName = "bikini and grass skirt";
 			this.armorDef = 8;
 			this.bonusHP = 330;
+			this.bonusLust = 10;
 			this.lust = 20;
 			this.lustVuln = .20;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
