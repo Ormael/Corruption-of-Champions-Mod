@@ -1282,9 +1282,9 @@ private function campActions():void {
 	if (flags[kFLAGS.CAMP_CABIN_PROGRESS] > 0 && flags[kFLAGS.CAMP_CABIN_PROGRESS] < 12) addButton(3, "Build Cabin", cabinProgress.initiateCabin, null, null, null, "Work on your cabin."); //Work on cabin.
 	if (flags[kFLAGS.CAMP_CABIN_PROGRESS] >= 12 || flags[kFLAGS.CAMP_BUILT_CABIN] >= 1) addButton(3, "Enter Cabin", cabinProgress.initiateCabin, null, null, null, "Enter your cabin."); //Enter cabin for furnish.
 	addButton(4, "Read Codex", codex.accessCodexMenu, null, null, null, "Read any codex entries you have unlocked.");
-	if (player.hasKeyItem("Carpenter's Toolbox") >= 0 && flags[kFLAGS.CAMP_WALL_PROGRESS] < 100 && getCampPopulation() >= 4) addButton(5, "Build Wall", buildCampWallPrompt, null, null, null, "Build a wall around your camp to defend from the imps." + (flags[kFLAGS.CAMP_WALL_PROGRESS] >= 20 ? "\n\nProgress: " + (flags[kFLAGS.CAMP_WALL_PROGRESS]/20) + "/5 complete": "") + "");
+	if (player.hasKeyItem("Carpenter's Toolbox") >= 0 && flags[kFLAGS.CAMP_WALL_PROGRESS] < 100 && getCampPopulation() >= 4) addButton(5, "Build Wall", buildCampWallPrompt, null, null, null, "Build a wall around your camp to defend from the imps." + (flags[kFLAGS.CAMP_WALL_PROGRESS] >= 10 ? "\n\nProgress: " + (flags[kFLAGS.CAMP_WALL_PROGRESS]/10) + "/10 complete": "") + "");
 	if (player.hasKeyItem("Carpenter's Toolbox") >= 0 && flags[kFLAGS.CAMP_WALL_PROGRESS] >= 100 && flags[kFLAGS.CAMP_WALL_GATE] <= 0) addButton(5, "Build Gate", buildCampGatePrompt, null, null, null, "Build a gate to complete your camp defense.");
-	if (flags[kFLAGS.CAMP_WALL_PROGRESS] >= 100 && player.hasItem(useables.IMPSKLL, 1)) addButton(6, "AddImpSkull", promptHangImpSkull, null, null, null, "Add an imp skull to decorate the wall and to serve as deterrent for imps.", "Add Imp Skull");
+	if (flags[kFLAGS.CAMP_WALL_PROGRESS] >= 10 && player.hasItem(useables.IMPSKLL, 1)) addButton(6, "AddImpSkull", promptHangImpSkull, null, null, null, "Add an imp skull to decorate the wall and to serve as deterrent for imps.", "Add Imp Skull");
 	if (flags[kFLAGS.LETHICE_DEFEATED] > 0) addButton(7, "Ascension", promptAscend, null, null, null, "Perform an ascension? This will restart your adventures with your levels, items, and gems carried over. The game will also get harder.");
 	//addButton(8, "Build Misc", null, null, null, null, "Build other structures than walls or cabin for your camp");
 	//addButton(9, "Craft", kGAMECLASS.crafting.accessCraftingMenu, null, null, null, "Craft some items.");
@@ -2145,11 +2145,11 @@ private function buildCampWallPrompt():void {
 	}
 	else {
 		outputText("You can continue work on building the wall that surrounds your camp.\n\n");
-		outputText("Segments complete: " + Math.floor(flags[kFLAGS.CAMP_WALL_PROGRESS] / 20) + "/5\n");
+		outputText("Segments complete: " + Math.floor(flags[kFLAGS.CAMP_WALL_PROGRESS] / 10) + "/10\n");
 	}
 	kGAMECLASS.camp.cabinProgress.checkMaterials();
-	outputText("\n\nIt will cost 100 nails and 100 wood to work on a segment of the wall.\n\n");
-	if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 100 && player.keyItemv1("Carpenter's Toolbox") >= 100) {
+	outputText("\n\nIt will cost 80 nails and 80 wood to work on a segment of the wall.\n\n");
+	if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 80 && player.keyItemv1("Carpenter's Toolbox") >= 80) {
 		doYesNo(buildCampWall, doCamp);
 	}
 	else {
@@ -2173,16 +2173,16 @@ private function buildCampWall():void {
 		helperArray[helperArray.length] = "Kiha";
 		helpers++;
 	}
-	flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 100;
-	player.addKeyValue("Carpenter's Toolbox", 1, -100);
+	flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 80;
+	player.addKeyValue("Carpenter's Toolbox", 1, -80);
 	clearOutput();
 	if (flags[kFLAGS.CAMP_WALL_PROGRESS] == 1) {
 		outputText("You pull out a book titled \"Carpenter's Guide\" and flip pages until you come across instructions on how to build a wall. You spend minutes looking at the instructions and memorize the procedures.");
-		flags[kFLAGS.CAMP_WALL_PROGRESS] = 20;
+		flags[kFLAGS.CAMP_WALL_PROGRESS] = 10;
 	}
 	else {
 		outputText("You remember the procedure for building a wall.");
-		flags[kFLAGS.CAMP_WALL_PROGRESS] += 20;
+		flags[kFLAGS.CAMP_WALL_PROGRESS] += 10;
 	}
 	outputText("\n\nYou dig four holes, six inches deep and one foot wide each, before putting up wood posts, twelve feet high and one foot thick each. You take the wood from supplies, saw the wood and cut them into planks before nailing them to the wooden posts.");
 	if (helpers > 0) {
@@ -2277,7 +2277,52 @@ private function buildCampGate():void {
 
 private function promptHangImpSkull():void {
 	clearOutput();
-	if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 100) {
+	if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 7 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 10) {
+		outputText("There is no room; you have already hung a total of 7 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 14 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 20) {
+		outputText("There is no room; you have already hung a total of 14 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 21 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 30) {
+		outputText("There is no room; you have already hung a total of 21 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 28 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 40) {
+		outputText("There is no room; you have already hung a total of 28 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 35 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 50) {
+		outputText("There is no room; you have already hung a total of 35 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 45 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 60) {
+		outputText("There is no room; you have already hung a total of 45 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 55 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 70) {
+		outputText("There is no room; you have already hung a total of 55 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 65 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 80) {
+		outputText("There is no room; you have already hung a total of 65 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else if (flags[kFLAGS.CAMP_WALL_SKULLS] >= 75 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 90) {
+		outputText("There is no room; you have already hung a total of 75 imp skulls! To add more you need to build next segment of the wall.");
+		doNext(doCamp);
+		return;
+	}
+	else (flags[kFLAGS.CAMP_WALL_SKULLS] >= 100 && flags[kFLAGS.CAMP_WALL_PROGRESS] == 100) {
 		outputText("There is no room; you have already hung a total of 100 imp skulls! No imp shall dare approaching you at night!");
 		doNext(doCamp);
 		return;
