@@ -231,7 +231,7 @@ package classes.Scenes.Dungeons
 		
 		private function constructFurnitureBed():void {
 			clearOutput();
-			outputText("You take the book from your toolbox and flip pages until you reach pages about how to construct a bed. After moment of pondering you looking for model that can house two people. Maybe someday you will need that extra space to sleep. You follow the instructions.\n\n");
+			outputText("You take the book from your toolbox and flip pages until you reach pages about how to construct a bed. After moment of thinking over something you looking for a model that could be used by two people. Maybe someday you will need that extra space to sleep since it's Mareth after all. You follow the instructions.\n\n");
 			outputText("You pick up the wood and begin to construct a bed frame. You put it together and drive nails into place with your hammer.\n\n");
 			outputText("Next, you add a wooden slab to the bed for mattress. With the bed finished, you go outside to pick up your bedroll and bring it inside. It easily converts to mattress, sheet, and pillow. It took you two hours to completely make a large bed from the beginning!\n\n");
 			outputText("<b>You have finished your bed! (HP and Fatigue recovery increased by 50%!)</b> \n\n");
