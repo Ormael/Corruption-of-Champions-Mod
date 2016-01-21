@@ -524,7 +524,7 @@ package classes
 		public static const PureAndLoving:PerkType = mk("Pure and Loving", "Pure and Loving",
 				"Your caring attitude towards love and romance makes you slightly more resistant to lust and corruption.");
 		public static const RapierTraining:PerkType = mk("Rapier Training", "Rapier Training",
-				"After finishing your rapier training their attack power increased.");
+				"After finishing of your training, increase attack power of any rapier you're using.");
 		public static const SensualLover:PerkType = mk("Sensual Lover", "Sensual Lover",
 				"Your sensual attitude towards love and romance makes your tease ability slightly more effective.");
 		public static const Whispered:PerkType = mk("Whispered", "Whispered",
