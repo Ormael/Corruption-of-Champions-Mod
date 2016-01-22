@@ -200,8 +200,10 @@ package classes.GlobalFlags
 		public static const GENERAL_ANTWORKS:int			= 171;
 		public static const GENERAL_MEGA_PERKY:int			= 172;
 		public static const GENERAL_HYPER_PERKY:int			= 173;
-		public static const UNKNOWN_ACHIEVEMENT_174:int			= 174;
+		public static const GENERAL_XXX2_THE_NEXT_LEVEL:int		= 174; //Start NG+ or higher
 		public static const UNKNOWN_ACHIEVEMENT_175:int			= 175;
+		public static const UNKNOWN_ACHIEVEMENT_176:int			= 176;
+		public static const UNKNOWN_ACHIEVEMENT_177:int			= 177;
 		
 	}
 
