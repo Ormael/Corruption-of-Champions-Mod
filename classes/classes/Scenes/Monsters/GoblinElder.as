@@ -189,6 +189,7 @@ package classes.Scenes.Monsters
 			this.armorDef = 24;
 			this.fatigue = 0;
 			this.bonusHP = 425;
+			this.bonusLust = 10;
 			this.lust = 35;
 			this.lustVuln = 0.4;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
