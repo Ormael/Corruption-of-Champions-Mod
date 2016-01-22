@@ -155,6 +155,7 @@
 			this.weaponName = "fists";
 			this.weaponVerb="tiny punch";
 			this.armorName = "leather straps";
+			this.bonusLust = 10;
 			this.lust = 50;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
 			this.level = 1;
