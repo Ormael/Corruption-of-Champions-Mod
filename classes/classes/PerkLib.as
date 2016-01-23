@@ -89,6 +89,12 @@ package classes
 		public static const Acclimation:PerkType = mk("Acclimation", "Acclimation",
 				"Reduces lust gain by 15%.",
 				"You choose the 'Acclimation' perk, making your body 15% more resistant to lust, up to a maximum of 75%.");
+		public static const AdvancedEndurance:PerkType = mk("Advanced Endurance", "Advanced Endurance",
+				"Increases maximum fatigue by 30.",
+				"You choose the 'Advanced Endurance' perk. Thanks to your advanced physical conditioning, your maximum fatigue has been increased by 30!</b>");	
+		public static const AdvancedSelfControl:PerkType = mk("Advanced Self-Control", "Advanced Self-Control",
+				"Increases maximum lust by 15.",
+				"You choose the 'Advanced Self-Control' perk. Thanks to your advanced mental conditioning, your maximum lust has been increased by 15!</b>");
 		public static const Agility:PerkType = mk("Agility", "Agility",
 				"Boosts armor points by a portion of your speed on light/medium armors.",
 				"You choose the 'Agility' perk, increasing the effectiveness of Light/Medium armors by a portion of your speed.");
@@ -175,35 +181,11 @@ package classes
 						"]",
 				"You choose the 'Immovable Object' perk, granting 10% physical damage reduction.</b>");
 		public static const ImprovedEndurance:PerkType = mk("Improved Endurance", "Improved Endurance",
-				"Increases maximum fatigue by 35.",
-				"You choose the 'Improved Endurance' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
-		public static const ImprovedEndurance2:PerkType = mk("Improved Endurance 2", "Improved Endurance 2",
-				"Increases maximum fatigue by 35.",
-				"You choose the 'Improved Endurance 2' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");	
-		public static const ImprovedEndurance3:PerkType = mk("Improved Endurance 3", "Improved Endurance 3",
-				"Increases maximum fatigue by 35.",
-				"You choose the 'Improved Endurance 3' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
-		public static const ImprovedEndurance4:PerkType = mk("Improved Endurance 4", "Improved Endurance 4",
-				"Increases maximum fatigue by 35.",
-				"You choose the 'Improved Endurance 4' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
-		public static const ImprovedEndurance5:PerkType = mk("Improved Endurance 5", "Improved Endurance 5",
-				"Increases maximum fatigue by 35.",
-				"You choose the 'Improved Endurance 5' perk. Thanks to your physical conditioning, your maximum fatigue has been increased by 35!</b>");
+				"Increases maximum fatigue by 20.",
+				"You choose the 'Improved Endurance' perk. Thanks to your improved physical conditioning, your maximum fatigue has been increased by 20!</b>");
 		public static const ImprovedSelfControl:PerkType = mk("Improved Self-Control", "Improved Self-Control",
-				"Increases maximum lust by 20.",
-				"You choose the 'Improved Self-Control' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
-		public static const ImprovedSelfControl2:PerkType = mk("Improved Self-Control 2", "Improved Self-Control 2",
-				"Increases maximum lust by 20.",
-				"You choose the 'Improved Self-Control 2' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
-		public static const ImprovedSelfControl3:PerkType = mk("Improved Self-Control 3", "Improved Self-Control 3",
-				"Increases maximum lust by 20.",
-				"You choose the 'Improved Self-Control 3' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
-		public static const ImprovedSelfControl4:PerkType = mk("Improved Self-Control 4", "Improved Self-Control 4",
-				"Increases maximum lust by 20.",
-				"You choose the 'Improved Self-Control 4' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
-		public static const ImprovedSelfControl5:PerkType = mk("Improved Self-Control 5", "Improved Self-Control 5",
-				"Increases maximum lust by 20.",
-				"You choose the 'Improved Self-Control 5' perk. Thanks to your mental conditioning, your maximum lust has been increased by 20!</b>");
+				"Increases maximum lust by 10.",
+				"You choose the 'Improved Self-Control' perk. Thanks to your improved mental conditioning, your maximum lust has been increased by 10!</b>");
 		public static const InhumanDesire:PerkType = mk("Inhuman Desire", "Inhuman Desire",
 				"Raises max LP by 20.",
 				"You choose the 'Inhuman Desire' perk, giving you an additional 20 LP!");
@@ -328,6 +310,12 @@ package classes
 		public static const Spellsword:PerkType = mk("Spellsword", "Spellsword",
 				"Start every battle with Charge Weapon enabled, if you meet White Magic requirements before it starts.",
 				"You choose the 'Spellsword' perk. You start every battle with Charge Weapon effect, as long as your Lust is not preventing you from casting it before battle.");
+		public static const SuperiorEndurance:PerkType = mk("Superior Endurance", "Superior Endurance",
+				"Increases maximum fatigue by 50.",
+				"You choose the 'Superior Endurance' perk. Thanks to your superior physical conditioning, your maximum fatigue has been increased by 50!</b>");
+		public static const SuperiorSelfControl:PerkType = mk("Superior Self-Control", "Superior Self-Control",
+				"Increases maximum lust by 25.",
+				"You choose the 'Superior Self-Control' perk. Thanks to your superior mental conditioning, your maximum lust has been increased by 25!</b>");
 		public static const Survivalist:PerkType = mk("Survivalist", "Survivalist",
 				"Slows hunger rate by 20%.",
 				"You choose the 'Survivalist' perk.  With this perk, your hunger rate is reduced by 20%.");
