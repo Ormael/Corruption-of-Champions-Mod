@@ -613,7 +613,7 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 50) {
 			_add(new PerkClass(PerkLib.ShieldMastery));
 		}
-		if(player.tou >= 65 && player.str >= 65 && player.findPerk(ImprovedEndurance) >= 0) {
+		if(player.tou >= 65 && player.str >= 65 && player.findPerk(PerkLib.ImprovedEndurance) >= 0) {
 			_add(new PerkClass(PerkLib.AdvancedEndurance));
 		}
 	}
@@ -628,7 +628,7 @@ public function buildPerkList():Array {
 		if(player.tou >= 60) {
 			_add(new PerkClass(PerkLib.IronMan));
 		}
-		if(player.tou >= 80 && player.str >= 80 && player.findPerk(AdvancedEndurance) >= 0) {
+		if(player.tou >= 80 && player.str >= 80 && player.findPerk(PerkLib.AdvancedEndurance) >= 0) {
 			_add(new PerkClass(PerkLib.SuperiorEndurance));
 		}
 	}
@@ -787,7 +787,7 @@ public function buildPerkList():Array {
 		if(player.lib >= 60 && player.cor >= 50) {
 			_add(new PerkClass(PerkLib.Masochist));
 		}
-		if(player.lib >= 35 && player.inte >= 70 && player.findPerk(ImprovedSelfControl) >= 0) {
+		if(player.lib >= 35 && player.inte >= 70 && player.findPerk(PerkLib.ImprovedSelfControl) >= 0) {
 			_add(new PerkClass(PerkLib.AdvancedSelfControl));
 		}
 		if(player.findPerk(PerkLib.JobSeducer) >= 0 && player.lib >= 50) {
@@ -799,7 +799,7 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75) {
 			_add(new PerkClass(PerkLib.DemonicDesire));
 		}
-		if(player.lib >= 45 && player.inte >= 90 && player.findPerk(AdvancedSelfControl) >= 0) {
+		if(player.lib >= 45 && player.inte >= 90 && player.findPerk(PerkLib.AdvancedSelfControl) >= 0) {
 			_add(new PerkClass(PerkLib.SuperiorSelfControl));
 		}
 	}
