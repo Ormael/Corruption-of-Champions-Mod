@@ -596,18 +596,6 @@ public function buildPerkList():Array {
 	if(player.tou >= 50 && player.str >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedEndurance));
 	}
-	if(player.tou >= 65 && player.str >= 65 && player.findPerk(ImprovedEndurance) >= 0 && player.newGamePlusMod >= 1) {
-		_add(new PerkClass(PerkLib.ImprovedEndurance2));
-	}
-	if(player.tou >= 80 && player.str >= 80 && player.findPerk(ImprovedEndurance2) >= 0 && player.newGamePlusMod >= 2) {
-		_add(new PerkClass(PerkLib.ImprovedEndurance3));
-	}
-	if(player.tou >= 95 && player.str >= 95 && player.findPerk(ImprovedEndurance3) >= 0 && player.newGamePlusMod >= 3) {
-		_add(new PerkClass(PerkLib.ImprovedEndurance4));
-	}
-	if(player.tou >= 110 && player.str >= 110 && player.findPerk(ImprovedEndurance4) >= 0 && player.newGamePlusMod >= 4) {
-		_add(new PerkClass(PerkLib.ImprovedEndurance5));
-	}
 	if(player.tou >= 20) {
 		_add(new PerkClass(PerkLib.JobGuardian));
 	}
@@ -625,6 +613,9 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 50) {
 			_add(new PerkClass(PerkLib.ShieldMastery));
 		}
+		if(player.tou >= 65 && player.str >= 65 && player.findPerk(ImprovedEndurance) >= 0) {
+			_add(new PerkClass(PerkLib.AdvancedEndurance));
+		}
 	}
 	//Tier 2 Toughness Perks
 	if(player.level >= 12) {
@@ -636,6 +627,9 @@ public function buildPerkList():Array {
 		}
 		if(player.tou >= 60) {
 			_add(new PerkClass(PerkLib.IronMan));
+		}
+		if(player.tou >= 80 && player.str >= 80 && player.findPerk(AdvancedEndurance) >= 0) {
+			_add(new PerkClass(PerkLib.SuperiorEndurance));
 		}
 	}
 	//------------
@@ -776,18 +770,6 @@ public function buildPerkList():Array {
 	if(player.lib >= 25 && player.inte >= 50) {
 		_add(new PerkClass(PerkLib.ImprovedSelfControl));
 	}
-	if(player.lib >= 25 && player.inte >= 65 && player.findPerk(ImprovedSelfControl) >= 0 && player.newGamePlusMod >= 1) {
-		_add(new PerkClass(PerkLib.ImprovedSelfControl2));
-	}
-	if(player.lib >= 25 && player.inte >= 80 && player.findPerk(ImprovedSelfControl2) >= 0 && player.newGamePlusMod >= 2) {
-		_add(new PerkClass(PerkLib.ImprovedSelfControl3));
-	}
-	if(player.lib >= 25 && player.inte >= 95 && player.findPerk(ImprovedSelfControl3) >= 0 && player.newGamePlusMod >= 3) {
-		_add(new PerkClass(PerkLib.ImprovedSelfControl4));
-	}
-	if(player.lib >= 25 && player.inte >= 110 && player.findPerk(ImprovedSelfControl4) >= 0 && player.newGamePlusMod >= 4) {
-		_add(new PerkClass(PerkLib.ImprovedSelfControl5));
-	}
 	if(player.lib >= 20) {
 		_add(new PerkClass(PerkLib.JobSeducer));
 	}
@@ -805,6 +787,9 @@ public function buildPerkList():Array {
 		if(player.lib >= 60 && player.cor >= 50) {
 			_add(new PerkClass(PerkLib.Masochist));
 		}
+		if(player.lib >= 35 && player.inte >= 70 && player.findPerk(ImprovedSelfControl) >= 0) {
+			_add(new PerkClass(PerkLib.AdvancedSelfControl));
+		}
 		if(player.findPerk(PerkLib.JobSeducer) >= 0 && player.lib >= 50) {
 			_add(new PerkClass(PerkLib.InhumanDesire));
 		}
@@ -813,6 +798,9 @@ public function buildPerkList():Array {
 	if(player.level >= 12) {
 		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75) {
 			_add(new PerkClass(PerkLib.DemonicDesire));
+		}
+		if(player.lib >= 45 && player.inte >= 90 && player.findPerk(AdvancedSelfControl) >= 0) {
+			_add(new PerkClass(PerkLib.SuperiorSelfControl));
 		}
 	}
 	//------------
