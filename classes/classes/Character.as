@@ -836,11 +836,9 @@ import classes.Items.JewelryLib;
 		{
 			var max:Number = 100;
 			if (game.player.demonScore() >= 4) max += 20;
-			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedSelfControl2) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedSelfControl3) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedSelfControl4) >= 0) max += 20;
-			if (findPerk(PerkLib.ImprovedSelfControl5) >= 0) max += 20;
+			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) max += 10;
+			if (findPerk(PerkLib.AdvancedSelfControl) >= 0) max += 15;
+			if (findPerk(PerkLib.SuperiorSelfControl) >= 0) max += 25;
 			if (findPerk(PerkLib.InhumanDesire) >= 0) max += 20;
 			if (findPerk(PerkLib.DemonicDesire) >= 0) max += Math.round(lib);
 			if (findPerk(PerkLib.BroBody) >= 0 || findPerk(PerkLib.BimboBody) >= 0 || findPerk(PerkLib.FutaForm) >= 0) max += 20;
@@ -855,11 +853,9 @@ import classes.Items.JewelryLib;
 		public function maxFatigue():Number
 		{
 			var max:Number = 100;
-			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 35;
-			if (findPerk(PerkLib.ImprovedEndurance2) >= 0) max += 35;
-			if (findPerk(PerkLib.ImprovedEndurance3) >= 0) max += 35;
-			if (findPerk(PerkLib.ImprovedEndurance4) >= 0) max += 35;
-			if (findPerk(PerkLib.ImprovedEndurance5) >= 0) max += 35;
+			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 20;
+			if (findPerk(PerkLib.AdvancedEndurance) >= 0) max += 30;
+			if (findPerk(PerkLib.SuperiorEndurance) >= 0) max += 50;
 			if (findPerk(PerkLib.JobArcher) >= 0) max += 5;
 			if (findPerk(PerkLib.JobSorcerer) >= 0) max += 15;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 100;
