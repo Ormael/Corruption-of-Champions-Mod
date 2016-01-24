@@ -327,19 +327,19 @@ use namespace kGAMECLASS;
 			if(findPerk(PerkLib.LightningStrikes) >= 0 && spe >= 60 && weaponPerk != "Large") {
 				attack += Math.round((spe - 50) / 3);
 			}
-			if(findPerk(PerkLib.IronFists) >= 0 && str >= 50 && weaponName == "fists") {
+			if(findPerk(PerkLib.IronFistsI) >= 0 && str >= 50 && weaponName == "fists") {
 				attack += 5;
 			}
-			if(findPerk(PerkLib.IronFists2) >= 0 && str >= 65 && weaponName == "fists") {
+			if(findPerk(PerkLib.IronFistsII) >= 0 && str >= 65 && weaponName == "fists") {
 				attack += 5;
 			}
-			if(findPerk(PerkLib.IronFists3) >= 0 && str >= 80 && weaponName == "fists") {
+			if(findPerk(PerkLib.IronFistsIII) >= 0 && str >= 80 && weaponName == "fists") {
 				attack += 5;
 			}
-			if(findPerk(PerkLib.IronFists4) >= 0 && str >= 95 && weaponName == "fists") {
+			if(findPerk(PerkLib.IronFistsIV) >= 0 && str >= 95 && weaponName == "fists") {
 				attack += 5;
 			}
-			if(findPerk(PerkLib.IronFists5) >= 0 && str >= 110 && weaponName == "fists") {
+			if(findPerk(PerkLib.IronFistsV) >= 0 && str >= 110 && weaponName == "fists") {
 				attack += 5;
 			}
 			if(findStatusAffect(StatusAffects.Berzerking) >= 0) attack += 30;
