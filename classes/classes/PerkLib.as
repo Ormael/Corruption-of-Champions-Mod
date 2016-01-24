@@ -189,21 +189,21 @@ package classes
 		public static const InhumanDesire:PerkType = mk("Inhuman Desire", "Inhuman Desire",
 				"Raises max LP by 20.",
 				"You choose the 'Inhuman Desire' perk, giving you an additional 20 LP!");
-		public static const IronFists:PerkType = mk("Iron Fists", "Iron Fists",
+		public static const IronFistsI:PerkType = mk("Iron Fists I", "Iron Fists I",
 				"Hardens your fists to increase attack rating by 5.",
-				"You choose the 'Iron Fists' perk, hardening your fists. This increases attack power by 5.");
-		public static const IronFists2:PerkType = mk("Iron Fists 2", "Iron Fists 2",
+				"You choose the 'Iron Fists I' perk, hardening your fists. This increases attack power by 5.");
+		public static const IronFistsII:PerkType = mk("Iron Fists II", "Iron Fists II",
 				"Further hardens your fists to increase attack rating by another 5.",
-				"You choose the 'Iron Fists 2' perk, further hardening your fists. This increases attack power by another 5.");
-		public static const IronFists3:PerkType = mk("Iron Fists 3", "Iron Fists 3",
+				"You choose the 'Iron Fists II' perk, further hardening your fists. This increases attack power by another 5.");
+		public static const IronFistsIII:PerkType = mk("Iron Fists III", "Iron Fists III",
 				"Even more hardens your fists to increase attack rating again by 5.",
-				"You choose the 'Iron Fists 3' perk, even further hardening your fists. This increases attack power again by 5.");
-		public static const IronFists4:PerkType = mk("Iron Fists 4", "Iron Fists 4",
+				"You choose the 'Iron Fists III' perk, even further hardening your fists. This increases attack power again by 5.");
+		public static const IronFistsIV:PerkType = mk("Iron Fists IV", "Iron Fists IV",
 				"Next training to harden your fists increased their attack rating by 5.",
-				"You choose the 'Iron Fists 4' perk, again hardening your fists. This increases attack power for another 5.");
-		public static const IronFists5:PerkType = mk("Iron Fists 5", "Iron Fists 5",
+				"You choose the 'Iron Fists IV' perk, again hardening your fists. This increases attack power for another 5.");
+		public static const IronFistsV:PerkType = mk("Iron Fists V", "Iron Fists V",
 				"Almost hellish taining increeased your fists attack rating by another 5.",
-				"You choose the 'Iron Fists 5' perk, to once again make your first more tough. This increases attack power once more for 5.");
+				"You choose the 'Iron Fists V' perk, to once again make your first more tough. This increases attack power once more for 5.");
 		public static const IronMan:PerkType = mk("Iron Man", "Iron Man",
 				"Reduces the fatigue cost of physical specials by 50%.",
 				"You choose the 'Iron Man' perk, reducing the fatigue cost of physical special attacks by 50%");
