@@ -556,15 +556,15 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.JobWarrior) >= 0 && player.str >= 75)
 			_add(new PerkClass(PerkLib.BrutalBlows));
 		if(player.str >= 50)
-			_add(new PerkClass(PerkLib.IronFists));
-		if(player.str >= 65 && player.findPerk(PerkLib.IronFists) >= 0 && player.newGamePlusMod() >= 1)
-			_add(new PerkClass(PerkLib.IronFists2));
-		if(player.str >= 80 && player.findPerk(PerkLib.IronFists2) >= 0 && player.newGamePlusMod() >= 1)
-			_add(new PerkClass(PerkLib.IronFists3));
-		if(player.str >= 95 && player.findPerk(IronFists3) >= 0 && player.newGamePlusMod >= 3)
-			_add(new PerkClass(PerkLib.IronFists4));
-		if(player.str >= 110 && player.findPerk(IronFists4) >= 0 && player.newGamePlusMod >= 4)
-			_add(new PerkClass(PerkLib.IronFists5));
+			_add(new PerkClass(PerkLib.IronFistsI));
+		if(player.str >= 65 && player.findPerk(PerkLib.IronFistsI) >= 0 && player.newGamePlusMod() >= 1)
+			_add(new PerkClass(PerkLib.IronFistsII));
+		if(player.str >= 80 && player.findPerk(PerkLib.IronFistsII) >= 0 && player.newGamePlusMod() >= 1)
+			_add(new PerkClass(PerkLib.IronFistsIII));
+		if(player.str >= 95 && player.findPerk(IronFistsIII) >= 0 && player.newGamePlusMod >= 3)
+			_add(new PerkClass(PerkLib.IronFistsIV));
+		if(player.str >= 110 && player.findPerk(IronFistsIV) >= 0 && player.newGamePlusMod >= 4)
+			_add(new PerkClass(PerkLib.IronFistsV));
 		if(player.str >= 50 && player.spe >= 50)
 			_add(new PerkClass(PerkLib.Parry));
 	}
@@ -796,7 +796,7 @@ public function buildPerkList():Array {
 	}
 	//Tier 2 Libido Perks
 	if(player.level >= 12) {
-		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75) {
+		if(player.findPerk(PerkLib.InhumanDesire) >= 0 && player.lib >= 75 && player.cor >= 50) {
 			_add(new PerkClass(PerkLib.DemonicDesire));
 		}
 		if(player.lib >= 45 && player.inte >= 90 && player.findPerk(PerkLib.AdvancedSelfControl) >= 0) {
