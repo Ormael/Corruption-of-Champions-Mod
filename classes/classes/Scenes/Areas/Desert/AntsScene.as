@@ -2647,6 +2647,7 @@ package classes.Scenes.Areas.Desert
 //[Stones]
 		private function phyllaStones():void
 		{
+			clearOutput();
 			var stones:int = 2 + rand(10);
 			flags[kFLAGS.ACHIEVEMENT_PROGRESS_ANTWORKS] += stones;
 			if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_ANTWORKS] >= 200) awardAchievement("AntWorks", kACHIEVEMENTS.GENERAL_ANTWORKS);
