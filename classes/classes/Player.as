@@ -950,8 +950,10 @@ use namespace kGAMECLASS;
 				demonCounter++;
 			if (tailType == 3)
 				demonCounter++;
-			if (wingType == 6 || wingType == 7)
+			if (wingType == 6)
 				demonCounter++;
+			if (wingType == 7)
+				demonCounter += 2;
 			if (skinType == 0 && cor > 50)
 				demonCounter++;
 			if (faceType == 0 && cor > 50)
@@ -1087,7 +1089,7 @@ use namespace kGAMECLASS;
 			if (wingType == 1)
 				beeCounter++;
 			if (wingType == 2)
-				beeCounter++;
+				beeCounter += 2;
 			return beeCounter;
 		}
 		//Determine Ferret Rating!
@@ -1295,9 +1297,12 @@ use namespace kGAMECLASS;
 			//If the character has a fox tail, +1
 			if (tailType == TAIL_TYPE_FOX)
 				kitsuneCounter++;
-			//If the character has two or more fox tails, +2
+			//If the character has two to eight fox tails, +2
 			if (tailType == TAIL_TYPE_FOX && tailVenom >= 2)
 				kitsuneCounter += 2;
+			//If the character has nine fox tails, +3
+			if (tailType == TAIL_TYPE_FOX && tailVenom == 9)
+				kitsuneCounter += 3;
 			//If the character has tattooed skin, +1
 			//9999
 			//If the character has a 'vag of holding', +1
@@ -1350,15 +1355,19 @@ use namespace kGAMECLASS;
 				dragonCounter++;
 			if (dragonCocks() > 0)
 				dragonCounter++;
-			if (wingType == 10 || wingType == 11)
+			if (wingType == 10)
 				dragonCounter++;
+			if (wingType == 11)
+				dragonCounter += 2;
 			if (lowerBody == 18)
 				dragonCounter++;
 			if (horns > 0 && (hornType == 3 || hornType == 4))
 				dragonCounter++;
 			if (skinType == 2 && dragonCounter > 0)
 				dragonCounter++;
-			if (hornType == HORNS_DRACONIC_X4_12_INCH_LONG || hornType == HORNS_DRACONIC_X2)
+			if (hornType == HORNS_DRACONIC_X4_12_INCH_LONG)
+				dragonCounter += 2;
+			if (hornType == HORNS_DRACONIC_X2)
 				dragonCounter++;
 			if (findPerk(PerkLib.Dragonfire) >= 0)
 				dragonCounter++;
@@ -1457,10 +1466,14 @@ use namespace kGAMECLASS;
 				harpy++;
 			if (tailType == 11)
 				harpy++;
+			if (tailType == 7)
+				harpy--;
 			if (lowerBody == 13)
 				harpy++;
 			if (harpy >= 2 && faceType == 0)
 				harpy++;
+			if (faceType == 4)
+				harpy--;
 			if (harpy >= 2 && (earType == 0 || earType == 4))
 				harpy++;
 			return harpy;
@@ -1657,7 +1670,9 @@ use namespace kGAMECLASS;
 				dragonneCounter++;
 			if (tongueType == TONUGE_DRACONIC)
 				dragonneCounter++;
-			if (wingType == WING_TYPE_DRACONIC_LARGE || wingType == WING_TYPE_DRACONIC_SMALL)
+			if (wingType == WING_TYPE_DRACONIC_LARGE)
+				dragonneCounter += 2;
+			if (wingType == WING_TYPE_DRACONIC_SMALL)
 				dragonneCounter++;
 			if (lowerBody == LOWER_BODY_TYPE_CAT)
 				dragonneCounter++;
