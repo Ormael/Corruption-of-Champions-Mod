@@ -88,7 +88,7 @@ package classes.Scenes.Dungeons.Factory
 			this.skinTone = "light purple";
 			this.hairColor = "purple";
 			this.hairLength = 42;
-			initStrTouSpeInte(65, 45, 45, 85);
+			initStrTouSpeInte(70, 50, 45, 85);
 			initLibSensCor(80, 70, 80);
 			this.weaponName = "claws";
 			this.weaponVerb="claw";
@@ -102,7 +102,7 @@ package classes.Scenes.Dungeons.Factory
 			this.lust = 20;
 			this.lustVuln = 0.75;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
-			this.level = 8;
+			this.level = 10;
 			this.gems = rand(25) + 10;
 			this.additionalXP = 75;
 			this.drop = new WeightedDrop(null, 1);
