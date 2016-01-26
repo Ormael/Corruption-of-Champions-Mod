@@ -201,7 +201,7 @@ package classes.Scenes.Dungeons.Factory
 			this.lust = 50;
 			this.lustVuln = .5;
 			this.temperment = TEMPERMENT_LOVE_GRAPPLES;
-			this.level = 8;
+			this.level = 9;
 			this.drop = new WeightedDrop(consumables.GROPLUS, 1);
 			this.gems = rand(25) + 10;
 			this.additionalXP = 50;
