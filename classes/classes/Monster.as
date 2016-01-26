@@ -187,6 +187,7 @@
 			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) temp += 20
 			//Apply NG+, NG++, NG+++, etc.
 			temp += 10 * player.newGamePlusMod();
+			return temp;
 		}
 
 		/**
