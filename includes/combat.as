@@ -1841,7 +1841,7 @@ private function combatStatusesUpdate():void {
 		outputText("<b>Your muscles twitch in agony as the acid keeps burning you. <b>(<font color=\"#800000\">" + slap + "</font>)</b></b>\n\n", false);
 	}
 	if(player.findPerk(PerkLib.ArousingAura) >= 0 && monster.lustVuln > 0 && player.cor >= 70) {
-		if(monster.lust < (eMaxLust * 0.5) outputText("Your aura seeps into " + monster.a + monster.short + " but does not have any visible effects just yet.\n\n", false);
+		if(monster.lust < (eMaxLust * 0.5)) outputText("Your aura seeps into " + monster.a + monster.short + " but does not have any visible effects just yet.\n\n", false);
 		else if(monster.lust < (eMaxLust * 0.6)) {
 			if(!monster.plural) outputText(monster.capitalA + monster.short + " starts to squirm a little from your unholy presence.\n\n", false);
 			else outputText(monster.capitalA + monster.short + " start to squirm a little from your unholy presence.\n\n", false);
