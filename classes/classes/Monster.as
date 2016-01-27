@@ -186,7 +186,7 @@
 			//Apply perks
 			if (findPerk(PerkLib.ImprovedSelfControl) >= 0) temp += 20
 			//Apply NG+, NG++, NG+++, etc.
-			temp += 10 * player.newGamePlusMod();
+			temp += this.bonusLust * (1+ player.newGamePlusMod());
 			return temp;
 		}
 
