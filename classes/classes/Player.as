@@ -2256,6 +2256,7 @@ use namespace kGAMECLASS;
 			var maxTou:int = 100;
 			var maxSpe:int = 100;
 			var maxInt:int = 100;
+			var maxLib:int = 100;
 			
 			//Alter max speed if you have oversized parts. (Realistic mode)
 			if (flags[kFLAGS.HUNGER_ENABLED] >= 1)
@@ -2387,6 +2388,7 @@ use namespace kGAMECLASS;
 			if (demonScore() >= 4) {
 				maxSpe += 5;
 				maxInt += 5;
+				maxLib += 5;
 			}
 			if (rhinoScore() >= 4) {
 				maxStr += 15;
@@ -2400,6 +2402,19 @@ use namespace kGAMECLASS;
 			}
 			if (isNaga()) maxSpe += 10;
 			if (isTaur() || isDrider()) maxSpe += 20;
+			//Job perks
+			if (findPerk(PerkLib.JobArcher) >= 0) maxSpe += 5;
+			if (findPerk(PerkLib.JobGuardian) >= 0) maxTou += 5;
+			if (findPerk(PerkLib.JobMunchkin) >= 0) {
+				maxStr += 30;
+				maxTou += 30;
+				maxSpe += 30;
+				maxInt += 30;
+				maxLib += 20;
+			}
+			if (findPerk(PerkLib.JobSeducer) >= 0) maxLib += 5;
+			if (findPerk(PerkLib.JobSorcerer) >= 0) maxInt += 5;
+			if (findPerk(PerkLib.JobWarrior) >= 0) maxStr += 5;
 			//Apply New Game+
 			maxStr += 25 * newGamePlusMod();
 			maxTou += 25 * newGamePlusMod();
