@@ -192,12 +192,7 @@
 			if (findPerk(PerkLib.InhumanDesire) >= 0) temp += 20;
 			if (findPerk(PerkLib.DemonicDesire) >= 0) temp += this.lib;
 			//Apply NG+, NG++, NG+++, etc.
-			if (short == "Marae") {
-				temp += 50 * player.newGamePlusMod();
-			}
-			else {
-				temp += 10 * player.newGamePlusMod();
-			}
+			temp += this.bonusLust * player.newGamePlusMod();
 			return temp;
 		}
 
