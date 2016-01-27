@@ -291,12 +291,8 @@ use namespace kGAMECLASS;
 			if (findPerk(PerkLib.ChiReflowAttack) >= 0) armorDef *= UmasShop.NEEDLEWORK_ATTACK_DEFENSE_MULTI;
 			armorDef = Math.round(armorDef);
 			//Berzerking removes armor
-			if(findStatusAffect(StatusAffects.Berzerking) >= 0) {
+			if(findStatusAffect(StatusAffects.Berzerking) >= 0 && findPerk(PerkLib.ColdFury) < 1) {
 				armorDef = 0;
-			}
-			//Berzerking+Cold Fury
-			if(findStatusAffect(StatusAffects.Berzerking) >= 0 && findPerk(PerkLib.ColdFury) >= 0) {
-				armorDef += 1;
 			}
 			if(kGAMECLASS.monster.findStatusAffect(StatusAffects.TailWhip) >= 0) {
 				armorDef -= kGAMECLASS.monster.statusAffectv1(StatusAffects.TailWhip);
