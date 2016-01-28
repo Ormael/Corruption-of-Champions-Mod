@@ -252,10 +252,10 @@ package classes.Scenes.Camp
 			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300" + "\n");
 			}
 			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) { 
-			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600" + " \n");
+			outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600" + " \n");
 			}
 			else { 
-			outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200" + " \n");
+			outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200" + " \n");
 			}
 		}
 		
@@ -299,7 +299,7 @@ package classes.Scenes.Camp
 		
 		private function doCabinWork1():void {
 			clearOutput();
-			player.addKeyValue("Carpenter's Toolbox", 1, -100);
+			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] -= 100;
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 50;
 			outputText("Today is the day you'll actually work on building your own cabin! You clear a space and set up some rocks. You take the book from your toolbox and open it. You turn pages until you come across an instruction on how to construct frame. \n\n");
 			//if (kGAMECLASS.amilyScene.amilyFollower() && flags[kFLAGS.AMILY_FOLLOWER] == 1) outputText("\"<i>PLACEHOLDER</i>\" Amily asks. \n\n");
@@ -328,7 +328,7 @@ package classes.Scenes.Camp
 			checkMaterials();
 			if (player.hasKeyItem("Carpenter's Toolbox"))
 			{
-				if (player.keyItemv1("Carpenter's Toolbox") >= 200 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 75)
+				if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 200 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 75)
 				{
 					doYesNo(doCabinWork2, noThanks2);
 				}
@@ -347,7 +347,7 @@ package classes.Scenes.Camp
 
 		private function doCabinWork2():void {
 			clearOutput();
-			player.addKeyValue("Carpenter's Toolbox", 1, -200);
+			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] -= 200;
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 75;
 			outputText("You walk back to your cabin construction site and resume working. You take out the book and flip pages until you come across instructions on how to finish walls and roof. \n\n");
 			outputText("Segment by segment, you nail more wood on one side of the cabin. You move on to the next until the frame is covered. There is a hole where the window and door will be. You then climb up the ladder you have constructed from previous session. You then nail down the wood on roof frame. \n\n");
@@ -365,7 +365,7 @@ package classes.Scenes.Camp
 			checkMaterials();
 			if (player.hasKeyItem("Carpenter's Toolbox"))
 			{
-				if (player.keyItemv1("Carpenter's Toolbox") >= 100 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
+				if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 100 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
 				{
 					doYesNo(doCabinWork3, noThanks2);
 				}
@@ -384,7 +384,7 @@ package classes.Scenes.Camp
 
 		private function doCabinWork3():void {
 			clearOutput();
-			player.addKeyValue("Carpenter's Toolbox", 1, -100);
+			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] -= 100;
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 50;
 			outputText("You walk back to your cabin construction site and resume working. You take out the book and flip pages until you come across instructions on how to construct a door.\n\n");
 			outputText("Following the instructions, you construct a wooden door that comes complete with a window. You frame the doorway and install the door into place.\n\n");
@@ -402,7 +402,7 @@ package classes.Scenes.Camp
 			checkMaterials();
 			if (player.hasKeyItem("Carpenter's Toolbox"))
 			{
-				if (player.keyItemv1("Carpenter's Toolbox") >= 200 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
+				if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 200 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
 				{
 					doYesNo(doCabinWork4, noThanks2);
 				}
@@ -421,7 +421,7 @@ package classes.Scenes.Camp
 
 		private function doCabinWork4():void {
 			clearOutput();
-			player.addKeyValue("Carpenter's Toolbox", 1, -200);
+			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] -= 200;
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= 50;
 			outputText("You walk back to your cabin construction site and resume working. You take out the book and flip pages until you come across instructions on how to install wooden flooring.\n\n");
 			outputText("Following the instructions, you lay some wood on the ground and measure the gap between each wood to be consistent.\n\n");
