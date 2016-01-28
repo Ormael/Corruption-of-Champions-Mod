@@ -1868,7 +1868,7 @@ private function carpentryShopBuyNailsYes():void {
 		if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 200)
 		{
 			outputText("Unfortunately, your toolbox can't hold anymore nails. You notify him and he refunds you the gems.\n\n", false);
-			player.gems += (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] - 200) * 2);
+			player.gems += ((flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] - 200) * 2);
 			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 200;
 		}
 		outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200");
