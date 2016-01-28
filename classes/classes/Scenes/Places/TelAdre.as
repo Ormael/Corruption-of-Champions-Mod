@@ -1832,9 +1832,11 @@ public function carpentryShopInside():void {
 public function carpentryShopBuyNails():void {
 	clearOutput();
 	if (player.hasKeyItem("Carpenter's Toolbox") >= 0) {
-		outputText("You ask him if he has nails for sale. He replies \"<i>Certainly! I've got nails. Your toolbox can hold up to two hundred nails. I'll be selling nails at a price of two gems per nail.</i>\" \n\n");
-		if flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 0) outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200")
-		else outputText("Nails: " + 0 + "/200", false)
+		//Popracować aby wspominal wlasciciel w rozmowie 200-600 gwozdzi
+		//outputText("You ask him if he has nails for sale. He replies \"<i>Certainly! I've got nails. Your toolbox can hold up to two hundred nails. I'll be selling nails at a price of two gems per nail.</i>\" \n\n");
+		//if (player.hasKeyItem("Carpenter's Toolbox") >= 0 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600")
+		//else if (player.hasKeyItem("Carpenter's Toolbox") >= 0 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200")
+		//else outputText("Nails: " + 0 + "/200", false)
 		menu();
 		addButton(0, "Buy 10", carpentryShopBuyNailsAmount, 10);
 		addButton(1, "Buy 25", carpentryShopBuyNailsAmount, 25);
@@ -1862,9 +1864,9 @@ private function carpentryShopBuyNailsYes():void {
 		player.gems -= (nails * 2);
 		flags[kFLAGS.ACHIEVEMENT_PROGRESS_HAMMER_TIME] += nails;
 		if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_HAMMER_TIME] >= 300) awardAchievement("Hammer Time", kACHIEVEMENTS.GENERAL_HAMMER_TIME);
-		player.addKeyValue("Carpenter's Toolbox", 1, nails);
+		flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] += nails;
 		outputText("You hand over " + (nails * 2) + " gems. \"<i>Done,</i>\" he says as he hands over bundle of " + nails +" nails to you.\n\n");
-		if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 600 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)) {
+		if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 600 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) {
 			outputText("Unfortunately, your toolbox can't hold anymore nails. You notify him and he refunds you the gems.\n\n", false);
 			player.gems += (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] - 600) * 2);
 			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 600;
