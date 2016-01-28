@@ -280,7 +280,7 @@ package classes.Scenes.Camp
 			checkMaterials();
 			if (player.hasKeyItem("Carpenter's Toolbox"))
 			{
-				if (player.keyItemv1("Carpenter's Toolbox") >= 100 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
+				if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 100 && flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 50)
 				{
 					doYesNo(doCabinWork1, noThanks2);
 				}
