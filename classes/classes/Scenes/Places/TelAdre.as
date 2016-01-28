@@ -1834,7 +1834,7 @@ public function carpentryShopBuyNails():void {
 	clearOutput();
 	if (player.hasKeyItem("Carpenter's Toolbox") >= 0) {
 		outputText("You ask him if he has nails for sale. He replies \"<i>Certainly! I've got nails. Your toolbox can hold up to two hundred nails. I'll be selling nails at a price of two gems per nail.</i>\" \n\n");
-		if (player.hasKeyItem("Carpenter's Toolbox") >= 0) outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200")
+		if (player.hasKeyItem("Carpenter's Toolbox") >= 0) outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200")
 		else outputText("Nails: " + 0 + "/200", false)
 		menu();
 		addButton(0, "Buy 10", carpentryShopBuyNailsAmount, 10);
@@ -1863,15 +1863,15 @@ private function carpentryShopBuyNailsYes():void {
 		player.gems -= (nails * 2);
 		flags[kFLAGS.ACHIEVEMENT_PROGRESS_HAMMER_TIME] += nails;
 		if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_HAMMER_TIME] >= 300) awardAchievement("Hammer Time", kACHIEVEMENTS.GENERAL_HAMMER_TIME);
-		player.addKeyValue("Carpenter's Toolbox", 1, nails);
+		flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] += nails;
 		outputText("You hand over " + (nails * 2) + " gems. \"<i>Done,</i>\" he says as he hands over bundle of " + nails +" nails to you.\n\n");
-		if (player.keyItemv1("Carpenter's Toolbox") > 200)
+		if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 200)
 		{
 			outputText("Unfortunately, your toolbox can't hold anymore nails. You notify him and he refunds you the gems.\n\n", false);
-			player.gems += ((player.keyItemv1("Carpenter's Toolbox") - 200) * 2);
-			player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 200));
+			player.gems += (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] - 200) * 2);
+			flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 200;
 		}
-		outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200");
+		outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200");
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough gems.</i>\"", true);
 	statScreenRefresh();
@@ -1961,30 +1961,30 @@ private function carpentryShopBuyStoneYes():void {
 //Sell Nails
 public function carpentryShopSellNails():void {
 	outputText("You ask him if he's willing to buy nails from you. He says, \"<i>Certainly! I'll be buying nails at a rate of one gem per nail.</i>\" \n\n", true);
-	outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200", false);
+	outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200", false);
 	menu();
-	if (player.keyItemv1("Carpenter's Toolbox") >= 10) addButton(0, "Sell 10", carpentryShopSellNailsAmount, 10);
-	if (player.keyItemv1("Carpenter's Toolbox") >= 25) addButton(1, "Sell 25", carpentryShopSellNailsAmount, 25);
-	if (player.keyItemv1("Carpenter's Toolbox") >= 50) addButton(2, "Sell 50", carpentryShopSellNailsAmount, 50);
-	if (player.keyItemv1("Carpenter's Toolbox") >= 75) addButton(3, "Sell 75", carpentryShopSellNailsAmount, 75);
-	if (player.keyItemv1("Carpenter's Toolbox") >= 100) addButton(3, "Sell 100", carpentryShopSellNailsAmount, 100);
-	if (player.keyItemv1("Carpenter's Toolbox") > 0) addButton(4, "Sell All", carpentryShopSellNailsAmount, player.keyItemv1("Carpenter's Toolbox"));
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 10) addButton(0, "Sell 10", carpentryShopSellNailsAmount, 10);
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 25) addButton(1, "Sell 25", carpentryShopSellNailsAmount, 25);
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 50) addButton(2, "Sell 50", carpentryShopSellNailsAmount, 50);
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 75) addButton(3, "Sell 75", carpentryShopSellNailsAmount, 75);
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 100) addButton(3, "Sell 100", carpentryShopSellNailsAmount, 100);
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 0) addButton(4, "Sell All", carpentryShopSellNailsAmount, flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES]);
 	addButton(14, "Back", carpentryShopInside)
 }
 
 private function carpentryShopSellNailsAmount(amount:int):void {
 	nails = amount;
-	outputText("You're willing to offer " + num2Text(amount) + " " + (player.keyItemv1("Carpenter's Toolbox") == 1 ? "piece" : "pieces") + " of nails. He replies \"<i>I'll buy that for " + amount + " gems.</i>\" \n\nDo you sell the nails?", true);
+	outputText("You're willing to offer " + num2Text(amount) + " " + (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] == 1 ? "piece" : "pieces") + " of nails. He replies \"<i>I'll buy that for " + amount + " gems.</i>\" \n\nDo you sell the nails?", true);
 	doYesNo(carpentryShopSellNailsYes, carpentryShopSellNails);
 }
 
 private function carpentryShopSellNailsYes():void {
-	if (player.keyItemv1("Carpenter's Toolbox") >= nails)
+	if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= nails)
 	{
 		player.gems += nails;
-		player.addKeyValue("Carpenter's Toolbox", 1, -nails);
-		outputText("You sign the permission form for " + num2Text(nails) + " " + (player.keyItemv1("Carpenter's Toolbox") ? "piece" : "pieces") + " of nails to be taken from your camp. \"<i>Deal. Here are " + nails + " gems,</i>\" he says.\n\n", true);
-		outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200");
+		flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] -= nails;
+		outputText("You sign the permission form for " + num2Text(nails) + " " + (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] ? "piece" : "pieces") + " of nails to be taken from your camp. \"<i>Deal. Here are " + nails + " gems,</i>\" he says.\n\n", true);
+		outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200");
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough nails.</i>\"", true);
 	statScreenRefresh();
