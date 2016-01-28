@@ -2061,6 +2061,8 @@ public function carpentryShopBuySet():void {
 	{
 		outputText("<b>You already own a set of carpentry tools!</b>", true)
 		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 1) flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] += 1;
+		if (player.keyItemv1("Carpenter's Toolbox") > 0) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] += player.keyItemv1("Carpenter's Toolbox");
+		player.addKeyValue("Carpenter's Toolbox", 1, -player.keyItemv1("Carpenter's Toolbox"));
 		doNext(carpentryShopInside);
 		return;
 	}
