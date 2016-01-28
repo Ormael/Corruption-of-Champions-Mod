@@ -83,16 +83,16 @@ package classes.Scenes.Areas
 					outputText("You take your hammer out of your toolbox and you spend time extracting straight nails.  Some of the nails you've pulled out are bent but some are incredibly in good condition.  You could use these nails for construction.\n\n");
 					var extractedNail:int = 5 + rand(player.inte / 5) + rand(player.str / 10) + rand(player.tou / 10) + rand(player.spe / 20) + 5;
 					flags[kFLAGS.ACHIEVEMENT_PROGRESS_SCAVENGER] += extractedNail;
-					player.addKeyValue("Carpenter's Toolbox", 1, extractedNail);
+					flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] += extractedNail;
 					outputText("After spending nearly an hour scavenging, you've managed to extract " + extractedNail + " nails.\n\n");
 					if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) {
-					outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/600")
+					outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600")
 					}
 					else {
-					outputText("Nails: " + player.keyItemv1("Carpenter's Toolbox") + "/200")
+					outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200")
 					}
-					if (player.keyItemv1("Carpenter's Toolbox") > 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 600));
-					else (player.keyItemv1("Carpenter's Toolbox") > 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) player.addKeyValue("Carpenter's Toolbox", 1, -(player.keyItemv1("Carpenter's Toolbox") - 200));
+					if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 600 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 600;
+					else (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] >= 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 200;
 					doNext(camp.returnToCampUseOneHour);
 					return;
 				}
