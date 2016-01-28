@@ -1974,9 +1974,9 @@ public function displayStats(e:MouseEvent = null):void
 
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {	
 		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)
-			miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/600" + "\n";
+			miscStats += "<b>Nails:</b> " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600" + "\n";
 		else
-			miscStats += "<b>Nails:</b> " + player.keyItemv1("Carpenter's Toolbox") + "/200" + "\n";
+			miscStats += "<b>Nails:</b> " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200" + "\n";
 	}
 	
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {
