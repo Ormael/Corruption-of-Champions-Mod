@@ -2060,6 +2060,7 @@ public function carpentryShopBuySet():void {
 	if (player.hasKeyItem("Carpenter's Toolbox") >= 0)
 	{
 		outputText("<b>You already own a set of carpentry tools!</b>", true)
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 1) flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] += 1;
 		doNext(carpentryShopInside);
 		return;
 	}
@@ -2083,6 +2084,7 @@ public function carpentryShopBuySetYes():void {
 	outputText("\"<i>Here you go,</i>\" he says. You feel so proud to have your own tools for building stuff! \n\n", false);
 	outputText("<b>Gained Key Item: Carpenter's Toolbox!</b>", false)
 	player.createKeyItem("Carpenter's Toolbox", 0, 0, 0, 0);
+	flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] += 1;
 	statScreenRefresh();
 	doNext(carpentryShopInside);
 }
