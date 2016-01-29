@@ -1924,13 +1924,13 @@ private function carpentryShopBuyWoodYes():void {
 			outputText("Unfortunately, your wood supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
 			player.gems += ((flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 900) * 10);
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 900);
-			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES]);
+			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900");
 		}
 		else if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] > 300 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3)) {
 			outputText("Unfortunately, your wood supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
 			player.gems += ((flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 300) * 10);
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] - 300);
-			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES]);
+			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300");
 		}
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough gems.</i>\"", true);
@@ -1974,13 +1974,13 @@ private function carpentryShopBuyStoneYes():void {
 			outputText("Unfortunately, your stone supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
 			player.gems += ((flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 900) * 10);
 			flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 900);
-			outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES]);
+			outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/900");
 		}
 		else if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] > 300 && (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4)) {
 			outputText("Unfortunately, your stone supply seem to be full. You inform him. He refunds you the gems.\n\n", false);
 			player.gems += ((flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 300) * 10);
 			flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] -= (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] - 300);
-			outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES]);
+			outputText("Stone: " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/300");
 		}
 	}
 	else outputText("\"<i>I'm sorry, my friend. You do not have enough gems.</i>\"", true);
