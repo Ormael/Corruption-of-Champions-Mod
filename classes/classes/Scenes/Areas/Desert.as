@@ -75,9 +75,14 @@ package classes.Scenes.Areas
 					flags[kFLAGS.ACHIEVEMENT_PROGRESS_SCAVENGER] += extractedNail;
 					flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] += extractedNail;
 					outputText("After spending nearly an hour scavenging, you've managed to extract " + extractedNail + " nails.\n\n");
+					if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) {
+					outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600")
+					}
+					else {
 					outputText("Nails: " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200")
-					if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 200) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 200;
-					doNext(camp.returnToCampUseOneHour);
+					}
+					if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 600 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 600;
+					else if (flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] > 200 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 2) flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] = 200;					doNext(camp.returnToCampUseOneHour);
 					return;
 				}
 			}
