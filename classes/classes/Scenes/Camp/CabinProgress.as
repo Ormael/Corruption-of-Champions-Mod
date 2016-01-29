@@ -233,7 +233,7 @@ package classes.Scenes.Camp
 		public function incrementWoodSupply(amount:int):void {
 			outputText("<b>(+" + amount + " wood!");
 			flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] += amount;
-			if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= 900 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
+			if (flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] >= maxWoodSupply && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
 				flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] = maxWoodSupply;
 				outputText(" Your wood capacity is full.")
 			}
