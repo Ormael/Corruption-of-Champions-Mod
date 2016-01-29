@@ -245,6 +245,7 @@ package classes.Scenes.Camp
 		}
 		
 		public function checkMaterials():void {
+			if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
 			outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n");
 			}
 			else {
