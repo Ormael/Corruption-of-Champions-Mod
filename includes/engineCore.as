@@ -1932,15 +1932,24 @@ public function displayStats(e:MouseEvent = null):void
 		miscStats += "<b>Camp Population:</b> " + camp.getCampPopulation() + "\n";
 	
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {	
-		miscStats += "<b>Nails:</b> " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200" + "\n";
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 2)
+			miscStats += "<b>Nails:</b> " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/600" + "\n";
+		else
+			miscStats += "<b>Nails:</b> " + flags[kFLAGS.CAMP_CABIN_NAILS_RESOURCES] + "/200" + "\n";
 	}
 	
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {
-		miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/999" + "\n";
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3)
+			miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900" + "\n";
+		else
+			miscStats += "<b>Wood:</b> " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300" + "\n";
 	}
 
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 1) {
-		miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/999" + "\n";
+		if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4)
+			miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/900" + "\n";	
+		else
+			miscStats += "<b>Stone:</b> " + flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] + "/300" + "\n";
 	}
 
 	if (flags[kFLAGS.CORRUPTED_GLADES_DESTROYED] > 0) {
