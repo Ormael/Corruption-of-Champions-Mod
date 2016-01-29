@@ -2672,12 +2672,11 @@ package classes.Scenes.Areas.Desert
 			}
 			if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] >= 900 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 4) {
 				flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] = 900;
-				outputText(" Your stone capacity is full.")
+				outputText(" <b>Your stone capacity is full.</b>");
 			}
 			else if (flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] >= 300 && flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 4) {
 				flags[kFLAGS.CAMP_CABIN_STONE_RESOURCES] = 300;
-				outputText(" Your stone capacity is full.")
-			outputText(")</b>");
+				outputText(" <b>Your stone capacity is full.</b>");
 			}
 			doNext(camp.returnToCampUseOneHour);
 		}
