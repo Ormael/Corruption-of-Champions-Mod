@@ -186,8 +186,8 @@ package classes.Scenes.Quests.UrtaQuest
 			this.weaponVerb="chain-whip";
 			this.weaponAttack = 50;
 			this.armorName = "thick fur";
-			this.bonusHP = 700;
-			this.bonusLust = 10;
+			this.bonusHP = 640 + rand(this.ballSize*4);
+			this.bonusLust = 10 + rand(this.ballSize*5);
 			this.lust = 50;
 			this.lustVuln = 0.33;
 			this.temperment = TEMPERMENT_LUSTY_GRAPPLES;
