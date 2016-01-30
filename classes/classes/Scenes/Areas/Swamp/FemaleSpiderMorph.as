@@ -56,7 +56,7 @@ package classes.Scenes.Areas.Swamp
 			this.armorPerk = "";
 			this.armorValue = 50;
 			this.bonusHP = 200;
-			this.bonusLust = 10;
+			this.bonusLust = 5;
 			this.lust = 20;
 			this.lustVuln = .6;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
