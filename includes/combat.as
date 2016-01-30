@@ -51,7 +51,7 @@ public function cleanupAfterCombat(nextFunc:Function = null):void {
 		//Clear itemswapping in case it hung somehow
 //No longer used:		itemSwapping = false;
 		//Player won
-		if(monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1)) {
+		if(monster.HP < 1 || monster.lust > monster.eMaxLust()) {
 			awardPlayer(nextFunc);
 		}
 		//Player lost
@@ -1189,7 +1189,7 @@ public function attack():void {
 	
 	if (monster is JeanClaude && player.findStatusAffect(StatusAffects.FirstAttack) < 0)
 	{
-		if (monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1))
+		if (monster.HP < 1 || monster.lust > monster.eMaxLust())
 		{
 			// noop
 		}
@@ -1220,7 +1220,7 @@ public function attack():void {
 	outputText("\n", false);
 	checkAchievementDamage(damage);
 	//Kick back to main if no damage occured!
-	if(monster.HP >= 1 && monster.lust <= (monster.eMaxLust() - 1)) {
+	if(monster.HP >= 1 && monster.lust <= monster.eMaxLust()) {
 		if(player.findStatusAffect(StatusAffects.FirstAttack) >= 0) {
 			attack();
 			return;
@@ -3745,7 +3745,7 @@ public function combatRoundOver():Boolean { //Called after the monster's action
 		doNext(endHpVictory);
 		return true;
 	}
-	if(monster.lust > (monster.eMaxLust() - 1)) {
+	if(monster.lust > monster.eMaxLust()) {
 		doNext(endLustVictory);
 		return true;
 	}
@@ -4414,7 +4414,7 @@ public function hellFire():void {
 	if(monster.HP < 1) {
 		doNext(endHpVictory);
 	}
-	else if(monster.lust >= (monster.eMaxLust() - 1)) {
+	else if(monster.lust >= monster.eMaxLust()) {
 		doNext(endLustVictory);
 	}
 	else enemyAI();
@@ -4536,7 +4536,7 @@ public function kick():void {
 	}
 	outputText("\n\n", false);
 	checkAchievementDamage(damage);
-	if(monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1)) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > monster.eMaxLust()) combatRoundOver();
 	else enemyAI();
 }
 
@@ -4587,7 +4587,7 @@ public function PCWebAttack():void {
 	}
 	awardAchievement("How Do I Shot Web?", kACHIEVEMENTS.COMBAT_SHOT_WEB);
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1)) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > monster.eMaxLust()) combatRoundOver();
 	else enemyAI();
 }
 public function nagaBiteAttack():void {
@@ -4635,7 +4635,7 @@ public function nagaBiteAttack():void {
        outputText("You lunge headfirst, fangs bared. Your attempt fails horrendously, as " + monster.a + monster.short + " manages to counter your lunge, knocking your head away with enough force to make your ears ring.", false);
 	}
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1)) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > monster.eMaxLust()) combatRoundOver();
 	else enemyAI();
 }
 public function spiderBiteAttack():void {
@@ -4685,7 +4685,7 @@ public function spiderBiteAttack():void {
        outputText("You lunge headfirst, fangs bared. Your attempt fails horrendously, as " + monster.a + monster.short + " manages to counter your lunge, pushing you back out of range.", false);
 	}
 	outputText("\n\n", false);
-	if(monster.HP < 1 || monster.lust > (monster.eMaxLust() - 1)) combatRoundOver();
+	if(monster.HP < 1 || monster.lust > monster.eMaxLust()) combatRoundOver();
 	else enemyAI();
 }
 
