@@ -2036,7 +2036,7 @@ public function carpentryShopSellWood():void {
 	if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] >= 3) {
 		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/900", false)
 	}
-	else (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
+	else if (flags[kFLAGS.MATERIALS_STORAGE_UPGRADES] < 3) {
 		outputText("Wood: " + flags[kFLAGS.CAMP_CABIN_WOOD_RESOURCES] + "/300", false)
 	}
 	menu();
