@@ -280,9 +280,9 @@ package classes
 		public static const RagingInferno:PerkType = mk("Raging Inferno", "Raging Inferno",
 				"Cumulative 20% damage increase for every subsequent fire spell without interruption.",
 				"You choose the 'Raging Inferno' perk. Cumulative 20% damage increase for every subsequent fire spell without interruption.");
-		public static const RefinedBody:PerkType = mk("Refined Body", "Refined Body",
+		public static const RefinedBodyI:PerkType = mk("Refined Body I", "Refined Body I",
 				"Raises max HP by 50.",
-				"You choose the 'Refined Body' perk, giving you an additional 50 HP!");
+				"You choose the 'Refined Body I' perk, giving you an additional 50 HP!");
 		public static const Regeneration:RegenerationPerk = new RegenerationPerk();
 		public static const Regeneration2:Regeneration2Perk = new Regeneration2Perk();
 		public static const Regeneration3:Regeneration3Perk = new Regeneration3Perk();
@@ -348,9 +348,9 @@ package classes
 						"<b>You are too dumb to gain benefit from this perk.</b>" +
 						"]",
 				"You choose the 'Tactician' perk, increasing critical hit chance by up to 10% (Intelligence-based).");
-		public static const Tank:PerkType = mk("Tank", "Tank",
+		public static const TankI:PerkType = mk("Tank I", "Tank I",
 				"+1 extra HP per point of toughness.",
-				"You choose the 'Tank' perk, granting an extra maximum HP for each point of toughness.");
+				"You choose the 'Tank I' perk, granting an extra maximum HP for each point of toughness.");
 		public static const ThunderousStrikes:PerkType = mk("Thunderous Strikes", "Thunderous Strikes",
 				"+20% 'Attack' damage while strength is at or above 80.",
 				"You choose the 'Thunderous Strikes' perk, increasing normal damage by 20% while your strength is over 80.");
