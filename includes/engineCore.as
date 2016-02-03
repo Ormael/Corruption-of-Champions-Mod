@@ -582,20 +582,20 @@ public function buildPerkList():Array {
 	// TOUGHNESS
 	//------------
 	//slot 2 - toughness perk 1
-	if(player.findPerk(PerkLib.RefinedBody) < 0 && player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 25) {
-		_add(new PerkClass(PerkLib.RefinedBody));
+	if(player.findPerk(PerkLib.RefinedBodyI) < 0 && player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 25) {
+		_add(new PerkClass(PerkLib.RefinedBodyI));
 	}
-	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 25 && player.newGamePlusMod >= 1) {
-		_add(new PerkClass(PerkLib.RefinedBody2));
+	if(player.findPerk(PerkLib.RefinedBodyI) >= 0 && player.tou >= 25 && player.newGamePlusMod >= 1) {
+		_add(new PerkClass(PerkLib.RefinedBodyII));
 	}
-	if(player.findPerk(PerkLib.RefinedBody2) >= 0 && player.tou >= 40 && player.newGamePlusMod >= 2) {
-		_add(new PerkClass(PerkLib.RefinedBody3));
+	if(player.findPerk(PerkLib.RefinedBodyII) >= 0 && player.tou >= 40 && player.newGamePlusMod >= 2) {
+		_add(new PerkClass(PerkLib.RefinedBodyIII));
 	}
-	if(player.findPerk(PerkLib.RefinedBody3) >= 0 && player.tou >= 55 && player.newGamePlusMod >= 3) {
-		_add(new PerkClass(PerkLib.RefinedBody4));
+	if(player.findPerk(PerkLib.RefinedBodyIII) >= 0 && player.tou >= 55 && player.newGamePlusMod >= 3) {
+		_add(new PerkClass(PerkLib.RefinedBodyIV));
 	}
-	if(player.findPerk(PerkLib.RefinedBody4) >= 0 && player.tou >= 70 && player.newGamePlusMod >= 4) {
-		_add(new PerkClass(PerkLib.RefinedBody5));
+	if(player.findPerk(PerkLib.RefinedBodyIV) >= 0 && player.tou >= 70 && player.newGamePlusMod >= 4) {
+		_add(new PerkClass(PerkLib.RefinedBodyV));
 	}
 	//slot 2 - regeneration perk
 	if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 50) {
@@ -633,20 +633,20 @@ public function buildPerkList():Array {
 	}
 	//Tier 1 Toughness Perks
 	if(player.level >= 6) {
-		if(player.findPerk(PerkLib.RefinedBody) >= 0 && player.tou >= 60) {
-			_add(new PerkClass(PerkLib.Tank));
+		if(player.findPerk(PerkLib.RefinedBodyI) >= 0 && player.tou >= 60) {
+			_add(new PerkClass(PerkLib.TankI));
 		}
-		if(player.findPerk(PerkLib.Tank) >= 0 && player.tou >= 80 && player.newGamePlusMod >= 1) {
-			_add(new PerkClass(PerkLib.Tank2));
+		if(player.findPerk(PerkLib.TankI) >= 0 && player.tou >= 80 && player.newGamePlusMod >= 1) {
+			_add(new PerkClass(PerkLib.TankII));
 		}
-		if(player.findPerk(PerkLib.Tank2) >= 0 && player.tou >= 100 && player.newGamePlusMod >= 2) {
-			_add(new PerkClass(PerkLib.Tank3));
+		if(player.findPerk(PerkLib.TankII) >= 0 && player.tou >= 100 && player.newGamePlusMod >= 2) {
+			_add(new PerkClass(PerkLib.TankIII));
 		}
-		if(player.findPerk(PerkLib.Tank3) >= 0 && player.tou >= 120 && player.newGamePlusMod >= 3) {
-			_add(new PerkClass(PerkLib.Tank4));
+		if(player.findPerk(PerkLib.TankIII) >= 0 && player.tou >= 120 && player.newGamePlusMod >= 3) {
+			_add(new PerkClass(PerkLib.TankIV));
 		}
-		if(player.findPerk(PerkLib.Tank4) >= 0 && player.tou >= 140 && player.newGamePlusMod >= 4) {
-			_add(new PerkClass(PerkLib.Tank5));
+		if(player.findPerk(PerkLib.TankIV) >= 0 && player.tou >= 140 && player.newGamePlusMod >= 4) {
+			_add(new PerkClass(PerkLib.TankV));
 		}
 		if(player.findPerk(PerkLib.JobGuardian) >= 0 && player.tou >= 75) {
 			_add(new PerkClass(PerkLib.ImmovableObject));
@@ -910,7 +910,7 @@ public function applyPerk(perk:PerkClass):void {
 	player.createPerk(perk.ptype, perk.value1, perk.value2, perk.value3, perk.value4);
 	if (perk.ptype == PerkLib.StrongBack2) player.itemSlot5.unlocked = true;
 	if (perk.ptype == PerkLib.StrongBack) player.itemSlot4.unlocked = true;
-	if (perk.ptype == PerkLib.Tank) {
+	if (perk.ptype == PerkLib.TankI) {
 		HPChange(player.tou, false);
 		statScreenRefresh();
 	}
