@@ -2025,15 +2025,15 @@ public function regeneration(combat:Boolean = true):void {
 		healingPercent = 0;
 		if (player.hunger >= 25 || flags[kFLAGS.HUNGER_ENABLED] <= 0)
 		{
-			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 0,5;
-			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 0,5;
-			if(player.findPerk(PerkLib.Regeneration3) >= 0) healingPercent += 0,5;
-			if(player.findPerk(PerkLib.Regeneration4) >= 0) healingPercent += 0,5;
-			if(player.findPerk(PerkLib.Regeneration5) >= 0) healingPercent += 0,5;
+			if(player.findPerk(PerkLib.Regeneration) >= 0) healingPercent += 0.5;
+			if(player.findPerk(PerkLib.Regeneration2) >= 0) healingPercent += 0.5;
+			if(player.findPerk(PerkLib.Regeneration3) >= 0) healingPercent += 0.5;
+			if(player.findPerk(PerkLib.Regeneration4) >= 0) healingPercent += 0.5;
+			if(player.findPerk(PerkLib.Regeneration5) >= 0) healingPercent += 0.5;
 		}
-		if(player.armor.name == "skimpy nurse's outfit") healingPercent += 0,5;
+		if(player.armor.name == "skimpy nurse's outfit") healingPercent += 0.5;
 		if(player.armor == armors.GOOARMR) healingPercent += (valeria.valeriaFluidsEnabled() ? (flags[kFLAGS.VALERIA_FLUIDS] < 50 ? flags[kFLAGS.VALERIA_FLUIDS] / 25 : 2) : 2);
-		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 0,5;
+		if(player.findPerk(PerkLib.LustyRegeneration) >= 0) healingPercent += 0.5;
 		if(healingPercent > 2 && player.newGamePlusMod == 0) healingPercent = 2;
 		if(healingPercent > 3 && player.newGamePlusMod == 1) healingPercent = 3;
 		if(healingPercent > 4 && player.newGamePlusMod == 2) healingPercent = 4;
