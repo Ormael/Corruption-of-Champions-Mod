@@ -116,8 +116,8 @@ package classes.Scenes.Dungeons.DeepCave
 			this.skinTone = "fair";
 			this.hairColor = "purple";
 			this.hairLength = 22;
-			initStrTouSpeInte(40, 50, 50, 60);
-			initLibSensCor(55, 35, 50);
+			initStrTouSpeInte(40, 50, 55, 65);
+			initLibSensCor(60, 35, 50);
 			this.weaponName = "fists";
 			this.weaponVerb="caresses";
 			this.armorName = "skin";
@@ -126,14 +126,14 @@ package classes.Scenes.Dungeons.DeepCave
 			if(game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] > 2) lustVuln += .5;
 			var lust:Number = 30 + game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] * 10;
 			if(lust > 80) lust = 80;
-			this.bonusHP = 350;
+			this.bonusHP = 500;
 			this.bonusLust = 10;
 			this.lust = lust;
 			this.lustVuln = lustVuln;
 			this.temperment = TEMPERMENT_RANDOM_GRAPPLES;
-			this.level = 11;
+			this.level = 14;
 			this.gems = 1;
-			this.additionalXP = 50;
+			this.additionalXP = 100;
 			if(game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] > 0) this.XP = 5;
 			if(game.flags[kFLAGS.TIMES_PC_DEFEATED_VALA] > 2) this.XP = 1;
 			this.special1 = special1;
