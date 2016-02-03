@@ -4,7 +4,7 @@ package classes.Perks
 	import classes.PerkType;
 	import classes.GlobalFlags.kGAMECLASS;
 	
-	public class AscensionDesiresPerk extends PerkType
+	public class AscensionHardinessPerk extends PerkType
 	{
 		
 		override public function desc(params:PerkClass = null):String
