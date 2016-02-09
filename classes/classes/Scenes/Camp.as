@@ -2764,7 +2764,10 @@ private function updateAchievements():void {
 	if (player.gems >= 1000000) awardAchievement("Millionaire", kACHIEVEMENTS.WEALTH_MILLIONAIRE);
 	
 	//Combat
-	if (player.findStatusAffect(StatusAffects.KnowsCharge) >= 0 && player.findStatusAffect(StatusAffects.KnowsBlind) >= 0 && player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 && player.findStatusAffect(StatusAffects.KnowsArouse) >= 0 && player.findStatusAffect(StatusAffects.KnowsHeal) >= 0 && player.findStatusAffect(StatusAffects.KnowsMight) >= 0 ) awardAchievement("Wizard", kACHIEVEMENTS.COMBAT_WIZARD);
+	if (player.findStatusAffect(StatusAffects.KnowsCharge) >= 0 && player.findStatusAffect(StatusAffects.KnowsChargeA) >= 0 && player.findStatusAffect(StatusAffects.KnowsBlind) >= 0 && player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 ) awardAchievement("Gandalf", kACHIEVEMENTS.COMBAT_GANDALF);
+	if (player.findStatusAffect(StatusAffects.KnowsArouse) >= 0 && player.findStatusAffect(StatusAffects.KnowsHeal) >= 0 && player.findStatusAffect(StatusAffects.KnowsMight) >= 0 ) awardAchievement("Sauron", kACHIEVEMENTS.COMBAT_SAURON);
+	if (player.findStatusAffect(StatusAffects.KnowsCharge) >= 0 && player.findStatusAffect(StatusAffects.KnowsChargeA) >= 0 && player.findStatusAffect(StatusAffects.KnowsBlind) >= 0 && player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0 && player.findStatusAffect(StatusAffects.KnowsArouse) >= 0 && player.findStatusAffect(StatusAffects.KnowsHeal) >= 0 && player.findStatusAffect(StatusAffects.KnowsMight) >= 0 ) awardAchievement("Merlin", kACHIEVEMENTS.COMBAT_WIZARD);
+	if (flags[kFLAGS.SPELLS_CAST] >= 1 ) awardAchievement("Are you a Wizard?", kACHIEVEMENTS.COMBAT_ARE_YOU_A_WIZARD);
 	
 	//Realistic
 	if (flags[kFLAGS.ACHIEVEMENT_PROGRESS_FASTING] >= 168 && flags[kFLAGS.HUNGER_ENABLED] > 0) awardAchievement("Fasting", kACHIEVEMENTS.REALISTIC_FASTING)
