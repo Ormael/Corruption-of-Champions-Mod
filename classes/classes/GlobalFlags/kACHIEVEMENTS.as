@@ -200,8 +200,12 @@ package classes.GlobalFlags
 		public static const GENERAL_ANTWORKS:int			= 171;
 		public static const GENERAL_MEGA_PERKY:int			= 172;
 		public static const GENERAL_HYPER_PERKY:int			= 173;
-		public static const COMBAT_ARROW_TO_THE_KNEE:int		= 174; //First use of bow
-		public static const UNKNOWN_ACHIEVEMENT_175:int			= 175;
+		public static const COMBAT_ARE_YOU_A_WIZARD:int			= 174; //Use any spell for the first time
+		public static const COMBAT_GANDALF:int				= 175;
+		public static const COMBAT_SAURON:int				= 176;
+ 		public static const COMBAT_ARROW_TO_THE_KNEE:int		= 177; //First use of bow
+		public static const UNKNOWN_ACHIEVEMENT_178:int			= 178;
+		public static const UNKNOWN_ACHIEVEMENT_179:int			= 179;
 		
 	}
 
