@@ -1630,7 +1630,7 @@
 		}
 
 		private function isSpell(statusEffect:* = null):Boolean {
-			return (statusEffect == StatusAffects.KnowsCharge || statusEffect == StatusAffects.KnowsBlind || statusEffect == StatusAffects.KnowsWhitefire || statusEffect == StatusAffects.KnowsArouse || statusEffect == StatusAffects.KnowsHeal || statusEffect == StatusAffects.KnowsMight); 
+			return (statusEffect == StatusAffects.KnowsCharge || statusEffect == StatusAffects.KnowsChargeA || statusEffect == StatusAffects.KnowsBlind || statusEffect == StatusAffects.KnowsWhitefire || statusEffect == StatusAffects.KnowsArouse || statusEffect == StatusAffects.KnowsHeal || statusEffect == StatusAffects.KnowsMight); 
 		}
 	}
 }
