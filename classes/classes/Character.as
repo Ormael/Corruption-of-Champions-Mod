@@ -868,15 +868,24 @@ import classes.Items.JewelryLib;
 		public function maxFatigue():Number
 		{
 			var max:Number = 100;
+			if (findPerk(PerkLib.ManaAffinity) >= 0) max += 35;
+			if (findPerk(PerkLib.MindOverBody) >= 0) max += Math.round(inte);
 			if (findPerk(PerkLib.ImprovedEndurance) >= 0) max += 35;
 			if (findPerk(PerkLib.ImprovedEndurance2) >= 0) max += 35;
 			if (findPerk(PerkLib.ImprovedEndurance3) >= 0) max += 35;
 			if (findPerk(PerkLib.ImprovedEndurance4) >= 0) max += 35;
 			if (findPerk(PerkLib.ImprovedEndurance5) >= 0) max += 35;
+			if (findPerk(PerkLib.Archmage) >= 0) max += 45;
+			if (findPerk(PerkLib.Channeling) >= 0) max += 15;
+			if (findPerk(PerkLib.GrandArchmage) >= 0) max += 60;
+			if (findPerk(PerkLib.GreyArchmage) >= 0) max += 105;
+			if (findPerk(PerkLib.Mage) >= 0) max += 30;
+			if (findPerk(PerkLib.Spellpower) >= 0) max += 30;
 			if (findPerk(PerkLib.JobArcher) >= 0) max += 5;
 			if (findPerk(PerkLib.JobSorcerer) >= 0) max += 15;
 			if (findPerk(PerkLib.JobMunchkin) >= 0) max += 100;
-			if (findPerk(PerkLib.AscensionEndurance) >= 0) max += perkv1(PerkLib.AscensionEndurance) * 5;
+			if (findPerk(PerkLib.AscensionEndurance) >= 0) max += perkv1(PerkLib.AscensionEndurance) * 10;
+			if (jewelryEffectId == JewelryLib.MODIFIER_MP) max += jewelryEffectMagnitude;
 			max += level * 5;
 			if (max > 1999) max = 1999;
 			return max;
