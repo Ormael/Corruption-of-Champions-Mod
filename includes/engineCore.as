@@ -728,13 +728,17 @@ public function buildPerkList():Array {
 	if(player.inte >= 20) {
 		_add(new PerkClass(PerkLib.JobSorcerer));
 	}
+	if(player.inte >= 25) {
+		_add(new PerkClass(PerkLib.ManaAffinity));
+	}
 	//Tier 1 Intelligence Perks
 	if(player.level >= 6) {
 		if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Mage));
 		}
-		if(player.inte >= 50)
+		if(player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Tactician));
+		}
 		if(spellCount() > 0 && player.findPerk(PerkLib.Spellpower) >= 0 && player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 60) {
 			_add(new PerkClass(PerkLib.Channeling));
 		}
@@ -743,6 +747,9 @@ public function buildPerkList():Array {
 		}
 		if(player.findPerk(PerkLib.Channeling) >= 0 && player.inte >= 60) {
 				_add(new PerkClass(PerkLib.StaffChanneling));
+		}
+		if(player.inte >= 50) {
+			_add(new PerkClass(PerkLib.MindOverBody));
 		}
 	}
 	//Tier 2 Intelligence perks
@@ -773,18 +780,18 @@ public function buildPerkList():Array {
 		}
 	}
 	//Tier 3 Intelligence perks
-//	if(player.level >= 18) {
-//		if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 100) {
-//			_add(new PerkClass(PerkLib.GrandArchmage));
-//		}
-//	}
+	if(player.level >= 18) {
+		if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 100) {
+			_add(new PerkClass(PerkLib.GrandArchmage));
+		}
+	}
 	
 	//Tier 4 Intelligence perks
-//	if(player.level >= 24) {
-//		if(player.findPerk(PerkLib.GrandArchmage) >= 0 && player.findPerk(PerkLib.FocusedMind) >= 0 && player.inte >= 125) {
-//			_add(new PerkClass(PerkLib.GreyArchmage));
-//		}
-//	}
+	if(player.level >= 24) {
+		if(player.findPerk(PerkLib.GrandArchmage) >= 0 && player.findPerk(PerkLib.FocusedMind) >= 0 && player.inte >= 125) {
+			_add(new PerkClass(PerkLib.GreyArchmage));
+		}
+	}
 	
 	//------------
 	// LIBIDO
@@ -1732,6 +1739,7 @@ public function fatigue(mod:Number,type:Number  = 0):void {
 		if (player.findPerk(PerkLib.HistorySlacker) >= 0) multi *= 1.2;
 		if (player.findPerk(PerkLib.ControlledBreath) >= 0 && player.cor < (30 + player.corruptionTolerance())) multi *= 1.1;
 		if (player.findPerk(PerkLib.SpeedyRecovery) >= 0) multi *= 1.5;
+		if (player.findPerk(PerkLib.ManaAffinity) >= 0) multi *= 1.1;
 		
 		mod *= multi;
 	}
