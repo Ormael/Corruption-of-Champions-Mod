@@ -83,7 +83,8 @@ package classes
 		public static const KeltOff:StatusAffectType = mk("KeltOff");
 		public static const KnowsArouse:StatusAffectType = mk("Knows Arouse");
 		public static const KnowsBlind:StatusAffectType = mk("Knows Blind");
-		public static const KnowsCharge:StatusAffectType = mk("Knows Charge");
+		public static const KnowsCharge:StatusAffectType = mk("Knows Charge");//Charge Weapon
+		public static const KnowsChargeA:StatusAffectType = mk("Knows Charge Armor");
 		public static const KnowsHeal:StatusAffectType = mk("Knows Heal");
 		public static const KnowsMight:StatusAffectType = mk("Knows Might");
 		public static const KnowsWhitefire:StatusAffectType = mk("Knows Whitefire");
@@ -261,6 +262,7 @@ package classes
 		public static const Blind:CombatStatusAffect = mk2("Blind");
 		public static const Bound:CombatStatusAffect = mk2("Bound");
 		public static const CalledShot:CombatStatusAffect = mk2("Called Shot");
+		public static const ChargeArmor:CombatStatusAffect = mk2("Charge Armor");
 		public static const ChargeWeapon:CombatStatusAffect = mk2("Charge Weapon");
 		public static const Chokeslam:CombatStatusAffect = mk2("Chokeslam");
 		public static const Confusion:CombatStatusAffect = mk2("Confusion");
