@@ -1733,11 +1733,11 @@ public function jewelShopPageII():void {
 	choices(jewelries.CRIMRNG.shortName, createCallBackFunction(jewelBuy, jewelries.CRIMRNG),
 			jewelries.ICE_RNG.shortName, createCallBackFunction(jewelBuy, jewelries.ICE_RNG),
 			jewelries.FERTRNG.shortName, createCallBackFunction(jewelBuy, jewelries.FERTRNG),
+			jewelries.MANARNG.shortName, createCallBackFunction(jewelBuy, jewelries.MANARNG),
 			jewelries.LIFERNG.shortName, createCallBackFunction(jewelBuy, jewelries.LIFERNG),
 			jewelries.POWRRNG.shortName, createCallBackFunction(jewelBuy, jewelries.POWRRNG),
 			jewelries.PURERNG.shortName, createCallBackFunction(jewelBuy, jewelries.PURERNG),
 			jewelries.MYSTRNG.shortName, createCallBackFunction(jewelBuy, jewelries.MYSTRNG),
-			"", null,
 			"", null,
 			"", null);
 	addButton(14, "Back", jewelShopInside);
