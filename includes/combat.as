@@ -3828,6 +3828,8 @@ public function getWhiteMagicLustCap():Number {
 	var whiteLustCap:int = player.maxLust() * 0.75;
 	if (player.findPerk(PerkLib.Enlightened) >= 0 && player.cor < (10 + player.corruptionTolerance())) whiteLustCap += (player.maxLust() * 0.1);
 	if (player.findPerk(PerkLib.FocusedMind) >= 0) whiteLustCap += (player.maxLust() * 0.1);
+	if (player.findperk(PerkLib.GreyArchmage) >= 0) whiteLustCap = (player.maxLust() - 45);
+	if (player.findperk(PerkLib.GreyArchmage) >= 0 && player.findPerk(PerkLib.Enlightened) >= 0 && player.cor < (10 + player.corruptionTolerance())) whiteLustCap = (player.maxLust() - 15);
 	return whiteLustCap;
 }
 
@@ -3850,42 +3852,49 @@ public function magicMenu():void {
 	else {
 		if (player.findStatusAffect(StatusAffects.KnowsCharge) >= 0) {
 			if (player.findStatusAffect(StatusAffects.ChargeWeapon) < 0)
-				addButton(0, "Charge W.", spellChargeWeapon, null, null, null, "The Charge Weapon spell will surround your weapon in electrical energy, causing it to do even more damage.  The effect lasts for the entire combat.  \n\nFatigue Cost: " + spellCost(15) + "", "Charge Weapon");
+				addButton(0, "Charge W.", spellChargeWeapon, null, null, null, "The Charge Weapon spell will surround your weapon in electrical energy, causing it to do even more damage.  The effect lasts for the entire combat.  \n\nFatigue Cost: " + spellCost(30) + "", "Charge Weapon");
 			else outputText("<b>Charge weapon is already active and cannot be cast again.</b>\n\n");
+		}
+		if (player.findStatusAffect(StatusAffects.KnowsChargeA) >= 0) {
+			if (player.findStatusAffect(StatusAffects.ChargeArmor) < 0)
+				addButton(1, "Charge A.", spellChargeArmor, null, null, null, "The Charge Armor spell will surround your armor with electrical energy, causing it to do provide additional protection.  The effect lasts for the entire combat.  \n\nFatigue Cost: " + spellCost(40) + "", "Charge Armor");
+			else outputText("<b>Charge armor is already active and cannot be cast again.</b>\n\n");
 		}
 		if (player.findStatusAffect(StatusAffects.KnowsBlind) >= 0) {
 			if (monster.findStatusAffect(StatusAffects.Blind) < 0)
-				addButton(1, "Blind", spellBlind, null, null, null, "Blind is a fairly self-explanatory spell.  It will create a bright flash just in front of the victim's eyes, blinding them for a time.  However if they blink it will be wasted.  \n\nFatigue Cost: " + spellCost(20) + "");
+				addButton(2, "Blind", spellBlind, null, null, null, "Blind is a fairly self-explanatory spell.  It will create a bright flash just in front of the victim's eyes, blinding them for a time.  However if they blink it will be wasted.  \n\nFatigue Cost: " + spellCost(30) + "");
 			else outputText("<b>" + monster.capitalA + monster.short + " is already affected by blind.</b>\n\n");
 		}
-		if (player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0) addButton(2, "Whitefire", spellWhitefire, null, null, null, "Whitefire is a potent fire based attack that will burn your foe with flickering white flames, ignoring their physical toughness and most armors.  \n\nFatigue Cost: " + spellCost(30) + "");
+		if (player.findStatusAffect(StatusAffects.KnowsWhitefire) >= 0) addButton(3, "Whitefire", spellWhitefire, null, null, null, "Whitefire is a potent fire based attack that will burn your foe with flickering white flames, ignoring their physical toughness and most armors.  \n\nFatigue Cost: " + spellCost(40) + "");
 	}
 	//BLACK MAGICSKS
-	if (player.lust < 50)
+	if (player.lust < 50 || player.lust < 30 && player.findperk(PerkLib.GreyArchmage) >= 0)
 		outputText("You aren't turned on enough to use any black magics.\n\n");
 	else {
 		if (player.findStatusAffect(StatusAffects.KnowsArouse) >= 0) addButton(5, "Arouse", spellArouse, null, null, null, "The arouse spell draws on your own inner lust in order to enflame the enemy's passions.  \n\nFatigue Cost: " + spellCost(15) + "");
-		if (player.findStatusAffect(StatusAffects.KnowsHeal) >= 0) addButton(6, "Heal", spellHeal, null, null, null, "Heal will attempt to use black magic to close your wounds and restore your body, however like all black magic used on yourself, it has a chance of backfiring and greatly arousing you.  \n\nFatigue Cost: " + spellCost(20) + "");
+		if (player.findStatusAffect(StatusAffects.KnowsHeal) >= 0) addButton(6, "Heal", spellHeal, null, null, null, "Heal will attempt to use black magic to close your wounds and restore your body, however like all black magic used on yourself, it has a chance of backfiring and greatly arousing you.  \n\nFatigue Cost: " + spellCost(30) + "");
 		if (player.findStatusAffect(StatusAffects.KnowsMight) >= 0) {
 			if (player.findStatusAffect(StatusAffects.Might) < 0)
-				addButton(7, "Might", spellMight, null, null, null, "The Might spell draws upon your lust and uses it to fuel a temporary increase in muscle size and power.  It does carry the risk of backfiring and raising lust, like all black magic used on oneself.  \n\nFatigue Cost: " + spellCost(25) + "");
+				addButton(7, "Might", spellMight, null, null, null, "The Might spell draws upon your lust and uses it to fuel a temporary increase in muscle size and power.  It does carry the risk of backfiring and raising lust, like all black magic used on oneself.  \n\nFatigue Cost: " + spellCost(50) + "");
 			else outputText("<b>You are already under the effects of Might and cannot cast it again.</b>\n\n");
 		}
 	}
 	// JOJO ABILITIES -- kind makes sense to stuff it in here along side the white magic shit (also because it can't fit into M. Specials :|
 	if (player.findPerk(PerkLib.CleansingPalm) >= 0 && player.cor < (10 + player.corruptionTolerance())) {
-		addButton(3, "C.Palm", spellCleansingPalm, null, null, null, "Unleash the power of your cleansing aura! More effective against corrupted opponents. Doesn't work on the pure.  \n\nFatigue Cost: " + spellCost(30) + "", "Cleansing Palm");
+		addButton(10, "C.Palm", spellCleansingPalm, null, null, null, "Unleash the power of your cleansing aura! More effective against corrupted opponents. Doesn't work on the pure.  \n\nFatigue Cost: " + spellCost(30) + "", "Cleansing Palm");
 	}
 	addButton(14, "Back", combatMenu, false);
 }
 
 public function spellMod():Number {
 	var mod:Number = 1;
+	if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 75) mod += .3;
+	if(player.findPerk(PerkLib.Channeling) >= 0 && player.inte >= 60) mod += .1;
+	if(player.findPerk(PerkLib.GrandArchmage) >= 0 && player.inte >= 100) mod += .4;
+	if(player.findPerk(PerkLib.GreyArchmage) >= 0 && player.inte >= 125) mod += .7;
 	if(player.findPerk(PerkLib.JobSorcerer) >= 0 && player.inte >= 25) mod += .1;
-	if(player.findPerk(PerkLib.Archmage) >= 0 && player.inte >= 75) mod += .5;
-	if(player.findPerk(PerkLib.Channeling) >= 0 && player.inte >= 60) mod += .5;
-	if(player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 50) mod += .5;
-	if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) mod += .5;
+	if(player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 50) mod += .2;
+	if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) mod += .2;
 	if(player.findPerk(PerkLib.WizardsFocus) >= 0) {
 		mod += player.perkv1(PerkLib.WizardsFocus);
 	}
@@ -3896,14 +3905,14 @@ public function spellMod():Number {
 	return mod;
 }
 public function spellArouse():void {
-	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(15) > player.maxFatigue()) {
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(20) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(15,1);
+	fatigue(20,1);
 	statScreenRefresh();
 	if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
 		(monster as FrostGiant).giantBoulderHit(2);
@@ -3978,23 +3987,26 @@ public function spellArouse():void {
 	return;	
 }
 public function spellHeal():void {
-	if(/*player.findPerk(PerkLib.BloodMage) < 0 && */player.fatigue + spellCost(20) > player.maxFatigue()) {
+	if(/*player.findPerk(PerkLib.BloodMage) < 0 && */player.fatigue + spellCost(30) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(20, 3);
+	fatigue(30, 3);
 	if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
 		(monster as FrostGiant).giantBoulderHit(2);
 		enemyAI();
 		return;
 	}
 	outputText("You focus on your body and its desire to end pain, trying to draw on your arousal without enhancing it.\n", true);
-	//25% backfire!
-	var backfire:int = 25;
-	if (player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 15;
+	//30% backfire!
+	var backfire:int = 30;
+	if (player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 20;
+	backfire -= (player.inte * 0,15)
+	if (backfire < 15) backfire = 15;
+	else (backfire < 5 && player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 5;
 	if(rand(100) < backfire) {
 		outputText("An errant sexual thought crosses your mind, and you lose control of the spell!  Your ", false);
 		if(player.gender == 0) outputText(assholeDescript() + " tingles with a desire to be filled as your libido spins out of control.", false);
@@ -4007,9 +4019,22 @@ public function spellHeal():void {
 		dynStats("lib", .25, "lus", 15);
 	}
 	else {
-		temp = int((player.level + (player.inte/1.5) + rand(player.inte)) * spellMod())
+		if (player.inte < 21) temp = int(player.inte/3 + rand(player.inte/2) * spellMod())
+		else if (player.inte >= 21 && player.inte < 41) temp = int(player.inte/2 + rand((player.inte*3)/4) * spellMod())
+		else if (player.inte >= 41 && player.inte < 61) temp = int((player.inte * 2)/3 + rand(player.inte) * spellMod())
+		else if (player.inte >= 61 && player.inte < 81) temp = int((player.inte * 5)/6 + rand(player.inte*1,25) * spellMod())
+		else (player.inte >= 81) temp = int(player.inte + rand(player.inte*1,5) * spellMod())
+		//temp = int((player.level + (player.inte/1.5) + rand(player.inte)) * spellMod())
 		//temp = int((player.inte/(2 + rand(3)) * spellMod()) * (maxHP()/150));
 		if(player.armorName == "skimpy nurse's outfit") temp *= 1.2;
+		//Determine if critical heal!
+		var crit:Boolean = false;
+		var critHeal:int = 5;
+		if (player.findPerk(PerkLib.Tactician) >= 0 && player.inte >= 50) critHeal += (player.inte - 50) / 5;
+		if (rand(100) < critHeal) {
+			crit = true;
+			temp *= 1.75;
+		}
 		outputText("You flush with success as your wounds begin to knit <b>(<font color=\"#008000\">+" + temp + "</font>)</b>.", false);
 		HPChange(temp,false);
 	}
@@ -4023,14 +4048,14 @@ public function spellHeal():void {
 	return;
 }
 
-//(25) Might – increases strength/toughness by 5 * spellMod, up to a 
+//(25) Might – increases strength/toughness by 5 * (Int / 10) * spellMod, up to a 
 //maximum of 15, allows it to exceed the maximum.  Chance of backfiring 
 //and increasing lust by 15.
 public function spellMight(silent:Boolean = false):void {
 	
 	var doEffect:Function = function():* {
 		player.createStatusAffect(StatusAffects.Might,0,0,0,0);
-		temp = 10 * spellMod();
+		temp = (5 + (player.inte / 10)) * spellMod();
 		tempStr = temp;
 		tempTou = temp;
 		//if(player.str + temp > 100) tempStr = 100 - player.str;
@@ -4055,14 +4080,14 @@ public function spellMight(silent:Boolean = false):void {
 		return;
 	}
 	
-	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(25) > player.maxFatigue()) {
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(50) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(25,1);
+	fatigue(50,1);
 	var tempStr:Number = 0;
 	var tempTou:Number = 0;
 	if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
@@ -4071,9 +4096,11 @@ public function spellMight(silent:Boolean = false):void {
 		return;
 	}
 	outputText("You flush, drawing on your body's desires to empower your muscles and toughen you up.\n\n", true);
-	//25% backfire!
-	var backfire:int = 25;
-	if (player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 15;
+	//30% backfire!
+	var backfire:int = 30;
+	if (player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 20;
+	if (backfire < 15) backfire = 15;
+	else (backfire < 5 && player.findPerk(PerkLib.FocusedMind) >= 0) backfire = 5;
 	if(rand(100) < backfire) {
 		outputText("An errant sexual thought crosses your mind, and you lose control of the spell!  Your ", false);
 		if(player.gender == 0) outputText(assholeDescript() + " tingles with a desire to be filled as your libido spins out of control.", false);
@@ -4097,29 +4124,57 @@ public function spellMight(silent:Boolean = false):void {
 	return;
 }
 
-//(15) Charge Weapon – boosts your weapon attack value by 10 * SpellMod till the end of combat.
+//(15) Charge Weapon – boosts your weapon attack value by 5 + (player.inte/10) SpellMod till the end of combat.
 public function spellChargeWeapon(silent:Boolean = false):void {
 	if (silent) {
-		player.createStatusAffect(StatusAffects.ChargeWeapon,10*spellMod(),0,0,0);
+		player.createStatusAffect(StatusAffects.ChargeWeapon,(5+(player.inte/10))*spellMod(),0,0,0);
 		statScreenRefresh();
 		return;
 	}
 	
-	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(15) > player.maxFatigue()) {
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(30) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(15, 1);
+	fatigue(30, 1);
 	if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
 		(monster as FrostGiant).giantBoulderHit(2);
 		enemyAI();
 		return;
 	}
 	outputText("You utter words of power, summoning an electrical charge around your " + player.weaponName + ".  It crackles loudly, ensuring you'll do more damage with it for the rest of the fight.\n\n", true);
-	player.createStatusAffect(StatusAffects.ChargeWeapon,10*spellMod(),0,0,0);
+	player.createStatusAffect(StatusAffects.ChargeWeapon,(5+(player.inte/10))*spellMod(),0,0,0);
+	statScreenRefresh();
+	flags[kFLAGS.SPELLS_CAST]++;
+	spellPerkUnlock();
+	enemyAI();
+}
+//(35) Charge Armor – boosts your armor value by 5 + (player.inte/10) * SpellMod till the end of combat.
+public function spellChargeArmor(silent:Boolean = false):void {
+	if (silent) {
+		player.createStatusAffect(StatusAffects.ChargeArmor,(5+(player.inte/10))*spellMod(),0,0,0);
+		statScreenRefresh();
+		return;
+	}
+	
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(40) > player.maxFatigue()) {
+		outputText("You are too tired to cast this spell.", true);
+		doNext(magicMenu);
+		return;
+	}
+	doNext(combatMenu);
+//This is now automatic - newRound arg defaults to true:	menuLoc = 0;
+	fatigue(40, 1);
+	if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
+		(monster as FrostGiant).giantBoulderHit(2);
+		enemyAI();
+		return;
+	}
+	outputText("You utter words of power, summoning an electrical charge around your " + player.armorName + ".  It crackles loudly, ensuring you'll have more protection for the rest of the fight.\n\n", true);
+	player.createStatusAffect(StatusAffects.ChargeArmor,(5+(player.inte/10))*spellMod(),0,0,0);
 	statScreenRefresh();
 	flags[kFLAGS.SPELLS_CAST]++;
 	spellPerkUnlock();
@@ -4128,71 +4183,75 @@ public function spellChargeWeapon(silent:Boolean = false):void {
 //(20) Blind – reduces your opponent's accuracy, giving an additional 50% miss chance to physical attacks.
 public function spellBlind():void {
 	clearOutput();
-	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(20) > player.maxFatigue()) {
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(30) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(20,1);
-	if(monster.findStatusAffect(StatusAffects.Shell) >= 0) {
-		outputText("As soon as your magic touches the multicolored shell around " + monster.a + monster.short + ", it sizzles and fades to nothing.  Whatever that thing is, it completely blocks your magic!\n\n");
-		flags[kFLAGS.SPELLS_CAST]++;
-		spellPerkUnlock();
-		enemyAI();
-		return;
-	}
-	if (monster is JeanClaude)
-	{
-		outputText("Jean-Claude howls, reeling backwards before turning back to you, rage clenching his dragon-like face and enflaming his eyes. Your spell seemed to cause him physical pain, but did nothing to blind his lidless sight.");
-
-		outputText("\n\n“<i>You think your hedge magic will work on me, intrus?</i>” he snarls. “<i>Here- let me show you how it’s really done.</i>” The light of anger in his eyes intensifies, burning a retina-frying white as it demands you stare into it...");
-		
-		if (rand(player.spe) >= 50 || rand(player.inte) >= 50)
-		{
-			outputText("\n\nThe light sears into your eyes, but with the discipline of conscious effort you escape the hypnotic pull before it can mesmerize you, before Jean-Claude can blind you.");
-
-			outputText("\n\n“<i>You fight dirty,</i>” the monster snaps. He sounds genuinely outraged. “<i>I was told the interloper was a dangerous warrior, not a little [boy] who accepts duels of honour and then throws sand into his opponent’s eyes. Look into my eyes, little [boy]. Fair is fair.</i>”");
-			
-			monster.HP -= int(10+(player.inte/3 + rand(player.inte/2)) * spellMod());
-		}
-		else
-		{
-			outputText("\n\nThe light sears into your eyes and mind as you stare into it. It’s so powerful, so infinite, so exquisitely painful that you wonder why you’d ever want to look at anything else, at anything at- with a mighty effort, you tear yourself away from it, gasping. All you can see is the afterimages, blaring white and yellow across your vision. You swipe around you blindly as you hear Jean-Claude bark with laughter, trying to keep the monster at arm’s length.");
-
-			outputText("\n\n“<i>The taste of your own medicine, it is not so nice, eh? I will show you much nicer things in there in time intrus, don’t worry. Once you have learnt your place.</i>”");
-			
-			player.createStatusAffect(StatusAffects.Blind, rand(4) + 1, 0, 0, 0);
-		}
-		if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
-			(monster as FrostGiant).giantBoulderHit(2);
+	fatigue(30,1);
+	var successrate:int = 60;
+	successrate -= (player.inte * 0,4)
+	if (successrate > 20) = 20
+	if (rand(100) > 20) {
+		(monster.findStatusAffect(StatusAffects.Shell) >= 0) {
+			outputText("As soon as your magic touches the multicolored shell around " + monster.a + monster.short + ", it sizzles and fades to nothing.  Whatever that thing is, it completely blocks your magic!\n\n");
+			flags[kFLAGS.SPELLS_CAST]++;
+			spellPerkUnlock();
 			enemyAI();
 			return;
 		}
-		flags[kFLAGS.SPELLS_CAST]++;
-		spellPerkUnlock();
-		if(monster.HP < 1) doNext(endHpVictory);
-		else enemyAI();
-		return;
-	}
-	outputText("You glare at " + monster.a + monster.short + " and point at " + monster.pronoun2 + ".  A bright flash erupts before " + monster.pronoun2 + "!\n", true);
-	if (monster is LivingStatue)
-	{
-		// noop
-	}
-	else if(rand(3) != 0) {
-		outputText(" <b>" + monster.capitalA + monster.short + " ", false);
-		if(monster.plural && monster.short != "imp horde") outputText("are blinded!</b>", false);
-		else outputText("is blinded!</b>", false);
-		monster.createStatusAffect(StatusAffects.Blind,5*spellMod(),0,0,0);
-		if(monster.short == "Isabella")
-			if (isabellaFollowerScene.isabellaAccent()) outputText("\n\n\"<i>Nein! I cannot see!</i>\" cries Isabella.", false);
-			else outputText("\n\n\"<i>No! I cannot see!</i>\" cries Isabella.", false);
-		if(monster.short == "Kiha") outputText("\n\n\"<i>You think blindness will slow me down?  Attacks like that are only effective on those who don't know how to see with their other senses!</i>\" Kiha cries defiantly.", false);
-		if(monster.short == "plain girl") {
-			outputText("  Remarkably, it seems as if your spell has had no effect on her, and you nearly get clipped by a roundhouse as you stand, confused. The girl flashes a radiant smile at you, and the battle continues.", false);
-			monster.removeStatusAffect(StatusAffects.Blind);
+		if (monster is JeanClaude)
+		{
+			outputText("Jean-Claude howls, reeling backwards before turning back to you, rage clenching his dragon-like face and enflaming his eyes. Your spell seemed to cause him physical pain, but did nothing to blind his lidless sight.");
+
+			outputText("\n\n“<i>You think your hedge magic will work on me, intrus?</i>” he snarls. “<i>Here- let me show you how it’s really done.</i>” The light of anger in his eyes intensifies, burning a retina-frying white as it demands you stare into it...");
+		
+		if (rand(player.spe) >= 50 || rand(player.inte) >= 50)
+			{
+				outputText("\n\nThe light sears into your eyes, but with the discipline of conscious effort you escape the hypnotic pull before it can mesmerize you, before Jean-Claude can blind you.");
+
+				outputText("\n\n“<i>You fight dirty,</i>” the monster snaps. He sounds genuinely outraged. “<i>I was told the interloper was a dangerous warrior, not a little [boy] who accepts duels of honour and then throws sand into his opponent’s eyes. Look into my eyes, little [boy]. Fair is fair.</i>”");
+			
+			monster.HP -= int(10+(player.inte/3 + rand(player.inte/2)) * spellMod());
+			}
+			else
+			{
+				outputText("\n\nThe light sears into your eyes and mind as you stare into it. It’s so powerful, so infinite, so exquisitely painful that you wonder why you’d ever want to look at anything else, at anything at- with a mighty effort, you tear yourself away from it, gasping. All you can see is the afterimages, blaring white and yellow across your vision. You swipe around you blindly as you hear Jean-Claude bark with laughter, trying to keep the monster at arm’s length.");
+
+				outputText("\n\n“<i>The taste of your own medicine, it is not so nice, eh? I will show you much nicer things in there in time intrus, don’t worry. Once you have learnt your place.</i>”");
+			
+			player.createStatusAffect(StatusAffects.Blind, rand(4) + 1, 0, 0, 0);
+			}
+			if (monster is FrostGiant && player.findStatusAffect(StatusAffects.GiantBoulder) >= 0) {
+				(monster as FrostGiant).giantBoulderHit(2);
+				enemyAI();
+				return;
+			}
+			flags[kFLAGS.SPELLS_CAST]++;
+			spellPerkUnlock();
+			if(monster.HP < 1) doNext(endHpVictory);
+			else enemyAI();
+			return;
+		outputText("You glare at " + monster.a + monster.short + " and point at " + monster.pronoun2 + ".  A bright flash erupts before " + monster.pronoun2 + "!\n", true);
+		if (monster is LivingStatue)
+		{
+			// noop
+		}
+		else if {
+			outputText(" <b>" + monster.capitalA + monster.short + " ", false);
+			if(monster.plural && monster.short != "imp horde") outputText("are blinded!</b>", false);
+			else outputText("is blinded!</b>", false);
+			monster.createStatusAffect(StatusAffects.Blind,2+player.inte/20,0,0,0);
+			if(monster.short == "Isabella")
+				if (isabellaFollowerScene.isabellaAccent()) outputText("\n\n\"<i>Nein! I cannot see!</i>\" cries Isabella.", false);
+				else outputText("\n\n\"<i>No! I cannot see!</i>\" cries Isabella.", false);
+			if(monster.short == "Kiha") outputText("\n\n\"<i>You think blindness will slow me down?  Attacks like that are only effective on those who don't know how to see with their other senses!</i>\" Kiha cries defiantly.", false);
+			if(monster.short == "plain girl") {
+				outputText("  Remarkably, it seems as if your spell has had no effect on her, and you nearly get clipped by a roundhouse as you stand, confused. The girl flashes a radiant smile at you, and the battle continues.", false);
+				monster.removeStatusAffect(StatusAffects.Blind);
+			}
 		}
 	}
 	else outputText(monster.capitalA + monster.short + " blinked!", false);	
@@ -4242,14 +4301,14 @@ private function calcInfernoMod(damage:Number):int {
 
 public function spellWhitefire():void {
 	clearOutput();
-	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(30) > player.maxFatigue()) {
+	if(player.findPerk(PerkLib.BloodMage) < 0 && player.fatigue + spellCost(40) > player.maxFatigue()) {
 		outputText("You are too tired to cast this spell.", true);
 		doNext(magicMenu);
 		return;
 	}
 	doNext(combatMenu);
 //This is now automatic - newRound arg defaults to true:	menuLoc = 0;
-	fatigue(30,1);
+	fatigue(40,1);
 	if(monster.findStatusAffect(StatusAffects.Shell) >= 0) {
 		outputText("As soon as your magic touches the multicolored shell around " + monster.a + monster.short + ", it sizzles and fades to nothing.  Whatever that thing is, it completely blocks your magic!\n\n");
 		flags[kFLAGS.SPELLS_CAST]++;
@@ -4270,7 +4329,19 @@ public function spellWhitefire():void {
 		return;
 	}
 	outputText("You narrow your eyes, focusing your mind with deadly intent.  You snap your fingers and " + monster.a + monster.short + " is enveloped in a flash of white flames!\n", true);
-	temp = int(10+(player.inte/3 + rand(player.inte/2)) * spellMod());
+	if (player.inte < 21) temp = int(player.inte/3 + rand(player.inte/2) * spellMod());
+	else if (player.inte >= 21 && player.inte < 41) temp = int(player.inte/2 + rand((player.inte*3)/4) * spellMod());
+	else if (player.inte >= 41 && player.inte < 61) temp = int((player.inte * 2)/3 + rand(player.inte) * spellMod());
+	else if (player.inte >= 61 && player.inte < 81) temp = int((player.inte * 5)/6 + rand(player.inte*1,25) * spellMod());
+	else (player.inte >= 81) temp = int(player.inte + rand(player.inte*1,5) * spellMod());
+	//Determine if critical hit!
+	var crit:Boolean = false;
+	var critChance:int = 5;
+	if (player.findPerk(PerkLib.Tactician) >= 0 && player.inte >= 50) critChance += (player.inte - 50) / 5;
+	if (rand(100) < critChance) {
+		crit = true;
+		damage *= 1.75;
+	}
 	//High damage to goes.
 	temp = calcInfernoMod(temp);
 	if (monster.short == "goo-girl") temp = Math.round(temp * 1.5);
@@ -4339,7 +4410,7 @@ public function spellCleansingPalm():void
 		corruptionMulti += ((monster.cor - 57.5) / 100); //The increase to multiplier is diminished.
 	}
 	
-	temp = int((player.inte / 4 + rand(player.inte / 3)) * (spellMod() * corruptionMulti));
+	temp = int(10+(player.inte/3 + rand(player.inte/2))) * (spellMod() * corruptionMulti));
 	
 	if (temp > 0)
 	{
@@ -4348,6 +4419,14 @@ public function spellCleansingPalm():void
 		else outputText((monster as Monster).mfn(" him", " her", " it"));
 		outputText(" back a few feet.\n\n");
 		if (silly() && corruptionMulti >= 1.75) outputText("It's super effective!  ");
+			//Determine if critical hit!
+				var crit:Boolean = false;
+				var critChance:int = 5;
+				if (player.findPerk(PerkLib.Tactician) >= 0 && player.inte >= 50) critChance += (player.inte - 50) / 5;
+				if (rand(100) < critChance) {
+					crit = true;
+					damage *= 1.75;
+				}
 		outputText(monster.capitalA + monster.short + " takes <b><font color=\"#800000\">" + temp + "</font></b> damage.\n\n");
 	}
 	else
@@ -4365,15 +4444,15 @@ public function spellCleansingPalm():void
 }
 
 public function spellPerkUnlock():void {
-	if(flags[kFLAGS.SPELLS_CAST] >= 5 && player.findPerk(PerkLib.SpellcastingAffinity) < 0) {
+	if(flags[kFLAGS.SPELLS_CAST] >= 20 && player.findPerk(PerkLib.SpellcastingAffinity) < 0) {
 		outputText("<b>You've become more comfortable with your spells, unlocking the Spellcasting Affinity perk and reducing fatigue cost of spells by 20%!</b>\n\n");
 		player.createPerk(PerkLib.SpellcastingAffinity,20,0,0,0);
 	}
-	if(flags[kFLAGS.SPELLS_CAST] >= 15 && player.perkv1(PerkLib.SpellcastingAffinity) < 35) {
+	if(flags[kFLAGS.SPELLS_CAST] >= 50 && player.perkv1(PerkLib.SpellcastingAffinity) < 35) {
 		outputText("<b>You've become more comfortable with your spells, further reducing your spell costs by an additional 15%!</b>\n\n");
 		player.setPerkValue(PerkLib.SpellcastingAffinity,1,35);
 	}
-	if(flags[kFLAGS.SPELLS_CAST] >= 45 && player.perkv1(PerkLib.SpellcastingAffinity) < 50) {
+	if(flags[kFLAGS.SPELLS_CAST] >= 125 && player.perkv1(PerkLib.SpellcastingAffinity) < 50) {
 		outputText("<b>You've become more comfortable with your spells, further reducing your spell costs by an additional 15%!</b>\n\n");
 		player.setPerkValue(PerkLib.SpellcastingAffinity,1,50);
 	}
