@@ -302,6 +302,7 @@ use namespace kGAMECLASS;
 				armorDef -= kGAMECLASS.monster.statusAffectv1(StatusAffects.TailWhip);
 				if(armorDef < 0) armorDef = 0;
 			}
+			armorDef += statusAffectv1(StatusAffects.ChargeArmor);
 			return armorDef;
 		}
 		public function get armorBaseDef():Number {
@@ -2551,6 +2552,9 @@ use namespace kGAMECLASS;
 			}
 			if(findStatusAffect(StatusAffects.ChargeWeapon) >= 0) {
 				removeStatusAffect(StatusAffects.ChargeWeapon);
+			}
+			if(findStatusAffect(StatusAffects.ChargeArmor) >= 0) {
+				removeStatusAffect(StatusAffects.ChargeArmor);
 			}
 			if(findStatusAffect(StatusAffects.Disarmed) >= 0) {
 				removeStatusAffect(StatusAffects.Disarmed);
