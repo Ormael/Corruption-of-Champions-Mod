@@ -728,7 +728,7 @@ public function buildPerkList():Array {
 	if(player.inte >= 20) {
 		_add(new PerkClass(PerkLib.JobSorcerer));
 	}
-	if(player.inte >= 25) {
+	if(player.findPerk(PerkLib.JobSorcerer) >= 0 && player.inte >= 25) {
 		_add(new PerkClass(PerkLib.ManaAffinity));
 	}
 	//Tier 1 Intelligence Perks
@@ -736,9 +736,8 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.Spellpower) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.Mage));
 		}
-		if(player.inte >= 50) {
+		if(player.inte >= 50)
 			_add(new PerkClass(PerkLib.Tactician));
-		}
 		if(spellCount() > 0 && player.findPerk(PerkLib.Spellpower) >= 0 && player.findPerk(PerkLib.Mage) >= 0 && player.inte >= 60) {
 			_add(new PerkClass(PerkLib.Channeling));
 		}
@@ -748,7 +747,7 @@ public function buildPerkList():Array {
 		if(player.findPerk(PerkLib.Channeling) >= 0 && player.inte >= 60) {
 				_add(new PerkClass(PerkLib.StaffChanneling));
 		}
-		if(player.inte >= 50) {
+		if(player.findPerk(PerkLib.ManaAffinity) >= 0 && player.inte >= 50) {
 			_add(new PerkClass(PerkLib.MindOverBody));
 		}
 	}
