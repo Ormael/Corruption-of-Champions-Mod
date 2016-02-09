@@ -231,17 +231,22 @@ public function combatMenu(newRound:Boolean = true):void { //If returning from a
 		addButton(0, "Reload", attacks, null, null, null, "Your " + player.weaponName + " is out of ammo.  You'll have to reload it before attack.");
 	else
 		addButton(0, "Shoot", attacks, null, null, null, "Fire a round at your opponent with your " + player.weaponName + "!  Damage done is determined by your strength, speed and weapon.");
-		
-	addButton(1, "Tease", teaseAttack, null, null, null, "Attempt to make an enemy more aroused by striking a seductive pose and exposing parts of your body.");
-	if (canUseMagic()) addButton(2, "Spells", magicMenu, null, null, null, "Opens your spells menu, where you can cast any spells you have learned.  Beware, casting spells increases your fatigue, and if you become exhausted you will be easier to defeat.");
-	addButton(3, "Items", inventory.inventoryMenu, null, null, null, "The inventory allows you to use an item.  Be careful as this leaves you open to a counterattack when in combat.");
-	addButton(4, "Run", runAway, null, null, null, "Choosing to run will let you try to escape from your enemy. However, it will be hard to escape enemies that are faster than you and if you fail, your enemy will get a free attack.");
+//	if(isWieldingRangedWeapon())
+//		addButton(1, "Reload");
+//	else
+//		addButton(1, "Shoot");
+// Chyba trzeba bedzie zrobic wersje dla strzelania z flintlock pistol i luku oddzielnie tzn. przyciski		
+	addButton(2, "Items", inventory.inventoryMenu, null, null, null, "The inventory allows you to use an item.  Be careful as this leaves you open to a counterattack when in combat.");
+	if (canUseMagic()) addButton(3, "Spells", magicMenu, null, null, null, "Opens your spells menu, where you can cast any spells you have learned.  Beware, casting spells increases your fatigue, and if you become exhausted you will be easier to defeat.");
+	addButton(4, "Tease", teaseAttack, null, null, null, "Attempt to make an enemy more aroused by striking a seductive pose and exposing parts of your body.");
 	addButton(5, "P. Specials", physicalSpecials, null, null, null, "Physical special attack menu.", "Physical Specials");
 	addButton(6, "M. Specials", magicalSpecials, null, null, null, "Mental and supernatural special attack menu.", "Magical Specials");
-	addButton(7, "Wait", wait, null, null, null, "Take no action for this round.  Why would you do this?  This is a terrible idea.");
-	if (monster.findStatusAffect(StatusAffects.Level) >= 0) addButton(7, "Climb", wait, null, null, null, "Climb the sand to move away from the sand trap.");
-	addButton(8, "Fantasize", fantasize, null, null, null, "Fantasize about your opponent in a sexual way.  Its probably a pretty bad idea to do this unless you want to end up getting raped.");
-	if (CoC_Settings.debugBuild && !debug) addButton(9, "Inspect", debugInspect, null, null, null, "Use your debug powers to inspect your enemy.");
+	//addButton(7, "Defend");
+	addButton(8, "Wait", wait, null, null, null, "Take no action for this round.  Why would you do this?  This is a terrible idea.");
+	if (monster.findStatusAffect(StatusAffects.Level) >= 0) addButton(8, "Climb", wait, null, null, null, "Climb the sand to move away from the sand trap.");
+	addButton(9, "Fantasize", fantasize, null, null, null, "Fantasize about your opponent in a sexual way.  Its probably a pretty bad idea to do this unless you want to end up getting raped.");
+	if (CoC_Settings.debugBuild && !debug) addButton(13, "Inspect", debugInspect, null, null, null, "Use your debug powers to inspect your enemy.");
+	addButton(14, "Run", runAway, null, null, null, "Choosing to run will let you try to escape from your enemy. However, it will be hard to escape enemies that are faster than you and if you fail, your enemy will get a free attack.");
 	//Modify menus.
 	if (monster.findStatusAffect(StatusAffects.AttackDisabled) >= 0) {
 		outputText("\n<b>Chained up as you are, you can't manage any real physical attacks!</b>");
@@ -593,7 +598,7 @@ private function struggle():void {
 
 private function fireBow():void {
 	clearOutput();
-	if (player.fatigue + physicalCost(25) > player.maxFatigue()) {
+	if (player.fatigue + bowCost(25) > player.maxFatigue()) {
 		outputText("You're too fatigued to fire the bow!");
 		menu();
 		addButton(0, "Next", combatMenu, false);
@@ -703,12 +708,29 @@ private function fireBow():void {
 		outputText("<b>(<font color=\"#800000\">" + String(damage) + "</font>)</b>");
 		outputText("\n\n");
 		checkAchievementDamage(damage);
+		flags[kFLAGS.ARROWS_SHOT]++;
+		bowPerkUnlock();
 		doNext(endHpVictory);
 		return;
 	}
 	else outputText(".  It's clearly very painful. <b>(<font color=\"#800000\">" + String(damage) + "</font>)</b>\n\n");
 	checkAchievementDamage(damage);
 	enemyAI();
+}
+
+public function bowPerkUnlock():void {
+	if(flags[kFLAGS.ARROWS_SHOT] >= 20 && player.findPerk(PerkLib.BowShooting) < 0) {
+		outputText("<b>You've become more comfortable with using bow, unlocking the Bow Shooting perk and reducing fatigue cost of shooting arrows by 20%!</b>\n\n");
+		player.createPerk(PerkLib.BowShooting,20,0,0,0);
+	}
+	if(flags[kFLAGS.ARROWS_SHOT] >= 50 && player.perkv1(PerkLib.BowShooting) < 40) {
+		outputText("<b>You've become more comfortable with using bow, further reducing cost of shooting arrows by an additional 20%!</b>\n\n");
+		player.setPerkValue(PerkLib.BowShooting,1,40);
+	}
+	if(flags[kFLAGS.ARROWS_SHOT] >= 125 && player.perkv1(PerkLib.BowShooting) < 60) {
+		outputText("<b>You've become more comfortable with using bow, further reducing cost of shooting arrows by an additional 20%!</b>\n\n");
+		player.setPerkValue(PerkLib.BowShooting,1,60);
+	}
 }
 
 private function fireBreathMenu():void {
