@@ -3577,7 +3577,13 @@
 				return;
 			}
 			//Smart enough for arouse and doesnt have it
-			if (player.inte >= 30 && player.findStatusAffect(StatusAffects.KnowsBlind) < 0) {
+			if (player.inte >= 30 && player.findStatusAffect(StatusAffects.KnowsChargeA) < 0) {
+				outputText("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Charge Armor.</b>", false);
+				player.createStatusAffect(StatusAffects.KnowsChargeA, 0, 0, 0, 0);
+				return;
+			}
+			//Smart enough for arouse and doesnt have it
+			if (player.inte >= 35 && player.findStatusAffect(StatusAffects.KnowsBlind) < 0) {
 				outputText("\n\nYou blink in surprise, assaulted by the knowledge of a <b>new spell: Blind.</b>", false);
 				player.createStatusAffect(StatusAffects.KnowsBlind, 0, 0, 0, 0);
 				return;
