@@ -2113,7 +2113,7 @@ use namespace kGAMECLASS;
 				}
 			}
 			//Breast Growth Finished...talk about changes.
-			trace("Growth ammout = ", amount);
+			trace("Growth amount = ", amount);
 			if(display) {
 				if(growthType < 3) {
 					if(amount <= 2)
