@@ -1021,12 +1021,17 @@ public function attack():void {
 		else damage = getBase.call(null, player.str) + player.spe * 0.2; // woudn't be better to use speed as base and int as extra?
 	}
 	else
-		damage = getBase.call(null, player.str);
+		if (player.str < 10) damage = 10;
+		else if (player.str < 21) damage = player.str;
+		else if (player.str >= 21 && player.str < 41) damage = (player.str * 1.25) - 5;
+		else if (player.str >= 41 && player.str < 61) damage = (player.str * 1.5) - 15;
+		else if (player.str >= 61 && player.str < 81) damage = (player.str * 1.75) - 30;
+		else (player.str >= 81) damage = (player.str * 2) - 50;
 		
 	if (player.findPerk(PerkLib.HoldWithBothHands) >= 0 && player.weapon != WeaponLib.FISTS && player.shield == ShieldLib.NOTHING && !isWieldingRangedWeapon()) damage += (player.str * 0.2);
 	//Weapon addition!
-	damage += player.weaponAttack;
-	if (damage < 10) damage = 10;
+	if (player.weaponAttack < 31) damage *= (1 + (player.weaponAttack * 0.02));
+	else damage *= (1,6 + ((player.weaponAttack - 30) * 0.01));
 	//Bonus sand trap damage!
 	if(monster.findStatusAffect(StatusAffects.Level) >= 0) damage = Math.round(damage * 1.75);
 	//Determine if critical hit!
