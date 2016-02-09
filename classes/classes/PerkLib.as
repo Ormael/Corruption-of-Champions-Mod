@@ -95,11 +95,11 @@ package classes
 				"You choose the 'Agility' perk, increasing the effectiveness of Light/Medium armors by a portion of your speed.");
 		public static const Archmage:PerkType = mk("Archmage", "Archmage",
 				"[if (player.inte>=75)" +
-						"Increases base spell strength by 50%." +
+						"Increases base spell strength by 30% and base mana pool by 45." +
 						"|" +
 						"<b>You are too dumb to gain benefit from this perk.</b>" +
 						"]",
-				"You choose the 'Archmage' perk, increasing base spell strength by 50%.");
+				"You choose the 'Archmage' perk, increasing base spell strength by 30% and base mana pool by 45.");
 		public static const ArousingAura:PerkType = mk("Arousing Aura", "Arousing Aura",
 				"Exude a lust-inducing aura (Req's corruption of 70 or more)",
 				"You choose the 'Arousing Aura' perk, causing you to radiate an aura of lust when your corruption is over 70.");
@@ -127,8 +127,8 @@ package classes
 						"]",
 				"You choose the 'Brutal Blows' perk, which reduces enemy armor with each hit.");
 		public static const Channeling:PerkType = mk("Channeling", "Channeling",
-				"Increases base spell strength by 50%.",
-				"You choose the 'Channeling' perk, boosting the strength of your spellcasting!");
+				"Increases base spell strength by 10% and base mana pool by 15.",
+				"You choose the 'Channeling' perk, boosting the strength of your spellcasting and expanding your mana pool!");
 		public static const ColdBlooded:PerkType = mk("Cold Blooded", "Cold Blooded",
 				"Reduces minimum lust by up to 20, down to min of 20. Caps min lust at 80.",
 				"You choose the 'Cold Blooded' perk.  Thanks to increased control over your desires, your minimum lust is reduced! (Caps minimum lust at 80. Won't reduce minimum lust below 20 though.)");
@@ -162,6 +162,20 @@ package classes
 		public static const FocusedMind:PerkType = mk("Focused Mind", "Focused Mind",
 				"Black Magic is less likely to backfire and White Magic thresold is increased.",
 				"You choose the 'Focused Mind' perk. Black Magic is less likely to backfire and White Magic thresold is increased.");
+		public static const GrandArchmage:PerkType = mk("Grand Archmage", "Grand Archmage",
+				"[if (player.inte>=100)" +
+						"Increases base spell strength by 40% and mana pool by 60." +
+						"|" +
+						"<b>You are too dumb to gain benefit from this perk.</b>" +
+						"]",
+				"You choose the 'Grand Archmage' perk, increasing base spell strength by 40% and mana pool by 60.");
+		public static const GreyArchmage:PerkType = mk("Grey Archmage", "Grey Archmage",
+				"[if (player.inte>=125)" +
+						"Increases base spell strength by 70% and mana pool by 105, treshold for Black Magic is 30 lust and for White 30 lust below current max." +
+						"|" +
+						"<b>You are too dumb to gain benefit from this perk.</b>" +
+						"]",
+				"You choose the 'Grey Archmage' perk. Your base spell and mana pool are greatly increased, treshold for White Magic rised and for Black lowered.");
 		public static const HoldWithBothHands:PerkType = mk("Hold With Both Hands", "Hold With Both Hands",
 				"Gain +20% strength modifier with melee weapons when not using a shield.",
 				"You choose the 'Hold With Both Hands' perk.  As long as you're wielding a melee weapon and you're not using a shield, you gain 20% strength modifier to damage.");
@@ -256,14 +270,20 @@ package classes
 						"]",
 				"You choose the 'Lunging Attacks' perk, granting 50% armor penetration for standard attacks.");
 		public static const Mage:PerkType = mk("Mage", "Mage",
-				"Increases base spell strength by 50%.",
-				"You choose the 'Mage' perk.  You are able to focus your magical abilities even more keenly, boosting your base spell effects by 50%.");
+				"Increases base spell strength by 20% and mana pool by 30.",
+				"You choose the 'Mage' perk.  You are able to focus your magical abilities even more keenly, boosting your base spell effects by 20% and mana pool by 30.");
+		public static const ManaAffinity:PerkType = mk("Mana Affinity", "Mana Affinity",
+				"Raises max fatigue by 35 and regain fatigue 10% faster.",
+				"You choose the 'Mana Affinity' perk, giving you an additional 35 fatigue and boosting your fatigue recovery rate.");
 		public static const Masochist:PerkType = mk("Masochist", "Masochist",
 				"Take 20% less physical damage but gain lust when you take damage.",
 				"You choose the 'Masochist' perk, reducing the damage you take but raising your lust each time!  This perk only functions while your libido is at or above 60!");
 		public static const Medicine:PerkType = mk("Medicine", "Medicine",
 				"Grants 15% chance per round of cleansing poisons/drugs from your body. Increases HP restoration on rest.",
 				"You choose the 'Medicine' perk, giving you a chance to remove debilitating poisons automatically! Also, increases HP restoration on rest.");
+		public static const MindOverBody:PerkType = mk("Mind over Body", "Mind over Body",
+				"+1 extra fatigue per point of intelligence.",
+				"You choose the 'Mind over Body' perk, granting an extra maximum fatigue for each point of intelligence.");
 		public static const Nymphomania:PerkType = mk("Nymphomania", "Nymphomania",
 				"Raises minimum lust by up to 30.",
 				"You've chosen the 'Nymphomania' perk.  Due to the incredible amount of corruption you've been exposed to, you've begun to live in a state of minor constant arousal.  Your minimum lust will be increased by as much as 30 (If you already have minimum lust, the increase is 10-15).");
@@ -321,8 +341,8 @@ package classes
 				"Regain fatigue 50% faster.",
 				"You choose the 'Speedy Recovery' perk, boosting your fatigue recovery rate!");
 		public static const Spellpower:PerkType = mk("Spellpower", "Spellpower",
-				"Increases base spell strength by 50%.",
-				"You choose the 'Spellpower' perk.  Thanks to your sizeable intellect and willpower, you are able to more effectively use magic, boosting base spell effects by 50%.");
+				"Increases base spell strength by 20% and mana pool by 30.",
+				"You choose the 'Spellpower' perk.  Thanks to your sizeable intellect and willpower, you are able to more effectively use magic, boosting base spell effects by 20% and mana pool by 30.");
 		public static const Spellsword:PerkType = mk("Spellsword", "Spellsword",
 				"Start every battle with Charge Weapon enabled, if you meet White Magic requirements before it starts.",
 				"You choose the 'Spellsword' perk. You start every battle with Charge Weapon effect, as long as your Lust is not preventing you from casting it before battle.");
