@@ -200,7 +200,7 @@ package classes.GlobalFlags
 		public static const GENERAL_ANTWORKS:int			= 171;
 		public static const GENERAL_MEGA_PERKY:int			= 172;
 		public static const GENERAL_HYPER_PERKY:int			= 173;
-		public static const UNKNOWN_ACHIEVEMENT_174:int			= 174;
+		public static const COMBAT_ARROW_TO_THE_KNEE:int		= 174; //First use of bow
 		public static const UNKNOWN_ACHIEVEMENT_175:int			= 175;
 		
 	}
