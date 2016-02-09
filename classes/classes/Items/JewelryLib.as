@@ -14,7 +14,7 @@ package classes.Items
 	 * 1: Minimum lust
 	 * 2: Fertility
 	 * 3: NOT USED
-	 * 4: NOT USED
+	 * 4: Fatigue
 	 * 5: HP
 	 * 6: Attack power
 	 * 7: Spell power
@@ -28,7 +28,7 @@ package classes.Items
 		public static const MODIFIER_MINIMUM_LUST:int = 1;
 		public static const MODIFIER_FERTILITY:int = 	2;
 		public static const UNKNOWN_03:int = 			3;
-		public static const UNKNOWN_04:int = 			4;
+		public static const MODIFIER_MP:int = 			4;
 		public static const MODIFIER_HP:int = 			5;
 		public static const MODIFIER_ATTACK_POWER:int = 6;
 		public static const MODIFIER_SPELL_POWER:int = 	7;
@@ -43,6 +43,7 @@ package classes.Items
 		public const CRIMRNG:Jewelry = new Jewelry("CrimRng", "Crimst.Ring", "crimstone ring", "an enchanted crimstone ring", MODIFIER_MINIMUM_LUST, 10, 1000, "This ring is topped with crimstone. It is said that this will help to keep your desires burning. \n\nType: Jewelry (Ring) \nBase value: 1,000 \nSpecial: Increases minimum lust by 10.","Ring");
 		public const FERTRNG:Jewelry = new Jewelry("FertRng", "FertiteRing", "fertite ring", "an enchanted fertite ring", MODIFIER_FERTILITY, 20, 1000, "This ring is topped with fertite. It is said that this will make you more virile and fertile. \n\nType: Jewelry (Ring) \nBase value: 1,000 \nSpecial: Increases cum production by 20 percent and ferility by 20.","Ring");
 		public const ICE_RNG:Jewelry = new Jewelry("Ice_Rng", "Icestn.Ring", "icestone ring", "an enchanted icestone ring", MODIFIER_MINIMUM_LUST, -10, 2000, "This ring is topped with icestone. It is said that this will counter ever-burning desires. \n\nType: Jewelry (Ring) \nBase value: 2,000 \nSpecial: Reduces minimum lust by 10.","Ring");
+		public const MANARNG:Jewelry = new Jewelry("ManaRng", "Mana Ring", "ring of mana", "an enchanted alexandrite ring of mana", MODIFIER_MP, 20, 1250, "This ring is topped with alexandrite gemstone. It is said that this will make you feel having a bit more mana. \n\nType: Jewelry (Ring) \nBase value: 1,250 \nSpecial: Increases maximum Fatigue by 20.","Ring");
 		public const LIFERNG:Jewelry = new Jewelry("LifeRng", "Life Ring", "ring of life", "an enchanted emerald ring of life force", MODIFIER_HP, 35, 1000, "This ring is topped with emerald gemstone. It is said that this will make you feel a bit healthier. \n\nType: Jewelry (Ring) \nBase value: 1,000 \nSpecial: Increases maximum HP by 35.","Ring");
 		public const MYSTRNG:Jewelry = new Jewelry("MystRng", "Mystic Ring", "ring of mysticality", "an enchanted sapphire ring of mysticality", MODIFIER_SPELL_POWER, 25, 1500, "This ring is topped with sapphire gemstone. It is said that this will make your spells more powerful. \n\nType: Jewelry (Ring) \nBase value: 1,500 \nSpecial: Increases spellpower by 25 percent.","Ring");
 		public const POWRRNG:Jewelry = new Jewelry("PowrRng", "Power Ring", "ring of power", "an enchanted ruby ring of power", MODIFIER_ATTACK_POWER, 10, 1500, "This ring is topped with ruby gemstone. It is said that this will make you feel a bit powerful. \n\nType: Jewelry (Ring) \nBase value: 1,500 \nSpecial: Increases damage by 10 percent.","Ring");
