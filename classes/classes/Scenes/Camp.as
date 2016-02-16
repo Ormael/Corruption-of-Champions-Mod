@@ -1314,7 +1314,7 @@ private function swimInStream():void {
 	if (rand(2) == 0 && camp.izmaFollower())
 	{
 		outputText("\n\nYour tiger-shark beta, Izma, joins you. You are frightened at first when you saw the fin protruding from the water and the fin approaches you! ", false);
-		outputText("As the fin appoaches you, the familiar figure comes up. \"<i>I was going to enjoy my daily swim, alpha,</i>\" she says.", false);
+		outputText("As the fin approaches you, the familiar figure comes up. \"<i>I was going to enjoy my daily swim, alpha,</i>\" she says.", false);
 		izmaJoinsStream = true;
 	}
 	//Helia!
