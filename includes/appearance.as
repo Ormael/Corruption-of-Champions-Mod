@@ -586,7 +586,7 @@
 		{
 			outputText("  Your " + buttDescript(), false);
 			if(player.buttRating < 4) 
-				outputText(" is barely noticable, showing off the muscles of your haunches.", false);
+				outputText(" is barely noticeable, showing off the muscles of your haunches.", false);
 			if(player.buttRating >= 4 && player.buttRating < 6) 
 				outputText(" matches your toned equine frame quite well.", false);
 			if(player.buttRating >= 6 && player.buttRating <10) 
