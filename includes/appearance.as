@@ -827,7 +827,7 @@
 		{
 			if(player.buttPregnancyIncubation < 125 && player.buttPregnancyIncubation >= 75) 
 			{
-				outputText("<b>You've got the begginings of a small pot-belly.</b>", false);
+				outputText("<b>You've got the beginnings of a small pot-belly.</b>", false);
 			}
 			else if(player.buttPregnancyIncubation >= 50) 
 			{
