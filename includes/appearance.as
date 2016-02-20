@@ -855,7 +855,7 @@
 			}
 			if(player.pregnancyIncubation <= 360 && player.pregnancyIncubation > 288) 
 			{
-				outputText("<b>Your belly is more noticably distended.   You're pretty sure it's Urta's.</b>", false);
+				outputText("<b>Your belly is more noticeably distended.   You're pretty sure it's Urta's.</b>", false);
 			}
 			if(player.pregnancyIncubation <= 288 && player.pregnancyIncubation > 216) 
 			{
