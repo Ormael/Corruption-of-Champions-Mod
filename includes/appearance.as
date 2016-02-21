@@ -900,7 +900,7 @@
 			}
 			if(player.pregnancyIncubation <= 280 && player.pregnancyIncubation > 216) 
 			{
-				outputText("<b>Your belly is more noticably distended.   You are probably pregnant.</b>", false);
+				outputText("<b>Your belly is more noticeably distended.   You are probably pregnant.</b>", false);
 			}
 			if(player.pregnancyIncubation <= 216 && player.pregnancyIncubation > 180) 
 			{
