@@ -962,7 +962,7 @@
 			if(temp == 3) 
 				outputText("\n--Your fourth set of tits cradles ", false);
 			if(temp == 4) 
-				outputText("\n--Your fifth and final mammory grouping swells with ", false);
+				outputText("\n--Your fifth and final mammary grouping swells with ", false);
 			outputText(num2Text(player.breastRows[temp].breasts) + " " + breastDescript(temp) + " with ", false);
 			outputText(num2Text(player.breastRows[temp].nipplesPerBreast) + " "); //Number of nipples per breast
 			if (flags[kFLAGS.USE_METRICS] > 0 ) outputText(int(player.nippleLength * 2.54 * 10) / 10 + "-cm "); //Centimeter
