@@ -226,7 +226,7 @@ public function combatMenu(newRound:Boolean = true):void { //If returning from a
 	if(!isWieldingRangedWeapon())
 		addButton(0, "Attack", attacks, null, null, null, "Attempt to attack the enemy with your " + player.weaponName + ".  Damage done is determined by your strength and weapon.");
 	else if (player.weaponName.indexOf("staff") != -1)
-		addButton(0, "M.Bolt", attacks, null, null, null, "Attempt to attack the enemy with magic bolt from your " + player.weaponName + ".  Damage done is determined by your intellegence, speed and weapon.", "Magic Bolt");
+		addButton(0, "M.Bolt", attacks, null, null, null, "Attempt to attack the enemy with magic bolt from your " + player.weaponName + ".  Damage done is determined by your intelligence, speed and weapon.", "Magic Bolt");
 	else if (flags[kFLAGS.FLINTLOCK_PISTOL_AMMO] <= 0 && player.weaponName == "flintlock pistol")
 		addButton(0, "Reload", attacks, null, null, null, "Your " + player.weaponName + " is out of ammo.  You'll have to reload it before attack.");
 	else
