@@ -113,7 +113,7 @@ public function updatePregnancy():Boolean {
 				displayedUpdate = true;
 			}
 			if(player.pregnancyIncubation == 280) {
-				outputText("\n<b>Your belly is getting more noticably distended.   You are probably pregnant.</b>\n", false);
+				outputText("\n<b>Your belly is getting more noticeably distended.   You are probably pregnant.</b>\n", false);
 				displayedUpdate = true;	
 			}
 			if(player.pregnancyIncubation == 216) {
