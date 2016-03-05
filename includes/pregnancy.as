@@ -643,7 +643,7 @@ public function updatePregnancy():Boolean {
 				displayedUpdate = true;
 			}
 			if(player.pregnancyIncubation == 250) {
-				outputText("\n<b>Your belly is getting more noticably distended and squirming around.  You are probably pregnant.</b>\n", false);
+				outputText("\n<b>Your belly is getting more noticeably distended and squirming around.  You are probably pregnant.</b>\n", false);
 				displayedUpdate = true;	
 			}
 			if(player.pregnancyIncubation == 216) {
