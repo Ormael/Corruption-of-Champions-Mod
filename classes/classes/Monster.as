@@ -199,7 +199,7 @@
 		/**
 		 * @return HP/eMaxHP()
 		 */
-		public function HPRatio():Number{
+		public function HPRatio():Number {
 			return HP/eMaxHP();
 		}
 
