@@ -177,7 +177,7 @@ package classes.Scenes.Areas.Bog
 			clearOutput();
 			spriteSelect(89);
 			//-Win by lust
-			if (monster.lust > 99) {
+			if (monster.lust >= monster.eMaxLust()) {
 				outputText("Unable to control her arousal, the chameleon girl collapses to her knees and begins masturbating underneath her thong, having lost all capacity to fight you; she moans and throws her head back as her hand splashes in and out of the water she's kneeling in.  Her skin returns to its usual " + monster.skinTone + " and then keeps going, shifting closer and closer to pink as her moans increase in both volume and volubility.");
 				if (player.lust >= 33) outputText("  Do you help the horny girl to get you both off?  Or maybe you could punish her bad attitude with something from your bag...");
 			}
