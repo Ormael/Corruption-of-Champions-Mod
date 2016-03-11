@@ -238,7 +238,7 @@ package classes.Scenes.Areas.Bog
 			spriteSelect(89);
 			var x:int = player.biggestCockIndex();
 			outputText("You approach the fallen girl, and she looks up at you, a pleading expression in her eyes.  You might feel worse for her if she hadn't tried to assault you in a bog.  Reaching down behind her, you find the knot of the cloth covering her breasts, and with a quick pull you yank it off and toss it aside, then drop your [armorName], revealing your erect prick.  Her eyes widen when she sees it and her mouth parts slightly, letting a bit of her tongue slip out to lick her lips.  Quietly disdainful of the slutty girl's open arousal, you decide that if she wants to taste it so badly, she may.  But when you put your hand on the back of her head to push her onto your stiff cock, she manages to work up the strength to grab your arm with a free hand and resist its impulse.  Looking her over, you can see that her sudden burst of energy is due to ");
-			if (monster.lust > 99) outputText("her masturbating even more furiously than before at the thought of having your cock.");
+			if (monster.lust >= monster.eMaxLust()) outputText("her masturbating even more furiously than before at the thought of having your cock.");
 			//[if lost by HP:
 			else outputText("her starting to work the fingers of her free hand in and out of her own sex.");
 
