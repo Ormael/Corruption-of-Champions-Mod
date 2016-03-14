@@ -267,7 +267,7 @@ package classes.Scenes.Areas.Bog
 			outputText("You shed your " + player.armorName + " and approach the fallen chameleon girl");
 			if (monster.lust >= monster.eMaxLust()) outputText(", her moans of pleasure growing more desperate as you approach");
 			outputText(".  You look her up and down, following the smooth curves of her thin body with your eyes.  Squatting down beside her, you take her weak body by the shoulders in one arm and trail your fingertips lightly up her torso with the other, feeling the soft skin of her belly.");
-			if (monster.lust > 99) outputText("  She coos lustily at the sensation.");
+			if (monster.lust >= monster.eMaxLust()) outputText("  She coos lustily at the sensation.");
 			else outputText("  Her eyes widen, and she looks from your hand to your face and back again.");
 			outputText("  When your hand reaches the silk cloth covering her chest, you pull it off with a light tug and cast it off to the side.  You cup her small breast in your palm, and as you squeeze it her skin tone changes perceptibly, flashing to a much brighter shade of the colors it was.");
 
