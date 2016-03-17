@@ -914,7 +914,7 @@ public function naggaTease():void {
 		outputText("\n\n", false);
 		//OLD
 		//monster.lust += 5 + rand(15);
-		if(monster.lust > 99) {
+		if(monster.lust >= monster.eMaxLust()) {
 			doNext(kGAMECLASS.endLustVictory);
 			return;
 		}
