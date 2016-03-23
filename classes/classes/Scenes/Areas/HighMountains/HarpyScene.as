@@ -652,7 +652,7 @@ package classes.Scenes.Areas.HighMountains
 		{
 			clearOutput();
 			outputText("Eyeing the hapless bird-woman up and down, you feel your lusts kindling.  Moisture seeps from your [vagina] as you watch the harpy ");
-			if (monster.lust > 99) outputText("moan and masturbate, dipping her fingers into her honey-pot with wild abandon.");
+			if (monster.lust >= monster.eMaxLust()) outputText("moan and masturbate, dipping her fingers into her honey-pot with wild abandon.");
 			else outputText("moan and struggle to rise, jiggling in the cutest way each time she slumps down, defeated.");
 			outputText("  You wrench her thick thighs apart to get a better view of her avian snatch.  Her lips are shrouded in a downy, feathery fuzz, but you can easily make out the heavy, lust-glossed labia.  The thought of tasting her dripping honey makes your mouth water and inside your [armor], your [clit] has emerged from its hood, straining as blood rushes to your loins.   The sensitive organ is so swollen that it's more lady-cock than joy-buzzer, the thick hood resembling an animal's sheath more than a natural flesh fold.");
 			outputText("\n\nThe harpy stops her struggles when she sees you smiling at her.  \"<i>Are you gonna make me lick your pussy or somethin',</i>\" she quips, folding her arms across her modest, barely B-cup breasts.  Her eyebrows knit together while she glowers in your direction, one leg still pulled into the air by your rushing passions.");
