@@ -91,7 +91,7 @@ public function minoVictoryRapeChoices():void {
 	}
 	//No rape, no feeder
 	else {
-		if(monster.lust > 99) outputText("You smile in satisfaction as the " + monster.short + " drops down on all fours and begins masturbating feverishly.", true);
+		if(monster.lust >= monster.eMaxLust()) outputText("You smile in satisfaction as the " + monster.short + " drops down on all fours and begins masturbating feverishly.", true);
 		else outputText("You smile in satisfaction as the " + monster.short + " collapses, unable to continue fighting.", true);
 		cleanupAfterCombat();
 		return;
