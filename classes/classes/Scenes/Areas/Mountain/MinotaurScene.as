@@ -950,7 +950,7 @@ private function minotaurBlowjob():void {
 	outputText(", you guide its mouth closer to your member as if on autopilot.  \"<i>Let's see just how good you are at milking,</i>\" you blurt; the minotaur moos in defiance but is soon silenced when the head of your " + Appearance.cockNoun(player.cocks[x].cockType) + " presses into its bovine mouth.\n\n", false);
 
 	outputText("You grimace at the awkward feeling of the beast's snout against you, but soon regain confidence in your choice as the monster begins to take your prick into his mouth.  His eyes grow wide as his lips wrap around you, with ", false);
-	if(monster.lust > 99) outputText("his own burning lusts", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("his own burning lusts", false);
 	else if(player.findPerk(PerkLib.ArousingAura) >= 0) outputText("the power of your corruption", false);
 	else outputText("the salty taste of your pre-cum", false);
 	outputText(" leaving him hungry for more.\n\n", false);
