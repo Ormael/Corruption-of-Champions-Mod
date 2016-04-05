@@ -1024,7 +1024,7 @@ private function layEggsInAMinotaurSpiderLike():void {
 private function layBeeEggsInCowbutt():void {
 	clearOutput();
 	outputText("Looking down at the defeated minotaur");
-	if(monster.lust > 99) outputText(", stroking his flared cock desperately"); 
+	if(monster.lust >= monster.eMaxLust()) outputText(", stroking his flared cock desperately"); 
 	outputText(" you feel a throbbing sensation in your apiary appendage.  A leering grin spreads across your face as you force the minotaur onto his stomach, trapping his musky manhood beneath him.");
 	if(!player.isTaur()) outputText("  Wrapping his tail around one hand, you lift his furred flanks up");
 	else outputText("  Straddling him with all four legs, you slide forward");
