@@ -154,7 +154,7 @@ package classes.Scenes.Areas.Swamp
 			//situation when she kisses you with potent, envenomed lips.  Get 
 			//moderately hypno'ed into cumming into her over and over again?
 			outputText("Eager to plumb the depths of this greedy spider's snatch, you practically tear your way out of your " + player.armorName + " in your hurry to get naked.  Through it all ", false);
-			if (monster.lust > 99) {
+			if (monster.lust >= monster.eMaxLust()) {
 				outputText("she looks ", false);
 				if (player.tallness > 72) outputText("up ", false);
 				outputText("at you with her " + monster.skinTone + " eyes opened wide and her tongue hanging from her mouth, panting lewdly.  Carapace-clad digits sink into her dripping honey-pot over and over while she watches, deep in her own lusty haze.  She retracts her engorged demon-cock so as to have better access to that feminine hole.", false);
