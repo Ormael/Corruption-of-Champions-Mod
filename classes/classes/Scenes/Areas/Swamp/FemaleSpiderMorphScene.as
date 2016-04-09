@@ -476,7 +476,7 @@ package classes.Scenes.Areas.Swamp
 			clearOutput();
 			spriteSelect(73);
 			outputText("The spider-girl drops to her knees and wobbles unsteadily", false);
-			if (monster.lust > 99) outputText(", thrusting two of her carapace-covered finger-tips deep into her sloppy box as she gives into her lust.  She actually has the temerity to demand, \"<i>Fuck me, fuck me now!</i>\"", false);
+			if (monster.lust >= monster.eMaxLust()) outputText(", thrusting two of her carapace-covered finger-tips deep into her sloppy box as she gives into her lust.  She actually has the temerity to demand, \"<i>Fuck me, fuck me now!</i>\"", false);
 			else outputText(", too wounded to fight back or run away.", false);
 			if (player.lust >= 33 && player.gender > 0 && flags[kFLAGS.SFW_MODE] <= 0) {
 				outputText("\n\nWhat do you do to her?", false);
