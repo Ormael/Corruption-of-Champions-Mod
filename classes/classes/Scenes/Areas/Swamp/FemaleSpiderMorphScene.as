@@ -506,7 +506,7 @@ package classes.Scenes.Areas.Swamp
 			outputText(".  You slap her hands away and pry her legs open, getting a nice, close look at her vagina.\n\n", false);
 
 			outputText("Her pussy is dark, like her nipples, though the lips of her sex are closer to a pure midnight-black than the dusky skin of those tiny nubs.  A sheen of feminine lube has built up over her vulva, making her outer labia and skin glisten noticeably in the muted sunlight that filters down to the swamp floor.  Around her vagina, the skin rapidly fades from dark chocolate back to the porcelain white of the rest of her body.  You prod and play with the moist slit, feeling the soft skin part around your fingers like a soft velvet glove.  She grows wetter in response, giving up plaintive little moans at your incursion", false);
-			if (monster.lust > 99) outputText(" until she's panting and her tiny clit has emerged, hard as a rock", false);
+			if (monster.lust >= monster.eMaxLust()) outputText(" until she's panting and her tiny clit has emerged, hard as a rock", false);
 			outputText(".\n\n", false);
 
 			outputText("The spider-kin's honeyed onyx-hued pussy is irresistible, and you remove your " + player.armorName + " to prepare for the coming sex.  While you're distracted, the defeated arachnid-morph begins to masturbate while watching you with wide, eager eyes.  You grab a nearby vine and yank the slut's hands away from her pussy.  She protests, but you smirk and inform her she won't get her mitts back until she gets you off.  The spider-girl nods mutely, though confusion crosses her face once you start circling her, coming up next to her chest.\n\n", false);
