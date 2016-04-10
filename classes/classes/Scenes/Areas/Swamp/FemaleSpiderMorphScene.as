@@ -632,7 +632,7 @@ package classes.Scenes.Areas.Swamp
 			clearOutput();
 			spriteSelect(73);
 			outputText("You peel off your " + player.armorName + " while you gaze disdainfully down at your prize.  ", false);
-			if (monster.lust > 99) outputText("She's moaning plaintively and happily fingering herself, practically offering her juicy box to you.", false);
+			if (monster.lust >= monster.eMaxLust()) outputText("She's moaning plaintively and happily fingering herself, practically offering her juicy box to you.", false);
 			else outputText("She's groaning painfully and struggling to move before falling back down, legs akimbo, inadvertantly displaying her pussy to you.", false);
 			outputText("  Sighing, you grab her narrow frame, admiring the lightness of her body as you heft her up and position her onto her hands and knees.  ", false);
 			if (monster.lust > 99) outputText("She mewls with disappointment.  ", false);
