@@ -635,7 +635,7 @@ package classes.Scenes.Areas.Swamp
 			if (monster.lust >= monster.eMaxLust()) outputText("She's moaning plaintively and happily fingering herself, practically offering her juicy box to you.", false);
 			else outputText("She's groaning painfully and struggling to move before falling back down, legs akimbo, inadvertantly displaying her pussy to you.", false);
 			outputText("  Sighing, you grab her narrow frame, admiring the lightness of her body as you heft her up and position her onto her hands and knees.  ", false);
-			if (monster.lust > 99) outputText("She mewls with disappointment.  ", false);
+			if (monster.lust >= monster.eMaxLust()) outputText("She mewls with disappointment.  ", false);
 			outputText("This is a much better position for her; ass-up, with her pussy and pucker fully exposed.\n\n", false);
 
 			outputText("The spider-morph looks back fearfully, but she flexes her back to raise up her abdomen and allow you easier access to her holes like the obedient slut she truly is.  You wrap your arms around the heavy, exoskeletal organ and step forward, leveraging your " + cockDescript(x) + " to slide it into her welcoming pussy.  The arachnid cunt sucks you in with a wet slurp, welcoming your cock to the oozing sheath with uncommon eagerness until the plush black pussy lips are compressing against your loins.  You have trouble not giving into the hot, moist pressure of the silken canal and rutting her like a beast then and there, but a tighter, better hole beckons for your now-lubricated fuck-stick's attention.\n\n", false);
