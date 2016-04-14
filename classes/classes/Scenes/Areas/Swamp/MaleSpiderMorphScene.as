@@ -170,7 +170,7 @@ package classes.Scenes.Areas.Swamp
 			clearOutput();
 			spriteSelect(74);
 			outputText("You push the ", false);
-			if (monster.lust > 99) outputText("masturbating", false);
+			if (monster.lust >= monster.eMaxLust()) outputText("masturbating", false);
 			else outputText("injured", false);
 			outputText(" spider-morph over onto his back and laugh at his relatively tiny dick.  It's no wonder he jumped you wanting sex - the girls probably took one look at the unimpressive member and took off running.  You take off your " + player.armorName + " and let " + sMultiCockDesc() + " flop free.  ", false);
 			if (player.cockTotal() == 1) outputText("Dropping it squarely ", false);
