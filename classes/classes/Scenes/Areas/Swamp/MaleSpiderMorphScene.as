@@ -111,7 +111,7 @@ package classes.Scenes.Areas.Swamp
 			spriteSelect(74);
 			//*Summary:  Reaming some anus.
 			outputText("You approach and turn the spider-boy around, pushing the spider's bulbous abdomen aside to give yourself a better view of the his tight, heart-shaped ass.  ", false);
-			if (monster.lust > 99) outputText("He's too distracted by his foreskin fondling to pay much attention to your anal-focused attentions.", false);
+			if (monster.lust >= monster.eMaxLust()) outputText("He's too distracted by his foreskin fondling to pay much attention to your anal-focused attentions.", false);
 			else outputText("He's too busy trying to stay upright to fight off your anal-focused attentions.", false);
 			outputText("  With a wide smile on your face, you grab a handful of his pale butt-cheek and squeeze your fingers into the soft flesh.  It spreads his dainty derriere just wide enough for you to see the puckered star of his rectum.  " + SMultiCockDesc() + " ", false);
 			if (player.lust < 70) outputText("hardens to full size", false);
