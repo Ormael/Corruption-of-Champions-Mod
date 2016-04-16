@@ -176,7 +176,7 @@ package classes.Scenes.Areas.Swamp
 			if (player.cockTotal() == 1) outputText("Dropping it squarely ", false);
 			else outputText("Dropping the largest ", false);
 			outputText("atop his miniature cock, you virtually bury it in a superior male's heavy penile flesh.  ", false);
-			if (monster.lust > 99) outputText("He pants in surprise and pleasure, clearly enjoying the weighty shaft rubbing against his drooping dick-skin", false);
+			if (monster.lust >= monster.eMaxLust()) outputText("He pants in surprise and pleasure, clearly enjoying the weighty shaft rubbing against his drooping dick-skin", false);
 			else outputText("He gasps in surprise and slowly growing pleasure, clearly enjoying the weighty shaft rubbing against his drooping dick-skin", false);
 			outputText(".  You sway your " + hipDescript() + " to drag your " + cockDescript(0) + " all over his body, and the defeated boy's pale white skin slowly colors pink with a full-body blush.\n\n", false);
 
