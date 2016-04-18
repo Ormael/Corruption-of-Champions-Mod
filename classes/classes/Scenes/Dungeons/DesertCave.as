@@ -468,7 +468,7 @@ package classes.Scenes.Dungeons
 			if(player.tallness < 60) outputText("through her buttcheeks");
 			else outputText("along her arched spine");
 			outputText(", fully engorged and ready for action.  For now, you're content to continue to molest your chosen fuck-toy, dipping a pair of fingers into her ");
-			if(monster.lust > 99) outputText("well-soaked");
+			if(monster.lust >= monster.eMaxLust()) outputText("well-soaked");
 			else outputText("rapidly-moistening");
 			outputText(" cunts in order to make sure she's prepared.  The witch bites her lip to stifle a lewd moan, so you drag the pads of your fingers across each of her clits simultaneously.  This shatters whatever restraint she was showing into a little more than slick cunt-juice.  Even now, it's dripping down her inner thighs.  She's properly moaning with your strokes now, and you judge she's ready.");
 			
