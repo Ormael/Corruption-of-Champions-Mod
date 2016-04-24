@@ -333,7 +333,7 @@ package classes.Scenes.NPCs
 
 			outputText("The anemone looks vacantly up at you as you approach.  Reaching forward, you take her cock in your hand", false);
 			//[(lust victory)
-			if (monster.lust > 99) outputText(" after brushing hers aside", false);
+			if (monster.lust >= monster.eMaxLust()) outputText(" after brushing hers aside", false);
 			outputText(" and begin to fondle the crown, with its slippery tentacles.  As expected, her venom flows into your hand, imparting a sensation of heat that slides up your arm and diffuses into a gentle warmth.  After a few rubs, you lean down and carefully take her penis into your mouth.  It tastes of the lakewater and heats your mouth as it did your hand; ", false);
 			//[(HP victory)
 			if (monster.HP < 1) outputText("you can feel it harden as ", false);
