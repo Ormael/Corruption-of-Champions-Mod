@@ -687,7 +687,7 @@ package classes.Scenes.NPCs
 			//victory sex choice for males with cock fit 48 or females with clit >7": "her anus"
 			//(change "If you do, which of your parts" to "If you do, which part" in pre-sex choice menu)
 			outputText("Imagining your climax already, you look over the anemone.  Your gaze lingers on her breasts; she sticks them out enticingly, trying to catch your interest");
-			if (monster.lust > 99) outputText(" as she plays with herself");
+			if (monster.lust >= monster.eMaxLust()) outputText(" as she plays with herself");
 			outputText(".  Nice, but not what you're looking for...  ");
 			if (!player.isTaur()) {
 				outputText("Opening your [armor] a bit, you stroke ");
