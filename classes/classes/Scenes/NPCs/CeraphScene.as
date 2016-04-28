@@ -97,7 +97,7 @@ package classes.Scenes.NPCs
 			if (player.cockArea(0) <= monster.vaginalCapacity()) {
 				//[Male] Fuck 'Dat Pussah
 				//[lust]
-				if (monster.lust > 99) {
+				if (monster.lust >= monster.eMaxLust()) {
 					outputText("Ignoring her squeals of pleasure, you force Ceraph onto her back, oogling her perky breasts, indecent cock, and soaked cunt.  She looks up at you hungrily, and you have the feeling that on some level you're still giving her what she wants.  Mindful of her demonic wiles, you pull her hands together and use a few tattered strips of cloth to bind them over her head.  Moaning with helpless desire, the demon grinds her crotch against your " + player.leg() + ", spreading her thighs apart into a near split and giving you a world-class view of her juicy purple cunt.\n\n", false);
 				}
 				//[hp]
