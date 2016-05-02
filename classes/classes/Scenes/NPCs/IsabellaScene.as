@@ -1144,7 +1144,7 @@ public function PCVictoryOnIsabellaButtsex():void {
 	var y:Number = player.cockThatFits2(monster.analCapacity());
 	clearOutput();
 	outputText("Milk, huh?  No, that won't do.  You tell the ", false);
-	if(monster.lust > 99) outputText("horny ", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("horny ", false);
 	outputText("cow-slut to roll over and get on all fours.  ", false);
 	if(monster.HP < 1) outputText("She struggles to comply, heaving her hefty body until she's wobbling on all fours, nearly falling into the dirt.", false);
 	else outputText("She struggles to comply, pulling her hands away from her erogenous zones as she wobbles onto shaky hands and knees.", false);
