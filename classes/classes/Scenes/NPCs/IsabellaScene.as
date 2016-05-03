@@ -1353,7 +1353,7 @@ public function tooBigVictoryTittyFuckingFuntimesWithMilk():void {
 	var x:Number = player.biggestCockIndex();
 	clearOutput();
 	outputText("You toss aside your " + player.armorName + " to reveal your " + cockDescript(x) + " to the ", false);
-	if(monster.lust > 99) outputText("lusty", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("lusty", false);
 	else outputText("weakened", false);
 	outputText(" cow-girl.  Her eyes go wide as she beholds the full, revealed length, watching it ", false);
 	if(player.lust > 70) outputText("pulsate with your raging lust", false);
