@@ -1369,7 +1369,7 @@ public function tooBigVictoryTittyFuckingFuntimesWithMilk():void {
 	if(player.cor < 33) outputText("I'm sorry, but you're too hot to resist, and it's better I do this than try to force it in a hole that could never accept it,", false);
 	else if(player.cor < 66) {
 		outputText("This isn't up for discussion.  ", false);
-		if(monster.lust > 99) outputText("You're so drippy that you want this anyway,", false);
+		if(monster.lust >= monster.eMaxLust()) outputText("You're so drippy that you want this anyway,", false);
 		else outputText("You lost and you've got to deal with the consequences,", false);
 	}
 	else outputText("Tough shit,", false);
