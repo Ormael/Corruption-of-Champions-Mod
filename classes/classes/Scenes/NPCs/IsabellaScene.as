@@ -1432,7 +1432,7 @@ public function vaginalProdNPokeIsabella():void {
 	if(x < 0) x = 0;
 	clearOutput();
 	outputText("You smirk down at Isabella as you tell her that milk is the least of your concerns.  The ", false);
-	if(monster.lust > 99) outputText("lusty", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("lusty", false);
 	else outputText("defeated", false);
 	outputText(" cow-girl pales and asks, ");
 	if (isabellaAccent()) outputText("\"<i>But vhy not?  Mein milk is so gooood.</i>\"");
