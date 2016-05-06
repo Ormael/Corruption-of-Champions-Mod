@@ -1512,7 +1512,7 @@ public function tinyVictoryTittyFuckingFuntimesWithMilk():void {
 	var x:Number = player.smallestCockIndex();
 	clearOutput();
 	outputText("You toss aside your " + player.armorName + " to reveal your " + cockDescript(x) + " to the ", false);
-	if(monster.lust > 99) outputText("lusty", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("lusty", false);
 	else outputText("weakened", false);
 	outputText(" cow-girl.  She squeals in delight at the sight of your " + multiCockDescriptLight(), false);
 	if(player.cockTotal() > 1) outputText(", singling the smallest one out for some reason", false);
