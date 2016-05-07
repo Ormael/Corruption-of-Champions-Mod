@@ -1524,7 +1524,7 @@ public function tinyVictoryTittyFuckingFuntimesWithMilk():void {
 	else if(player.cor < 66) outputText("bringing a tiny blush to your cheeks", false);
 	else outputText("but you aren't really bothered by it in the slightest", false);
 	outputText(".  You clear your throat and try to regain control of the situation by demanding that she service you with her breasts.  Isabella happily accedes, even going so far as to clap excitedly as she sheds her top.  She seems to genuinely relish the idea, to a degree that makes her forget ", false);
-	if(monster.lust > 99) outputText("her own needs.", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("her own needs.", false);
 	else outputText("her wounds.", false);
 	outputText("\n\n", false);
 	
