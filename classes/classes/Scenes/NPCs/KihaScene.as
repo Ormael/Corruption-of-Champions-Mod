@@ -229,7 +229,7 @@ internal function kihaVictoryIntroduction():void {
 	outputText("Kiha sways back and forth for a moment, then drops her axe with numb hands.  As soon as she does, the hot glow of the weapon's cutting edge fades to silver, and the weapon lands with a heavy 'thunk' ", false);
 	if(silly()) outputText("(like Urta's cock!) ", false);
 	outputText("in the dirt.  The dragoness drops to her knees and slumps back against a tree, her limbs trembling ", false);
-	if(monster.lust > 99) outputText("with lust", false);
+	if(monster.lust >= monster.eMaxLust()) outputText("with lust", false);
 	else outputText("weakly", false);
 	outputText(" as she tries to rise.\n\n", false);
 	
